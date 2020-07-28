@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="origin" />
+        <title>BlueJeans Embed SDK test page</title>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mobx/5.15.4/mobx.umd.js"></script>
+        <script src="../dist/BJNEmbedSDK.js"></script>
+        <script src="./test.js"></script>
+        <body>
+            <div class="app_content">
+                <div id="meeting_join_view">
+                    <div id="welcome">Welcome!</div>
+                    <div id="welcome_message">Join a BlueJeans meeting</div>
+                    <input id="meeting_id" value="123232223" placeholder="Enter Meeting ID"/>
+                    <br/>
+                    <input id="passcode" value="" placeholder="Enter Meeting Passcode"/>
+                    <br/>
+                    <button id="join_button">Join Meeting</button>
+                    <div id="ui_customisations_options">
+                        <span style="color: brown; font-size: 18px;"><u>UI customizing options</u></span>
+                        </br>
+                        <input id="full_screen_toggle" type="checkbox">Disable Full Screen Toggle</input></br>
+                        <input id="footer_toggle" type="checkbox">Hide Meeting Footer</input></br>
+                        <input id="chat_toggle" type="checkbox">Hide Chat Panel</input></br>
+                        <input id="apps_toggle" type="checkbox">Hide Apps panel</input></br>
+                        <input id="lock_controls_toggle" type="checkbox">Lock meeting controls</input></br>
+                        <input id="copy_link_toggle" type="checkbox">Hide Copy link</input></br>
+                        <input id="rating_screen_toggle" type="checkbox">Disable Meeting Rating screens</input></br>
+                        <input id="app_pitch_toggle" type="checkbox">Disable app pitches</input>
+                        </br></br>
+                        <span>Background Color</span>
+                        </br><input id="bg_color" placeholder="#FFFFFF or linear-gradient(#6600CC, #6600FF)" value="linear-gradient(to top, #6600CC 30%, #6600FF)"></input></br>
+                    </div>
+                </div>
+                <div id="meeting_control_view" style="display: none;">
+                    <table style="margin-top: 60px;">
+                        <tr>
+                            <td>Name</td>
+                            <td class="colonSeperator">:</td>
+                            <td>
+                                <input id="joinName" value="EmbedGuest"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Participants</td>
+                            <td class="colonSeperator">:</td>
+                            <td id="totalParticipants">1</td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td class="colonSeperator">:</td>
+                            <td id="sharingStatus">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>Meeting status</td>
+                            <td class="colonSeperator">:</td>
+                            <td id="meetingStatus">Establishing messaging channel</td>
+                        </tr>
+                        <tr>
+                            <td>Audio control</td>
+                            <td class="colonSeperator">:</td>
+                            <td>
+                                <button id="audioControl"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Video control</td>
+                            <td class="colonSeperator">:</td>
+                            <td>
+                                <button id="videoControl"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Screen sharing</td>
+                            <td class="colonSeperator">:</td>
+                            <td>
+                                <button id="sharingControl"></button>
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="leaveControl" style="font-size: 24px;margin-top: 30px;">Leave Meeting</button>
+                </div>
+                </div>
+                <div id="meeting_view" style="display: none;">
+                    <div id="iframe_holder"></div>
+                    <div id="loader_screen" style="display: none;">
+                        <div id="loader"></div>
+                        <div id="connecting_text">Connecting...</span>
+                    </div>
+                </div>
+            </div>
+        </body>
+</html>

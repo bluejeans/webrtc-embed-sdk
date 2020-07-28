@@ -1,0 +1,92 @@
+body {
+    margin: 60px; text-align:center; background-color: #679e0020;
+}
+.app_content {
+    width: 400px;height: 600px; position: absolute; text-align: center;
+    margin-right: 36px; font-size: 32px; color: brown;
+}
+#meeting_join_view {
+    height: 500px; padding: 50px; background: #679e00;
+}
+#welcome{
+    font-size: 32px; 
+}
+#welcome_message{
+    margin-top: 10px; margin-bottom: 20px; font-size: 16px; color: white;
+}
+#meeting_view {
+    width: 1020px; height: 720px;background: rgba(0, 0, 0, 0.05); position: relative; float: right;
+}
+#ui_customisations_options {
+    font-size: 16px;
+    margin-top: 30px;
+    text-align: left;
+    color: black;
+}
+#bg_color {
+    width: 100%;
+}
+table {
+    margin-top: 60px;
+    table-layout: fixed;
+    width: 400px;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    font-size: 20px;
+    color: black;
+}
+tr {
+    vertical-align: top;
+}
+td {
+    width: 36%;
+    text-align: left;
+}
+tr button {
+    width: 100%;
+    height: 32px;
+    font-size: 18px;
+}
+
+.colonSeperator {
+    width: 10%;
+}
+#iframe_holder {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+}
+#loader_screen {
+    width: 100%;
+    height: 100%;
+}
+
+#loader {
+    border: 6px solid transparent;
+    border-radius: 50%;
+    border-top: 6px solid #0072ff;
+    border-left: 6px solid #0072ff;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+    margin-top: 25%;
+}
+
+#connecting_text {
+    color: #9909b3de;
+    font-size: 32px;
+    margin-top: 12px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
