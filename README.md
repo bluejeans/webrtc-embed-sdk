@@ -8,10 +8,10 @@
 ​
 
 ### Where do i start?
-Head on to the documentation page here ​https://bluejeans.github.io/webrtc-embed-sdk/
-​
+Head on to the documentation page here https://bluejeans.github.io/webrtc-embed-sdk/
+
 Check out the sample app here https://bluejeans.github.io/webrtc-embed-sdk/sample.html
-​
+
 ​
 ### Support
 For issues with this SDK, please contact BlueJeans Support: https://support.bluejeans.com/s/contactsupport
