@@ -1,6 +1,6 @@
-# BlueJeans WebRTC Embed SDK project
+
 ​
-[![N|Solid](https://raw.githubusercontent.com/bluejeans/sdk-webrtc-meetings/master/media/BlueJeans_Mark.png)](https://www.bluejeans.com/)
+# [![N|Solid](https://raw.githubusercontent.com/bluejeans/sdk-webrtc-meetings/master/media/BlueJeans_Mark.png)](https://www.bluejeans.com/) BlueJeans WebRTC Embed SDK project
 
 
 The Bluejeans WebRTC Embed SDK allows a 3rd party to embed a fully functional BlueJeans WebRTC Client within another webpage with very minimal efforts.
