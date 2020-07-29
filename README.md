@@ -1,4 +1,4 @@
-### BlueJeans WebRTC Embed SDK project
+# BlueJeans WebRTC Embed SDK project
 ​
 [![N|Solid](https://raw.githubusercontent.com/bluejeans/sdk-webrtc-meetings/master/media/BlueJeans_Mark.png)](https://www.bluejeans.com/)
 ​
@@ -8,6 +8,7 @@
 
 ### Where do i start?
 Head on to the documentation page here ​https://bluejeans.github.io/webrtc-embed-sdk/
+&nbsp;
 Check out the sample app here https://bluejeans.github.io/webrtc-embed-sdk/sample.html
 ​
 ​
@@ -22,7 +23,7 @@ However, we enthusiastically welcome feedback on how to make our SDK better! If 
 ​
 Thanks in advance for your help!
 ​
-## License
+### License
 Copyright © 2020 BlueJeans Network. Refer to LICENSE.txt and LICENSE-3RD-PARTY.txt.
 ​
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License 
