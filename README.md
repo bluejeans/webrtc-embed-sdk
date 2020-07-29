@@ -1,61 +1,28 @@
-# Bluejeans Embed SDK
-
+# Welcome to BlueJeans WebRTC Embed SDK project
+​
 [![N|Solid](https://raw.githubusercontent.com/bluejeans/sdk-webrtc-meetings/master/media/BlueJeans_Mark.png)](https://www.bluejeans.com/)
+​
 
+​The Bluejeans WebRTC Embed SDK allows a 3rd party to embed a fully functional BlueJeans WebRTC Client within another webpage with very minimal efforts.
+​
 
-Bluejeans Embed SDK is a client SDK used to include Bluejeans Meetings or Events in-meeting experience as iframes with minimal customization within 3rd party sites and apps
-
-  - advantage1
-  - advantage2
-  - advantage3
-
-# New Features!
-
-  - Feature1
-  - Feature2
-
-
-
-### Other References
-
-Lets add some references here :
-
-* [bjn-sdk] - Bluejeans github project!
-
-
-Start with  Bluejeans provide link here
- on GitHub.
-
-
-
-
-# Installation Guide
-
-Bluejeans embed SDK requires [Node.js](https://nodejs.org/) v4+ to run.
-
-This is a test code. 
-clone project from provide link here 
-
-```sh
-$ git clone ssh://dummy-site/dummy/bjn-embed-sdk.git
-$ cd embed-sdk
-$ yarn install
-```
-Add details on how to download npm & install
-
-
-### Development
-
-Want to contribute?
-Add information here :
-
-### License
-how about licensing?
-
-
+### Where do i start?
+Head on to the documentation page here ​https://bluejeans.github.io/webrtc-embed-sdk/
+Check out the sample app here https://bluejeans.github.io/webrtc-embed-sdk/sample.html
+​
+​
 ### Support
-----
-Contact Bluejeans for more information
-
-
-
+For issues with this SDK, please contact BlueJeans Support: https://support.bluejeans.com/s/contactsupport
+​
+### Contributing
+​
+The BlueJeans WebRTC Embed SDK is closed source and proprietary. As a result, we cannot accept pull requests.
+​
+However, we enthusiastically welcome feedback on how to make our SDK better! If you think you have found a bug, or have an improvement or feature request, please file a GitHub issue and we will get back to you.
+​
+Thanks in advance for your help!
+​
+## License
+Copyright © 2020 BlueJeans Network. Refer to LICENSE.txt and LICENSE-3RD-PARTY.txt.
+​
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License 

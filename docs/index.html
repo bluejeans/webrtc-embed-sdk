@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>bjn-embed-sdk</title>
+	<title>Home</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -27,7 +27,7 @@
 						<li data-name="conversation/response.*" data-subtitle="Rich response"></li>
 						<li data-name=".*\.User.storage" data-subtitle="Persistent storage"></li>
 					</ul>
-					<a href="index.html" class="title">bjn-embed-sdk</a>
+					<a href="index.html" class="title">Home</a>
 					&emsp;<a href="https://bluejeans.github.io/embed-sdk/sample.html" class="title">Sample</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -73,60 +73,143 @@
 			</nav>
 		</div>
 		<div class="col-7 offset-3 col-content">
-			<h1>bjn-embed-sdk</h1>
+
 			<div class="tsd-panel tsd-typography">
-				<a href="#bluejeans-embed-sdk" id="bluejeans-embed-sdk" style="color: inherit; text-decoration: none;">
-					<h1>Bluejeans Embed SDK</h1>
+				<a href="#bluejeans-webrtc-embed-sdk" id="bluejeans-webrtc-embed-sdk" style="color: inherit; text-decoration: none;">
+					<h1>BlueJeans WebRTC Embed SDK</h1>
 				</a>
 				<p><a href="https://www.bluejeans.com/"><img src="https://raw.githubusercontent.com/bluejeans/sdk-webrtc-meetings/master/media/BlueJeans_Mark.png" alt="N|Solid"></a></p>
-				<p>Bluejeans Embed SDK is a client SDK used to include Bluejeans Meetings or Events in-meeting experience as iframes with minimal customization within 3rd party sites and apps</p>
-				<ul>
-					<li>advantage1</li>
-					<li>advantage2</li>
-					<li>advantage3</li>
-				</ul>
-				<a href="#new-features" id="new-features" style="color: inherit; text-decoration: none;">
-					<h1>New Features!</h1>
+				<a href="#introduction" id="introduction" style="color: inherit; text-decoration: none;">
+					<h2>Introduction</h2>
+				</a>
+				<p>The Bluejeans WebRTC Embed SDK allows a 3rd party to embed a fully functional BlueJeans WebRTC Client within another webpage with very minimal efforts.</p>
+				<a href="#supported-features" id="supported-features" style="color: inherit; text-decoration: none;">
+					<h3>Supported Features</h3>
 				</a>
 				<ul>
-					<li>Feature1</li>
-					<li>Feature2</li>
+					<li><strong>Extremely Simple</strong>: If no customization is required, you can embed a fully featured client with just a few lines of JavaScript.</li>
+					<li><strong>Fully Functional User Interface</strong>: A fully functional user interface, virtually identical to the normal BlueJeans WebRTC experience, is provided out of the box with no additional coding required.</li>
+					<li><strong>Access Client State</strong>: You can access current information about the client, such as the participant&#39;s name, their mute state, whether they have successfully connected, etc.</li>
+					<li><strong>Modify Client State</strong>: You can also modify aspects of the client&#39;s state, such as changing their name, muting or unmuting them, or disconnecting the call entirely.</li>
+					<li><strong>Limited Customization</strong>: The look and feel of the interface can be customized in a limited fashion. Additionally, some user interface elements or features may be hidden entirely if desired.</li>
 				</ul>
-				<a href="#other-references" id="other-references" style="color: inherit; text-decoration: none;">
-					<h3>Other References</h3>
+				<a href="#alternative-bluejeans-webrtc-sdk" id="alternative-bluejeans-webrtc-sdk" style="color: inherit; text-decoration: none;">
+					<h3>Alternative: BlueJeans WebRTC SDK</h3>
 				</a>
-				<p>Lets add some references here :</p>
+				<p>The <em>BlueJeans WebRTC SDK</em> is an alternative option to this SDK. Overall, the BlueJeans WebRTC SDK offers significantly more opportunities for customization, but does not provide any user interface - you must build it yourself. As a result, significantly more code is required.</p>
+				<p>For advanced users looking to build a completely custom user experience that diverges heavily from the stock BlueJeans WebRTC experience, the BlueJeans WebRTC SDK may be a better choice than the BlueJeans WebRTC Embed SDK.</p>
+				<a href="#before-you-get-started" id="before-you-get-started" style="color: inherit; text-decoration: none;">
+					<h2>Before You Get Started</h2>
+				</a>
+				<a href="#bluejeans-account" id="bluejeans-account" style="color: inherit; text-decoration: none;">
+					<h3>BlueJeans Account</h3>
+				</a>
+				<p>While this SDK itself does not require a BlueJeans account, in order to create a meeting, you will need an account. If you are already a BlueJeans customer, you should already have an account. If you are not, you can sign up for a free trial at <a href="https://www.bluejeans.com/trial/">https://www.bluejeans.com/trial/</a>.</p>
+				<p>The SDK also assumes you have general understanding of basic BlueJeans concepts, such as audio and video mute, screen sharing, etc. If you do not understand these concepts, please consult BlueJeans documentation first.</p>
+				<a href="#enable-embedding" id="enable-embedding" style="color: inherit; text-decoration: none;">
+					<h3>Enable Embedding</h3>
+				</a>
+				<p>For security reasons, BlueJeans accounts do not permit embedding by default. You will need have the domain of your parent page enabled for embedding. Please contact the BlueJeans support team at <a href="https://support.bluejeans.com/s/contactsupport">https://support.bluejeans.com/s/contactsupport</a> to make this request.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>The best way to install the BlueJeans WebRTC Embed SDK is through NPM or Yarn:</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> bluejeans-webrtc-embed-sdk</code></pre><p>Alternatively, you can download it directly here: <a href="https://swdl.bluejeans.com/embed-sdk/webrtc/BJNEmbedSDK.js">https://swdl.bluejeans.com/embed-sdk/webrtc/BJNEmbedSDK.js</a></p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started</h2>
+				</a>
+				<a href="#including-bjnembedsdk" id="including-bjnembedsdk" style="color: inherit; text-decoration: none;">
+					<h3>Including BJNEmbedSDK</h3>
+				</a>
+				<p>The simplest way is to simply include <code>BJNEmbedSDK.js</code> in a <code>&lt;script&gt;</code> tag in your webpage:</p>
+				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./BJNEmbedSDK.js&quot;</span>&gt;</span></code></pre><p>Note that the path may be different depending on where you downloaded the file. When using a <code>&lt;script&gt;</code> tag, the SDK will be available as a global variable, <code>BJNEmbedSDK</code>.</p>
+				<p>However, for larger projects, you will likely be using a build system such as Webpack. In this case, simply <code>require</code> or <code>import</code> in your existing JavaScript as follows:</p>
+				<pre><code> <span class="hljs-variable">const</span> <span class="hljs-variable">BJNEmbedSDK</span> = <span class="hljs-function"><span class="hljs-title">require</span>(<span class="hljs-string">&#x27;bluejeans-webrtc-embed-sdk&#x27;</span>)</span></code></pre>
+				<a href="#setting-up-your-page-for-embedding" id="setting-up-your-page-for-embedding" style="color: inherit; text-decoration: none;">
+					<h3>Setting Up Your Page For Embedding</h3>
+				</a>
+				<p>Your application will need to have a block-level element (likely a <code>&lt;div&gt;</code> element) that the BlueJeans interface will be embedded in. You are responsible for sizing this element accordingly - the BlueJeans interface will adjust itself to the size of this element. You must give this element a unique DOM <code>id</code>.</p>
+				<a href="#joining-a-meeting-using-the-sdk" id="joining-a-meeting-using-the-sdk" style="color: inherit; text-decoration: none;">
+					<h3>Joining a Meeting Using the SDK</h3>
+				</a>
+				<p>To join a meeting, you need to call the <code>joinMeeting()</code> method on the <code>BJNEmbedSDK</code> object. This method accepts a single object as a parameter, which has three fields you must specify:</p>
 				<ul>
-					<li>[bjn-sdk] - Bluejeans github project!</li>
+					<li><code>meetingInfo</code>: A sub-object that describes the meetin to join. It has two required fields:<ul>
+							<li><code>meetingId</code>: The BlueJeans meeting ID to join</li>
+							<li><code>passcode</code>: The moderator or participant passcode of the meeting to join. If no passcode is required, pass an empty string.</li>
+						</ul>
+					</li>
+					<li><code>iFrameProps</code>: A sub-object that tells the SDK where to embed itself on your page. It has one required field:<ul>
+							<li><code>selectorId</code>: The DOM <code>id</code> of the element that will hold the embedded interface.</li>
+						</ul>
+					</li>
+					<li><code>uiProps</code>: A sub-object allowing customization of the user interface. None of the fields are required, so to start, simply pass an empty object. See the documentation for full list of options.</li>
 				</ul>
-				<p>Start with  Bluejeans provide link here
-				on GitHub.</p>
-				<a href="#installation-guide" id="installation-guide" style="color: inherit; text-decoration: none;">
-					<h1>Installation Guide</h1>
+				<p>Here is an example invocation. Note this will not work, as the meeting ID given is not real, nor is the <code>selectorId</code>:</p>
+				<pre><code><span class="hljs-selector-tag">BJNEmbedSDK</span><span class="hljs-selector-class">.joinMeeting</span>({
+    <span class="hljs-attribute">meetingInfo</span>: {
+        meetingId: <span class="hljs-string">&quot;1234556789&quot;</span>,
+        passcode: <span class="hljs-string">&quot;1111&quot;</span>
+    },
+    <span class="hljs-selector-tag">iFrameProps</span>: {
+        <span class="hljs-attribute">selectorId</span>: <span class="hljs-string">&#x27;bluejeans_holder&#x27;</span>
+    },
+    <span class="hljs-selector-tag">uiProps</span>: {}
+})</code></pre><p>If you do all of the above correctly, you should see a BlueJeans meeting interface appear in the location you have designated!</p>
+				<a href="#concept-observing-variables" id="concept-observing-variables" style="color: inherit; text-decoration: none;">
+					<h3>Concept: Observing Variables</h3>
 				</a>
-				<p>Bluejeans embed SDK requires <a href="https://nodejs.org/">Node.js</a> v4+ to run.</p>
-				<p>This is a test code.
-				clone project from provide link here </p>
-				<pre><code class="language-sh">$ git <span class="hljs-built_in">clone</span> ssh://dummy-site/dummy/bjn-embed-sdk.git
-$ <span class="hljs-built_in">cd</span> embed-sdk
-$ yarn install</code></pre>
-				<p>Add details on how to download npm &amp; install</p>
-				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
-					<h3>Development</h3>
+				<p>The SDK exposes many variables which let you know the current state of the meeting. All of these variables are _observable_, meaning you can register to receive a notification when they change. This is a core concept that you will use repeatedly when interacting with the SDK.</p>
+				<p>To observe a value, call the <code>observe()</code> method on the <code>BJNEmbedSDK</code> object. This method takes two parameters:</p>
+				<ul>
+					<li>The name of the variable property of <code>BJNEmbedSDK</code> to observe, as a string.</li>
+					<li>A function/lambda, which accepts no arguments. This function will be called whenever the value of this property changes. It will also be called immediately as well with the current value at the time of observation.</li>
+				</ul>
+				<p>For a practical example, see the next section.</p>
+				<a href="#waiting-for-sdk-to-initialize" id="waiting-for-sdk-to-initialize" style="color: inherit; text-decoration: none;">
+					<h3>Waiting for SDK to Initialize</h3>
 				</a>
-				<p>Want to contribute?
-				Add information here :</p>
-				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
-					<h3>License</h3>
+				<p>Once you join a meeting, the SDK will need to initialize asynchronously. This happens very quickly, but is slow enough that you cannot immediately issue commands to the SDK right after joining. To safely wait until this happens, use the <code>isSDKInitComplete</code> property:</p>
+				<pre><code><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">BJNEmbedSDK</span>.</span></span>observe(&#x27;isSDKInitComplete&#x27;,<span class="hljs-function"> <span class="hljs-params">()</span>=&gt;</span> {
+    <span class="hljs-keyword">if</span>(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">BJNEmbedSDK</span>.</span></span>isSDKInitComplete) {
+        <span class="hljs-comment">// proceed</span>
+    }
+})</code></pre>
+				<a href="#getting-meeting-state" id="getting-meeting-state" style="color: inherit; text-decoration: none;">
+					<h3>Getting Meeting State</h3>
 				</a>
-				<p>how about licensing?</p>
+				<p>Once you join a meeting and have waited for initialization, you are now able to query for various meeting states. For example, you might want to know if the user has muted or not. To do this, simply access <code>BJNEmbedSDK.audioMuted</code>. The following code will print whether the user is audio muted or not:</p>
+				<pre><code>  console.log(<span class="hljs-string">&quot;User is muted: &quot;</span> + <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">BJNEmbedSDK</span>.</span></span>audioMuted)</code></pre><p>It is also powerful to know whenever such a value changes. Using observable variables, you can do this easily. The following code will print the user&#39;s mute state any time they change it:</p>
+				<pre><code>BJNEmbedSDK.observe(<span class="hljs-string">&#x27;audioMuted&#x27;</span>, <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;User is muted: &quot;</span> + BJNEmbedSDK.audioMuted)
+})</code></pre><p>There are several different variables you can access to get current meeting state. For a full list, consult the documentation.</p>
+				<a href="#changing-meeting-state" id="changing-meeting-state" style="color: inherit; text-decoration: none;">
+					<h3>Changing Meeting State</h3>
+				</a>
+				<p>You may also want to change meeting state from your parent page. For example, you might want to set the user&#39;s mute state. To do this, simply call the <code>BJNEmbedSDK.setAudioMuted()</code> method. The following code will mute the user&#39;s microphone:</p>
+				<pre><code><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">BJNEmbedSDK</span>.</span></span>set<span class="hljs-constructor">AudioMuted(<span class="hljs-params">true</span>)</span></code></pre><p>Under the hood, such requests are applied asychronously. This is usually not important, but if you attempt to read a value immediately after having written to it, you may not see the result you expect.</p>
+				<a href="#advanced-mobx-integration" id="advanced-mobx-integration" style="color: inherit; text-decoration: none;">
+					<h3>Advanced: MobX Integration</h3>
+				</a>
+				<p>Internally, this SDK uses <a href="https://mobx.js.org">MobX</a> to provide observable values. The SDK provides the <code>BJNEmbedSDK.observe()</code> method so that you do not need to understand MobX. However, if you are already using MobX in your project, you can gain additional benefits!</p>
+				<p>Each property of the BJNEmbedSDK object is actually a MobX <code>@observable</code>. This means you can avoid using <code>BJNEmbedSDK.observe()</code> and instead use regular MobX primitives like <code>autorun()</code> and <code>@computed</code> when accessing these values, and they will act exactly as you expect.</p>
 				<a href="#support" id="support" style="color: inherit; text-decoration: none;">
-					<h3>Support</h3>
+					<h2>Support</h2>
 				</a>
-				<hr>
-				<p>Contact Bluejeans for more information</p>
+				<p>For issues with this SDK, please contact BlueJeans Support: <a href="https://support.bluejeans.com/s/contactsupport">https://support.bluejeans.com/s/contactsupport</a></p>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>The BlueJeans WebRTC Embed SDK is closed source and proprietary. As a result, we cannot accept pull requests.</p>
+				<p>However, we enthusiastically welcome feedback on how to make our SDK better! If you think you have found a bug, or have an improvement or feature request, please file a GitHub issue and we will get back to you.</p>
+				<p>Thanks in advance for your help!</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>Copyright © 2020 BlueJeans Network. Refer to LICENSE.txt and LICENSE-3RD-PARTY.txt.</p>
+				<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
 			</div>
-			<!--{&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk&quot;,&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bjn-embed-sdk/src/util/CrossIframe.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:false,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinManager&quot;:{&quot;Overview&quot;:&quot;modules/_joinmanager_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
+			<!--{&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinManager&quot;:{&quot;Overview&quot;:&quot;modules/_joinmanager_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
 		</div>
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -136,11 +219,8 @@ $ yarn install</code></pre>
 		</div>
 	</div>
 </div>
-<footer class="with-border-bottom">
+<footer>
 </footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
