@@ -1,4 +1,4 @@
-# Welcome to BlueJeans WebRTC Embed SDK project
+### BlueJeans WebRTC Embed SDK project
 ​
 [![N|Solid](https://raw.githubusercontent.com/bluejeans/sdk-webrtc-meetings/master/media/BlueJeans_Mark.png)](https://www.bluejeans.com/)
 ​
