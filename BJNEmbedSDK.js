@@ -1,1 +1,0 @@
-bjn-embed-sdk/browse/dist/BJNEmbedSDK.js
