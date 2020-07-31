@@ -23,8 +23,12 @@
 						<li class="state failure">The search index is not available</li>
 					</ul>
 					<ul class="results-priority" style="display:none">
+						<li data-name=".*Conversation.data" data-subtitle="Session data"></li>
+						<li data-name="conversation/response.*" data-subtitle="Rich response"></li>
+						<li data-name=".*\.User.storage" data-subtitle="Persistent storage"></li>
 					</ul>
 					<a href="../index.html" class="title">Home</a>
+					&emsp;<a href="https://bluejeans.github.io/webrtc-embed-sdk/sample.html" class="title">Sample</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -67,29 +71,10 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals  ">
-						<a href="../globals.html" style="display:none"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_bjnembedsdk_.html" style="display:none">BJNEmbedSDK</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_bjnembedsdkinterface_.html" style="display:none">BJNEmbedSDKInterface</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_joinmanager_.html" style="display:none">JoinManager</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_joinprops_.html" style="display:none">JoinProps</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_meetingprops_.html" style="display:none">MeetingProps</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_util_crossiframe_.html" style="display:none">util/CrossIframe</a>
-					</li>
+			<nav class="tsd-navigation outline primary">
+				<a style="margin-left:0em" href="../globals.html">Globals</a>
+				<ul style="display:none">
+					{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinManager&quot;:{&quot;Overview&quot;:&quot;modules/_joinmanager_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}
 				</ul>
 			</nav>
 		</div>
@@ -173,17 +158,17 @@
 					</div>
 				</section>
 			</section>
-			<!--{&quot;plugin&quot;:[],&quot;name&quot;:&quot;Home&quot;,&quot;externalPattern&quot;:[],&quot;includeDeclarations&quot;:false,&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;mode&quot;:1,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;readme&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;disableOutputCheck&quot;:false,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;entryPoint&quot;:&quot;&quot;,&quot;toc&quot;:[],&quot;listInvalidSymbolLinks&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;logger&quot;:&quot;console&quot;,&quot;ignoreCompilerErrors&quot;:false,&quot;exclude&quot;:[],&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/util/CrossIframe.ts&quot;],&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk&quot;,&quot;out&quot;:&quot;&quot;,&quot;json&quot;:&quot;&quot;,&quot;version&quot;:false,&quot;help&quot;:false}-->
+			<!--{&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinManager&quot;:{&quot;Overview&quot;:&quot;modules/_joinmanager_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
 		</div>
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module root">
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.iframeprops.html" class="tsd-kind-icon">IFrame<wbr>Props</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module root">
+					<li class="current tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.joinprops.html" class="tsd-kind-icon">Join<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -199,10 +184,10 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module root">
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.meetinginfo.html" class="tsd-kind-icon">Meeting<wbr>Info</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module root">
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.uiprops.html" class="tsd-kind-icon">UIProps</a>
 					</li>
 				</ul>
