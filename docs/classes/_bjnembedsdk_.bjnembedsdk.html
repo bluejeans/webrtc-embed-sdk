@@ -23,12 +23,8 @@
 						<li class="state failure">The search index is not available</li>
 					</ul>
 					<ul class="results-priority" style="display:none">
-						<li data-name=".*Conversation.data" data-subtitle="Session data"></li>
-						<li data-name="conversation/response.*" data-subtitle="Rich response"></li>
-						<li data-name=".*\.User.storage" data-subtitle="Persistent storage"></li>
 					</ul>
 					<a href="../index.html" class="title">Home</a>
-					&emsp;<a href="https://bluejeans.github.io/webrtc-embed-sdk/sample.html" class="title">Sample</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -71,10 +67,29 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation outline primary">
-				<a style="margin-left:0em" href="../globals.html">Globals</a>
-				<ul style="display:none">
-					{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinManager&quot;:{&quot;Overview&quot;:&quot;modules/_joinmanager_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html" style="display:none"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_bjnembedsdk_.html" style="display:none">BJNEmbedSDK</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_bjnembedsdkinterface_.html" style="display:none">BJNEmbedSDKInterface</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_joinmanager_.html" style="display:none">JoinManager</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_joinprops_.html" style="display:none">JoinProps</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_meetingprops_.html" style="display:none">MeetingProps</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_util_crossiframe_.html" style="display:none">util/CrossIframe</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -82,8 +97,11 @@
 			<h1>Class BJNEmbedSDK</h1>
 			<section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography tsd-comment-shorttext">
 					<div class="lead">
-						<p>List of the properties and the function signature, which are exposed by the BJNEmbedSDKInterface.</p>
+						<p>The Bluejeans WebRTC Embed SDK allows a 3rd party to embed a fully functional BlueJeans WebRTC Client
+						within another webpage with very minimal efforts.</p>
 					</div>
+					</div><div class="tsd-comment tsd-typography tsd-comment-text">
+					<p>The list of supported properties and the functions are been exposed via this class.</p>
 			</div></section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -125,6 +143,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_bjnembedsdk_.bjnembedsdk.html#joinmeeting" class="tsd-kind-icon">joinMeeting</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_bjnembedsdk_.bjnembedsdk.html#leave" class="tsd-kind-icon">leave</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_bjnembedsdk_.bjnembedsdk.html#leaveandendforall" class="tsd-kind-icon">leaveAndEndForAll</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_bjnembedsdk_.bjnembedsdk.html#setaudiomuted" class="tsd-kind-icon">setAudioMuted</a></li>
@@ -149,7 +168,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:23</li>
+									<li>Defined in BJNEmbedSDK.ts:73</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_bjnembedsdk_.bjnembedsdk.html" class="tsd-signature-type">BJNEmbedSDK</a></h4>
@@ -166,9 +185,15 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#audiomuted">audioMuted</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:14</li>
+							<li>Defined in BJNEmbedSDK.ts:34</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>audioMuted, boolean property provides the local audio state.
+							This value will be <code>true</code>, if the local audio flow is stopped and If the audio starts flowing this value will be <code>false</code></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="chatmessages" class="tsd-anchor"></a>
@@ -177,9 +202,15 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#chatmessages">chatMessages</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:20</li>
+							<li>Defined in BJNEmbedSDK.ts:70</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>chatMessages, property provides the array of chatMessages in the meeting.
+							Refer <a href="../modules/_bjnembedsdk_.html#bjnechatmessage">BJNEChatMessage</a>, for the attributes structure of a each message.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="connectionstate" class="tsd-anchor"></a>
@@ -188,20 +219,35 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#connectionstate">connectionState</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:13</li>
+							<li>Defined in BJNEmbedSDK.ts:28</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>connectionState <a href="../modules/_bjnembedsdk_.html#bjneconnectionstate">BJNEConnectionState</a>, property provides the meeting state.
+							This returns the enum for all the states.</p>
+						</div>
+						</div><div class="tsd-comment tsd-typography tsd-comment-text">
+						<p>If the connectionState == &quot;Connected&quot; or connectionState == BJNEConnectionState.CONNECTED,
+						It means the meeting is connected.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="issdkinitcomplete" class="tsd-anchor"></a>
 					<h3>isSDKInit<wbr>Complete</h3>
-					<div class="tsd-signature tsd-kind-icon">isSDKInit<wbr>Complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<div class="tsd-signature tsd-kind-icon">isSDKInit<wbr>Complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#issdkinitcomplete">isSDKInitComplete</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:12</li>
+							<li>Defined in BJNEmbedSDK.ts:19</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>isSDKInitComplete, property states the readiness of the SDK. Once this flag became true,
+							we are good to get the updates about the BlueJeans meeting properties.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="participants" class="tsd-anchor"></a>
@@ -210,9 +256,15 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#participants">participants</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:18</li>
+							<li>Defined in BJNEmbedSDK.ts:58</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>participants, property provides the array of participants in the meeting.
+							Refer <a href="../modules/_bjnembedsdk_.html#bjneparticipant">BJNEParticipant</a>, for the attributes of a participant.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="receivingscreenshare" class="tsd-anchor"></a>
@@ -221,9 +273,15 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#receivingscreenshare">receivingScreenShare</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:16</li>
+							<li>Defined in BJNEmbedSDK.ts:46</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>receivingScreenShare, boolean property provides the state of the content receive.
+							This value will be <code>true</code>, if this endpoint is receiving the content and If there is no content received this value will be <code>false</code></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="selfparticipant" class="tsd-anchor"></a>
@@ -232,9 +290,15 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#selfparticipant">selfParticipant</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:19</li>
+							<li>Defined in BJNEmbedSDK.ts:64</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>selfParticipant, property provides the information of the self participant.
+							Refer <a href="../modules/_bjnembedsdk_.html#bjneparticipant">BJNEParticipant</a>, for the attributes structure of a participant.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="sharingscreen" class="tsd-anchor"></a>
@@ -243,9 +307,15 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#sharingscreen">sharingScreen</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:17</li>
+							<li>Defined in BJNEmbedSDK.ts:52</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>sharingScreen, boolean property provides the state of the content sent.
+							This value will be <code>true</code>, if this endpoint is senting the content and If there is no content sent this value will be <code>false</code></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="videomuted" class="tsd-anchor"></a>
@@ -254,13 +324,50 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#videomuted">videoMuted</a></p>
 						<ul>
-							<li>Defined in BJNEmbedSDK.ts:15</li>
+							<li>Defined in BJNEmbedSDK.ts:40</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>videoMuted, boolean property provides the local video state.
+							This value will be <code>true</code>, if the local video flow is stopped and If the video starts flowing this value will be <code>false</code></p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="joinmeeting" class="tsd-anchor"></a>
+					<h3>join<wbr>Meeting</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">join<wbr>Meeting<span class="tsd-signature-symbol">(</span>joinProps<span class="tsd-signature-symbol">: </span><a href="../interfaces/_joinprops_.joinprops.html" class="tsd-signature-type">JoinProps</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in BJNEmbedSDK.ts:85</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Joins the meeting in embed mode. This creates a Iframe and loads the meeting in the Iframe.
+									The loaded Iframe will be attached to the body or to the provided selector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>joinProps: <a href="../interfaces/_joinprops_.joinprops.html" class="tsd-signature-type">JoinProps</a></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="leave" class="tsd-anchor"></a>
 					<h3>leave</h3>
@@ -272,9 +379,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#leave">leave</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:36</li>
+									<li>Defined in BJNEmbedSDK.ts:94</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Leaves you from the meeting. After successfully leaving the meeting, the connectionState will be updated with <code>Disconnected</code>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -290,9 +402,17 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#leaveandendforall">leaveAndEndForAll</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:38</li>
+									<li>Defined in BJNEmbedSDK.ts:102</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Leaves you from the meeting as well ends that meeting session. So everyone in the meeting will be kicked out.
+									After successfully leaving the meeting, the connectionState will be updated with <code>Disconnected</code>.</p>
+								</div>
+								</div><div class="tsd-comment tsd-typography tsd-comment-text">
+								<p>Note : Supported only by the moderators.</p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -301,20 +421,29 @@
 					<a name="setaudiomuted" class="tsd-anchor"></a>
 					<h3>set<wbr>Audio<wbr>Muted</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Audio<wbr>Muted<span class="tsd-signature-symbol">(</span>muted<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Audio<wbr>Muted<span class="tsd-signature-symbol">(</span>mute<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#setaudiomuted">setAudioMuted</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:40</li>
+									<li>Defined in BJNEmbedSDK.ts:110</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Local audio mute state can be controlled.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mute: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>of type boolen, <code>true</code> for muting the audio and <code>false</code> for unmuting the audio.
+										If the passed argument and the current state are the same, that operation will be ignored.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -332,13 +461,21 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#setname">setName</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:48</li>
+									<li>Defined in BJNEmbedSDK.ts:137</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>User can update the name, after joining the meeting.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>the modified name of the participant.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -349,20 +486,29 @@
 					<a name="setvideomuted" class="tsd-anchor"></a>
 					<h3>set<wbr>Video<wbr>Muted</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Video<wbr>Muted<span class="tsd-signature-symbol">(</span>muted<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Video<wbr>Muted<span class="tsd-signature-symbol">(</span>mute<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#setvideomuted">setVideoMuted</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:42</li>
+									<li>Defined in BJNEmbedSDK.ts:118</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Local video mute state can be controlled.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mute: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>of type boolen, <code>true</code> for muting the video and <code>false</code> for unmuting the video.
+										If the passed argument and the current state are the same, that operation will be ignored.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -380,9 +526,16 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#startscreenshare">startScreenShare</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:44</li>
+									<li>Defined in BJNEmbedSDK.ts:125</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>To start sharing the screen from the meeting</p>
+								</div>
+								</div><div class="tsd-comment tsd-typography tsd-comment-text">
+								<p>Technical limitation : Not Supported for safari</p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -398,22 +551,51 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html">BJNEmbedSDKInterface</a>.<a href="../interfaces/_bjnembedsdkinterface_.bjnembedsdkinterface.html#stopscreenshare">stopScreenShare</a></p>
 								<ul>
-									<li>Defined in BJNEmbedSDK.ts:46</li>
+									<li>Defined in BJNEmbedSDK.ts:130</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>To stop an active screen sharing in the meeting</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<!--{&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinManager&quot;:{&quot;Overview&quot;:&quot;modules/_joinmanager_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
+			<!--{&quot;plugin&quot;:[],&quot;name&quot;:&quot;Home&quot;,&quot;externalPattern&quot;:[],&quot;includeDeclarations&quot;:false,&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;mode&quot;:1,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;readme&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;disableOutputCheck&quot;:false,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;entryPoint&quot;:&quot;&quot;,&quot;toc&quot;:[],&quot;listInvalidSymbolLinks&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;logger&quot;:&quot;console&quot;,&quot;ignoreCompilerErrors&quot;:false,&quot;exclude&quot;:[],&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk/src/util/CrossIframe.ts&quot;],&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/bluejeans-webrtc-embed-sdk&quot;,&quot;out&quot;:&quot;&quot;,&quot;json&quot;:&quot;&quot;,&quot;version&quot;:false,&quot;help&quot;:false}-->
 		</div>
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#bjnechatmessage" class="tsd-kind-icon">BJNEChat<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#bjneconnectionstate" class="tsd-kind-icon">BJNEConnection<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#bjneparticipant" class="tsd-kind-icon">BJNEParticipant</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#bjnembedsdkinterface" class="tsd-kind-icon">BJNEmbedSDKInterface</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#iframeprops" class="tsd-kind-icon">IFrame<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#joinprops" class="tsd-kind-icon">Join<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#meetinginfo" class="tsd-kind-icon">Meeting<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-external-module root">
+						<a href="../modules/_bjnembedsdk_.html#uiprops" class="tsd-kind-icon">UIProps</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module root">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module root">
 						<a href="_bjnembedsdk_.bjnembedsdk.html" class="tsd-kind-icon">BJNEmbedSDK</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
@@ -445,6 +627,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_bjnembedsdk_.bjnembedsdk.html#videomuted" class="tsd-kind-icon">video<wbr>Muted</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_bjnembedsdk_.bjnembedsdk.html#joinmeeting" class="tsd-kind-icon">join<wbr>Meeting</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_bjnembedsdk_.bjnembedsdk.html#leave" class="tsd-kind-icon">leave</a>
