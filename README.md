@@ -7,7 +7,7 @@ The Bluejeans WebRTC Embed SDK allows a 3rd party to embed a fully functional Bl
 
 
 &nbsp;
-### Where do i start?
+### Where do I start?
 Head on to the documentation page here https://bluejeans.github.io/webrtc-embed-sdk/
 
 Check out the sample app here https://bluejeans.github.io/webrtc-embed-sdk/sample.html
