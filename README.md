@@ -12,9 +12,10 @@ Head on to the documentation page here https://bluejeans.github.io/webrtc-embed-
 
 Check out the sample app here https://bluejeans.github.io/webrtc-embed-sdk/sample.html
 
-
+&nbsp;
 ### Content
 demo-test-page folder contains sample test page that demostrates webrtc-embed SDK capabilities
+
 sample-app folder provides reference code to build an application using webrtc-embed SDK
 
 
