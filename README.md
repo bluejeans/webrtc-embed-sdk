@@ -17,13 +17,13 @@ Check out the sample app here https://bluejeans.github.io/webrtc-embed-sdk/sampl
 sample-app folder provides reference code to build an application using webrtc-embed SDK
 
 &nbsp;
-Steps to run sample app
+#### Steps to run sample app
 1. clone the repo
 2. cd sample-app
 3. yarn install
 4. yarn build  (this will generate the bundle in "output" directory)
 5. Open "output/index.html" in webrtc supported browser
-5. Provide the meeting id details in the respective fields and join the meeting
+5. Provide meeting id details in respective fields and join meeting
 
 
 &nbsp;
