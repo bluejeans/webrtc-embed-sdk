@@ -18,12 +18,18 @@ sample-app folder provides reference code to build an application using webrtc-e
 
 &nbsp;
 #### Steps to run sample app
+If you like to run the sample app locally
+* Prerequisites
+    1. Node >= 10
+    2. Yarn >= 1.10.1
+
 1. clone the repo
 2. cd sample-app
 3. yarn install
 4. yarn build  (this will generate the bundle in "output" directory)
-5. Open "output/index.html" in webrtc supported browser
-5. Provide meeting id details in respective fields and join meeting
+5. yarn test   (this will run the output in the localhost)
+6. Open `https://localhost:8800/` from  browser. (check the terminal for port)
+7. Provide meeting id details in respective fields and join meeting
 
 
 &nbsp;
