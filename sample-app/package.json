@@ -6,7 +6,7 @@
     "scripts": {
         "build": "webpack --config webpack.config.js --mode=development",
         "production": "webpack --config webpack.config.js --mode=production",
-        "server": "webpack-dev-server --config webpack.config.js --mode=development",
+        "test": "webpack-dev-server --config webpack.config.js --mode=development",
         "sample": "yarn build && yarn server"
     },
     "author": "BlueJeans Network, Inc.",

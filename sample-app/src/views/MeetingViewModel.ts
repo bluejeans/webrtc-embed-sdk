@@ -72,11 +72,11 @@ export default class MeetingViewModel {
     }
 
     @action.bound toggleVideoState() : void {
-        this.embedSDKManager.setAudioMuted()
+        this.embedSDKManager.setVideoMuted()
     }
 
     @action.bound toggleAudioState() : void {
-        this.embedSDKManager.setVideoMuted()
+        this.embedSDKManager.setAudioMuted()
     }
 
     @action.bound toggleScreenShare() : void {
