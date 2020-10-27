@@ -5,6 +5,7 @@
     "homepage": "https://bluejeans.com",
     "scripts": {
         "build": "webpack --config webpack.config.js --mode=development",
+        "test": "webpack-dev-server --config webpack.config.js --mode=development",        
         "sample": "webpack-dev-server --config webpack.config.js --mode=development"
     },
     "author": "BlueJeans Network, Inc.",
