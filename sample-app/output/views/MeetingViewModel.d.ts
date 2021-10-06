@@ -11,6 +11,7 @@ export default class MeetingViewModel {
     get videoStatus(): string;
     get sharingStatus(): string;
     get callControlInfo(): string;
+    get videoState(): string;
     private get isDisconnected();
     setJoinName(event: any): void;
     toggleVideoState(): void;

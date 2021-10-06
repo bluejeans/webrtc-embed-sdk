@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { JoinProps, MeetingInfo, UIProps, IFrameProps } from "bluejeans-webrtc-embed-sdk"
+import { JoinProps, MeetingInfo, UIProps, IFrameProps, InMeetingBGColors, Locale } from "bluejeans-webrtc-embed-sdk"
 import Managers from "../stores/Managers";
 import EmbedSDKManager from "../stores/EmbedSDKManager";
 import AppManager from "../stores/AppManager";
@@ -19,14 +19,21 @@ export default class PreMeetingViewModel {
     @observable hideCopyLink : boolean = false;
     @observable hideRatingScreen : boolean = false;
     @observable disableAppPitches : boolean = false;
+    @observable hideOtherJoinOptions : boolean = false;
     @observable backgroundColor : string = "";
+    @observable customInMeetingBGConfig : InMeetingBGColors;
     @observable meetingContainerWidth : string = "";
     @observable meetingContainerHeight : string = "";
     @observable meetingContainerRef : string = ".iframeHolder";
+    @observable appLocale : Locale = Locale.EN;
 
     constructor(managers : Managers) {
         this.embedSDKManager = managers.embedSDKManager;
         this.appManager = managers.appManager;
+        this.customInMeetingBGConfig = {
+            audioTileColor : "",
+            containerColorOfAllTiles : ""
+        }
     }
 
     @action.bound setMeetingId(event) : void {
@@ -73,6 +80,10 @@ export default class PreMeetingViewModel {
         this.disableAppPitches = event.target.checked;
     }
 
+    @action.bound setShouldHideOtherJoinOptions(event) : void {
+        this.hideOtherJoinOptions = event.target.checked;
+    }
+
     @action.bound setBackgroundColor(event) : void {
         this.backgroundColor = event.target.value;
     }
@@ -93,6 +104,14 @@ export default class PreMeetingViewModel {
         this.appManager.setJoiningMeeting(true);
         this.appManager.setJoinProps(this.joinprops);
         this.embedSDKManager.joinMeeting(this.joinprops)
+    }
+
+    @action.bound setAudioTileColor(event) : void {
+        this.customInMeetingBGConfig.audioTileColor = event.target.value;
+    }
+
+    @action.bound setContainerColorOfAllTiles(event) : void {
+        this.customInMeetingBGConfig.containerColorOfAllTiles = event.target.value;
     }
 
     private get joinprops() : JoinProps {
@@ -121,7 +140,10 @@ export default class PreMeetingViewModel {
             hideCopyLink : this.hideCopyLink,
             hideRatingScreen : this.hideRatingScreen,
             hideAppPitches : this.disableAppPitches,
-            customBackground : this.backgroundColor
+            customBackground : this.backgroundColor,
+            hideOtherJoinOptions : this.hideOtherJoinOptions,
+            inMeetingBGConfig : this.customInMeetingBGConfig,
+            locale : this.appLocale
         }
     }
 
@@ -131,5 +153,34 @@ export default class PreMeetingViewModel {
             height : this.meetingContainerHeight,
             selectorId : this.meetingContainerRef
         }
+    }
+
+    get availableLocales(): { id: Locale, name: Locale }[] {
+        let options = [];
+        for (const locale in Locale) {
+            options.push({ id: Locale[locale], name: this.localeName(Locale[locale]) })
+        }
+        return options;
+    }
+
+    localeName(locale: Locale): string {
+        switch (locale) {
+            case Locale.EN:
+                return "English"
+            case Locale.ES:
+                return "Spanish"
+            case Locale.DE:
+                return "German"
+            case Locale.FR:
+                return "French"
+            case Locale.JA:
+                return "Japanese"
+            default:
+                return "English"
+        }
+    }
+
+    @action.bound setAppLocale(locale : { id: Locale, name: Locale }) {
+        this.appLocale = locale.id
     }
 }

@@ -1,4 +1,4 @@
-import { BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps } from "bluejeans-webrtc-embed-sdk";
+import { BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps, VideoState } from "bluejeans-webrtc-embed-sdk";
 export default class EmbedSDKManager implements BJNEmbedSDKInterface {
     constructor();
     get isSDKInitComplete(): boolean;
@@ -10,6 +10,7 @@ export default class EmbedSDKManager implements BJNEmbedSDKInterface {
     get participants(): BJNEParticipant[];
     get selfParticipant(): BJNEParticipant;
     get chatMessages(): BJNEChatMessage[];
+    get videoState(): VideoState;
     joinMeeting(joinProps: JoinProps): void;
     leave(): void;
     leaveAndEndForAll(): void;

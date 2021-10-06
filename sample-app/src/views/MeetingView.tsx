@@ -66,6 +66,15 @@ export default class MeetingView extends Component<Props> {
                     </MeetingDetailsTableRow>
                     <MeetingDetailsTableRow>
                         <MeetingDetailsTableData>
+                            <MeetingDetailsTableContent>Video State</MeetingDetailsTableContent>
+                        </MeetingDetailsTableData>
+                        { this.colonSeparator }
+                        <MeetingDetailsTableData>
+                            <MeetingDetailsTableContent>{ this.viewModel.videoState }</MeetingDetailsTableContent>
+                        </MeetingDetailsTableData>
+                    </MeetingDetailsTableRow>
+                    <MeetingDetailsTableRow>
+                        <MeetingDetailsTableData>
                             <MeetingDetailsTableContent>Audio control</MeetingDetailsTableContent>
                         </MeetingDetailsTableData>
                         { this.colonSeparator }

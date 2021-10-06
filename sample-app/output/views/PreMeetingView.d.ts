@@ -7,6 +7,7 @@ export default class PreMeetingView extends Component<Props> {
     private managers;
     private viewmodel;
     constructor(props: Props);
+    makeDropdown<T>(selectedItem: T | null, items: T[], idProp: keyof T, displayProp: keyof T, onSelect: (T: any) => void): JSX.Element;
     render(): JSX.Element;
 }
 export {};

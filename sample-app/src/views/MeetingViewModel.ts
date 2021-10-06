@@ -60,6 +60,10 @@ export default class MeetingViewModel {
         return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting"
     }
 
+    @computed get videoState() : string {
+        return this.embedSDKManager.videoState;
+    }
+
     @computed private get isDisconnected() : boolean {
         return (this.embedSDKManager.connectionState === "Disconnected");
     }

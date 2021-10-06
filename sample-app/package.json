@@ -1,11 +1,10 @@
 {
     "name": "@bluejeans/bjn-meeting-experience",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "BlueJeans JS Meeting client - WebRTC",
     "homepage": "https://bluejeans.com",
     "scripts": {
         "build": "webpack --config webpack.config.js --mode=development",
-        "test": "webpack-dev-server --config webpack.config.js --mode=development",        
         "sample": "webpack-dev-server --config webpack.config.js --mode=development"
     },
     "author": "BlueJeans Network, Inc.",
@@ -14,7 +13,7 @@
         "node": ">=8.10.0"
     },
     "dependencies": {
-        "bluejeans-webrtc-embed-sdk": "1.1.0",
+        "bluejeans-webrtc-embed-sdk": "2.0.0",
         "mobx": "4.5.2",
         "mobx-react": "6.1.4",
         "react": "16.8.0",

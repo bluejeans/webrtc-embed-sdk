@@ -73,7 +73,8 @@ export const BGOptionContainer = styled.div`
     padding: 10px;
 `
 
-export const BGColorTextLabel = styled.span`
+export const BGColorTextLabel : any = styled<any, any>("span")`
+    ${props => props.customStyle}
 `
 
 export const BGColorTextBox = styled(TextBox)`
@@ -117,4 +118,15 @@ export const PropsHint = styled.span`
     font-style: italic;
     font-weight: 600;
     margin-left: 12px;
+`
+
+export const MeetingDeviceDropdown = styled.select`
+    width: 180px;
+    display: block;
+    padding: 4px;
+    margin: 8px auto;
+    border-radius: 4px;
+    background: white;
+    color: black;
+    font-size: 14px;
 `

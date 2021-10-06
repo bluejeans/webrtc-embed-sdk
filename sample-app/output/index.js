@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "047085d0a635123c2baf";
+/******/ 	var hotCurrentHash = "4c965e6edbccd39e846e";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -801,7 +801,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(e,t){ true?module.exports=t(__webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js")):undefined}(window,function(e){return function(e){var t={};function o(n){if(t[n])return t[n].exports;var r=t[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)o.d(n,r,function(t){return e[t]}.bind(null,r));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=1)}([function(t,o){t.exports=e},function(e,t,o){"use strict";var n=this&&this.__decorate||function(e,t,o,n){var r,i=arguments.length,a=i<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,o):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)a=Reflect.decorate(e,t,o,n);else for(var s=e.length-1;s>=0;s--)(r=e[s])&&(a=(i<3?r(a):i>3?r(t,o,a):r(t,o))||a);return i>3&&a&&Object.defineProperty(t,o,a),a},r=this&&this.__metadata||function(e,t){if("object"==typeof Reflect&&"function"==typeof Reflect.metadata)return Reflect.metadata(e,t)},i=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0});const a=o(0),s=i(o(2));class c{constructor(){this.isSDKInitComplete=!1,this.joinManager=new s.default(this)}joinMeeting(e){this.joinManager.joinMeeting(e,a.action(()=>{this.isSDKInitComplete=!0}))}leave(){}leaveAndEndForAll(){}setAudioMuted(e){}setVideoMuted(e){}startScreenShare(){}stopScreenShare(){}setName(e){}observe(e,t){Object.getOwnPropertyNames(this).includes(e)?a.reaction(()=>this[e],()=>{t()}):console.error("Property is not supported.")}}n([a.observable,r("design:type",Boolean)],c.prototype,"isSDKInitComplete",void 0),n([a.observable,r("design:type",String)],c.prototype,"connectionState",void 0),n([a.observable,r("design:type",Boolean)],c.prototype,"audioMuted",void 0),n([a.observable,r("design:type",Boolean)],c.prototype,"videoMuted",void 0),n([a.observable,r("design:type",Boolean)],c.prototype,"receivingScreenShare",void 0),n([a.observable,r("design:type",Boolean)],c.prototype,"sharingScreen",void 0),n([a.observable,r("design:type",Array)],c.prototype,"participants",void 0),n([a.observable,r("design:type",Object)],c.prototype,"selfParticipant",void 0),n([a.observable,r("design:type",Array)],c.prototype,"chatMessages",void 0),t.default=new c},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=o(3),r=o(4),i="https://bluejeans.com",a="SDK_INIT_COMPLETED";t.default=class{constructor(e){this.embedSDKInterface=e}joinMeeting(e,t){let o=e.meetingInfo,n=e.iFrameProps,a=o.meetingOrigin||r.getQueryParam("env")||i,s=this.formMeetingurl(o,a);s=this.applyUICustomisation(e.uiProps,s);let c=this.buildMeetingIFrame(s,n);c.onload=(()=>{console.debug("Iframe loaded successfully. Trying to establish the connection to the iframe."),this.establishConnectionWithChild(c.contentWindow,a,t)})}formMeetingurl(e,t){let o=window.location.origin,n=e.meetingId,r=e.passcode,i=e.name,a=`${t}/${n}`;return r&&(a=`${a}/${r}`),a=`${a}/quick?embed=true&parent=${o}`,i&&(a=`${a}&name=${encodeURIComponent(i)}`),a}buildMeetingIFrame(e,t){let o=document.createElement("iframe");return o.setAttribute("src",e),o.style.width=t.width||"100%",o.style.height=t.height||"100%",o.style.borderRadius="10px",o.setAttribute("allow","autoplay; fullscreen; microphone; camera; display-capture"),o.setAttribute("noResize","true"),t.selectorId?document.querySelector(t.selectorId).appendChild(o):document.body.appendChild(o),o}applyUICustomisation(e,t){return t=e.hideSignInButton?`${t}&sign_in=false`:t,t=e.disableFullScreenToggle?`${t}&fullscreen_toggle=false`:t,t=e.hideFooter?`${t}&footer=false`:t,t=e.hideChatPanel?`${t}&chat=false`:t,t=e.hideAppsPanel?`${t}&apps=false`:t,t=e.hideRoomJoinOption?`${t}&room_pairing=false`:t,t=e.lockMeetingControls?`${t}&layout=true`:t,t=e.hideCopyLink?`${t}&copy_link=false`:t,t=e.hideRatingScreen?`${t}&rating=false`:t,t=e.hideAppPitches?`${t}&app_pitch=false`:t,t=e.hideOtherJoinOptions?`${t}&join_options=false`:t,t=e.customBackground?`${t}&bg=${encodeURIComponent(e.customBackground)}`:t}establishConnectionWithChild(e,t,o){let r=i=>{console.debug("While establishing connection the parent received : ",i.data),n.messageTypeFromKnownOrigin(i,t,n.MESSAGE_TYPE_IFRAME)&&i.data.info===a&&(window.removeEventListener("message",r),n.makeCrossIframeProxy(this.embedSDKInterface,e,t),o())};window.addEventListener("message",r,!1)}}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=o(0);function r(e,t,o){return!(!e.data.type||e.data.type!=o)&&t==e.origin}t.MESSAGE_TYPE_PARENT="crossdomain.toTarget",t.MESSAGE_TYPE_IFRAME="crossdomain.toProxy",t.messageTypeFromKnownOrigin=r,t.makeCrossIframeProxy=function(e,o,i){!function(e,o,i){const a=n.action(o=>{console.debug("Parent Recieved data : ",o.data),r(o,i,t.MESSAGE_TYPE_IFRAME)&&(e[o.data.property]=o.data.value)});window.addEventListener("message",a,!1)}(e,0,i),function(e,o,n){const r=Object.getOwnPropertyDescriptors(Object.getPrototypeOf(e));Object.keys(r).forEach(i=>{const a=r[i];a.value&&"function"==typeof a.value&&"joinMeeting"!=i&&"observe"!=i&&(e[i]=function(){const e=Array.prototype.slice.call(arguments);o.postMessage({type:t.MESSAGE_TYPE_PARENT,method:i,args:e},n)})})}(e,o,i)}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.getQueryParam=function(e){try{if(window.location.search){let t,o=function(e){return window.decodeURIComponent(e.replace(/\+/g," "))},n={},r=window.location.search.slice(1).split("&");for(let e=0;e<r.length;e++)(t=r[e].split("="))[0]&&(t.length<2&&t.push(""),n[o(t[0])]=o(t[1]));return n[e]}}catch(e){console.debug("Error in parsing the query params")}return null}}]).default});
+!function(e,t){ true?module.exports=t(__webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js")):undefined}(window,function(e){return function(e){var t={};function o(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,o),i.l=!0,i.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)o.d(n,i,function(t){return e[t]}.bind(null,i));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=2)}([function(t,o){t.exports=e},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.VideoState=t.BJNEConnectionState=void 0,function(e){e.CONNECTING="Connecting",e.CONNECTED="Connected",e.RECONNECTING="Reconnecting",e.DISCONNECTED="Disconnected"}(t.BJNEConnectionState||(t.BJNEConnectionState={})),function(e){e.ACTIVE="ACTIVE",e.INACTIVE_ONLY_PARTICIPANT="INACTIVE_ONLY_PARTICIPANT",e.INACTIVE_NO_ONE_HAS_VIDEO="INACTIVE_NO_ONE_HAS_VIDEO",e.INACTIVE_NEEDS_MODERATOR="INACTIVE_NEEDS_MODERATOR",e.INACTIVE_DISCONNECTED="INACTIVE_DISCONNECTED"}(t.VideoState||(t.VideoState={}))},function(e,t,o){"use strict";var n=this&&this.__decorate||function(e,t,o,n){var i,r=arguments.length,a=r<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,o):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)a=Reflect.decorate(e,t,o,n);else for(var s=e.length-1;s>=0;s--)(i=e[s])&&(a=(r<3?i(a):r>3?i(t,o,a):i(t,o))||a);return r>3&&a&&Object.defineProperty(t,o,a),a},i=this&&this.__metadata||function(e,t){if("object"==typeof Reflect&&"function"==typeof Reflect.metadata)return Reflect.metadata(e,t)},r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.BJNEmbedSDK=t.VideoState=t.BJNEConnectionState=t.Locale=void 0;const a=o(0),s=r(o(3));o(1);class c{constructor(){this.isSDKInitComplete=!1,this.joinManager=new s.default(this)}joinMeeting(e){this.joinManager.joinMeeting(e,a.action(()=>{this.isSDKInitComplete=!0}))}leave(){}leaveAndEndForAll(){}setAudioMuted(e){}setVideoMuted(e){}startScreenShare(){}stopScreenShare(){}setName(e){}observe(e,t){Object.getOwnPropertyNames(this).includes(e)?a.reaction(()=>this[e],()=>{t()}):console.error("Property is not supported.")}}n([a.observable,i("design:type",Boolean)],c.prototype,"isSDKInitComplete",void 0),n([a.observable,i("design:type",String)],c.prototype,"connectionState",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"audioMuted",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"videoMuted",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"receivingScreenShare",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"sharingScreen",void 0),n([a.observable,i("design:type",Array)],c.prototype,"participants",void 0),n([a.observable,i("design:type",Object)],c.prototype,"selfParticipant",void 0),n([a.observable,i("design:type",Array)],c.prototype,"chatMessages",void 0),n([a.observable,i("design:type",String)],c.prototype,"videoState",void 0);var l=o(6);Object.defineProperty(t,"Locale",{enumerable:!0,get:function(){return l.Locale}});var d=o(1);Object.defineProperty(t,"BJNEConnectionState",{enumerable:!0,get:function(){return d.BJNEConnectionState}}),Object.defineProperty(t,"VideoState",{enumerable:!0,get:function(){return d.VideoState}}),t.BJNEmbedSDK=new c},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=o(4),i=o(5),r="https://bluejeans.com",a="SDK_INIT_COMPLETED";t.default=class{constructor(e){this.embedSDKInterface=e}joinMeeting(e,t){let o=e.meetingInfo,n=e.iFrameProps,a=o.meetingOrigin||i.getQueryParam("env")||r,s=this.formMeetingurl(o,a);s=this.applyUICustomisation(e.uiProps,s);let c=this.buildMeetingIFrame(s,n);console.debug("Trying to establish the connection to the iframe."),this.establishConnectionWithChild(c.contentWindow,a,t)}formMeetingurl(e,t){let o=window.location.origin,n=e.meetingId,i=e.passcode,r=e.name,a=`${t}/${n}`;return i&&(a=`${a}/${i}`),a=`${a}/quick?embed=true&parent=${o}`,r&&(a=`${a}&name=${encodeURIComponent(r)}`),a}buildMeetingIFrame(e,t){let o=document.createElement("iframe");return o.setAttribute("src",e),o.style.width=t.width||"100%",o.style.height=t.height||"100%",o.style.borderRadius="10px",o.setAttribute("allow","autoplay; fullscreen; microphone; camera; display-capture"),o.setAttribute("noResize","true"),t.selectorId?document.querySelector(t.selectorId).appendChild(o):document.body.appendChild(o),o}applyUICustomisation(e,t){return t=e.hideSignInButton?`${t}&sign_in=false`:t,t=e.disableFullScreenToggle?`${t}&fullscreen_toggle=false`:t,t=e.hideFooter?`${t}&footer=false`:t,t=e.hideChatPanel?`${t}&chat=false`:t,t=e.hideAppsPanel?`${t}&apps=false`:t,t=e.hideRoomJoinOption?`${t}&room_pairing=false`:t,t=e.lockMeetingControls?`${t}&layout=true`:t,t=e.hideCopyLink?`${t}&copy_link=false`:t,t=e.hideRatingScreen?`${t}&rating=false`:t,t=e.hideAppPitches?`${t}&app_pitch=false`:t,t=e.hideOtherJoinOptions?`${t}&join_options=false`:t,t=e.customBackground?`${t}&bg=${encodeURIComponent(e.customBackground)}`:t,t=e.inMeetingBGConfig?`${t}&audioTileBG=${encodeURIComponent(e.inMeetingBGConfig.audioTileColor)}`:t,t=e.inMeetingBGConfig?`${t}&tileContainerBG=${encodeURIComponent(e.inMeetingBGConfig.containerColorOfAllTiles)}`:t,t=e.locale?`${t}&ll=${encodeURIComponent(e.locale)}`:t}establishConnectionWithChild(e,t,o){let i=r=>{console.debug("While establishing connection the parent received : ",r.data),n.messageTypeFromKnownOrigin(r,t,n.MESSAGE_TYPE_IFRAME)&&r.data.info===a&&(window.removeEventListener("message",i),n.makeCrossIframeProxy(this.embedSDKInterface,e,t),o())};window.addEventListener("message",i,!1)}}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.makeCrossIframeProxy=t.messageTypeFromKnownOrigin=t.MESSAGE_TYPE_IFRAME=t.MESSAGE_TYPE_PARENT=void 0;const n=o(0);function i(e,t,o){return!(!e.data.type||e.data.type!=o)&&t==e.origin}t.MESSAGE_TYPE_PARENT="crossdomain.toTarget",t.MESSAGE_TYPE_IFRAME="crossdomain.toProxy",t.messageTypeFromKnownOrigin=i,t.makeCrossIframeProxy=function(e,o,r){!function(e,o,r){const a=n.action(o=>{console.debug("Parent Recieved data : ",o.data),i(o,r,t.MESSAGE_TYPE_IFRAME)&&(e[o.data.property]=o.data.value)});window.addEventListener("message",a,!1)}(e,0,r),function(e,o,n){const i=Object.getOwnPropertyDescriptors(Object.getPrototypeOf(e));Object.keys(i).forEach(r=>{const a=i[r];a.value&&"function"==typeof a.value&&"joinMeeting"!=r&&"observe"!=r&&(e[r]=function(){const e=Array.prototype.slice.call(arguments);o.postMessage({type:t.MESSAGE_TYPE_PARENT,method:r,args:e},n)})})}(e,o,r)}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.getQueryParam=void 0,t.getQueryParam=function(e){try{if(window.location.search){let t,o=function(e){return window.decodeURIComponent(e.replace(/\+/g," "))},n={},i=window.location.search.slice(1).split("&");for(let e=0;e<i.length;e++)(t=i[e].split("="))[0]&&(t.length<2&&t.push(""),n[o(t[0])]=o(t[1]));return n[e]}}catch(e){console.debug("Error in parsing the query params")}return null}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Locale=void 0,function(e){e.EN="en",e.ES="es",e.DE="de",e.FR="fr",e.JA="ja"}(t.Locale||(t.Locale={}))}])});
 
 /***/ }),
 
@@ -35063,71 +35063,71 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-const bluejeans_webrtc_embed_sdk_1 = __importDefault(__webpack_require__(/*! bluejeans-webrtc-embed-sdk */ "./node_modules/bluejeans-webrtc-embed-sdk/dist/BJNEmbedSDK.js"));
+const bluejeans_webrtc_embed_sdk_1 = __webpack_require__(/*! bluejeans-webrtc-embed-sdk */ "./node_modules/bluejeans-webrtc-embed-sdk/dist/BJNEmbedSDK.js");
 class EmbedSDKManager {
     constructor() {
-        bluejeans_webrtc_embed_sdk_1.default.observe("audioMuted", () => {
-            console.info("audioMuted changed : ", bluejeans_webrtc_embed_sdk_1.default.audioMuted);
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.observe("audioMuted", () => {
+            console.info("audioMuted changed : ", bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.audioMuted);
         });
-        bluejeans_webrtc_embed_sdk_1.default.observe("connectionState", () => {
-            console.info("connectionState changed : ", bluejeans_webrtc_embed_sdk_1.default.connectionState);
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.observe("connectionState", () => {
+            console.info("connectionState changed : ", bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.connectionState);
         });
     }
     get isSDKInitComplete() {
-        return bluejeans_webrtc_embed_sdk_1.default.isSDKInitComplete;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.isSDKInitComplete;
     }
     get connectionState() {
-        return bluejeans_webrtc_embed_sdk_1.default.connectionState;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.connectionState;
     }
     get audioMuted() {
-        return bluejeans_webrtc_embed_sdk_1.default.audioMuted;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.audioMuted;
     }
     get videoMuted() {
-        return bluejeans_webrtc_embed_sdk_1.default.videoMuted;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.videoMuted;
     }
     get receivingScreenShare() {
-        return bluejeans_webrtc_embed_sdk_1.default.receivingScreenShare;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.receivingScreenShare;
     }
     get sharingScreen() {
-        return bluejeans_webrtc_embed_sdk_1.default.sharingScreen;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.sharingScreen;
     }
     get participants() {
-        return bluejeans_webrtc_embed_sdk_1.default.participants;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.participants;
     }
     get selfParticipant() {
-        return bluejeans_webrtc_embed_sdk_1.default.selfParticipant;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.selfParticipant;
     }
     get chatMessages() {
-        return bluejeans_webrtc_embed_sdk_1.default.chatMessages;
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.chatMessages;
+    }
+    get videoState() {
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.videoState;
     }
     joinMeeting(joinProps) {
-        bluejeans_webrtc_embed_sdk_1.default.joinMeeting(joinProps);
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.joinMeeting(joinProps);
     }
     leave() {
-        bluejeans_webrtc_embed_sdk_1.default.leave();
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.leave();
     }
     leaveAndEndForAll() {
         // TODO
     }
     setAudioMuted() {
-        bluejeans_webrtc_embed_sdk_1.default.setAudioMuted();
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setAudioMuted();
     }
     setVideoMuted() {
-        bluejeans_webrtc_embed_sdk_1.default.setVideoMuted();
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setVideoMuted();
     }
     startScreenShare() {
-        bluejeans_webrtc_embed_sdk_1.default.startScreenShare();
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.startScreenShare();
     }
     stopScreenShare() {
-        bluejeans_webrtc_embed_sdk_1.default.stopScreenShare();
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.stopScreenShare();
     }
     setName(name) {
-        bluejeans_webrtc_embed_sdk_1.default.setName(name);
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setName(name);
     }
 }
 __decorate([
@@ -35157,6 +35157,9 @@ __decorate([
 __decorate([
     mobx_1.computed
 ], EmbedSDKManager.prototype, "chatMessages", null);
+__decorate([
+    mobx_1.computed
+], EmbedSDKManager.prototype, "videoState", null);
 __decorate([
     mobx_1.action
 ], EmbedSDKManager.prototype, "joinMeeting", null);
@@ -35392,6 +35395,12 @@ let MeetingView = class MeetingView extends react_1.Component {
                             react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, this.viewModel.meetingStatus))),
                     react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
                         react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
+                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Video State")),
+                        this.colonSeparator,
+                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
+                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, this.viewModel.videoState))),
+                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
+                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
                             react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Audio control")),
                         this.colonSeparator,
                         react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
@@ -35480,6 +35489,9 @@ class MeetingViewModel {
     get callControlInfo() {
         return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting";
     }
+    get videoState() {
+        return this.embedSDKManager.videoState;
+    }
     get isDisconnected() {
         return (this.embedSDKManager.connectionState === "Disconnected");
     }
@@ -35539,6 +35551,9 @@ __decorate([
 __decorate([
     mobx_1.computed
 ], MeetingViewModel.prototype, "callControlInfo", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "videoState", null);
 __decorate([
     mobx_1.computed
 ], MeetingViewModel.prototype, "isDisconnected", null);
@@ -35609,6 +35624,17 @@ let PreMeetingView = class PreMeetingView extends react_1.Component {
         super(props);
         this.viewmodel = new PreMeetingViewModel_1.default(props.managers);
     }
+    makeDropdown(selectedItem, items, idProp, displayProp, onSelect) {
+        const doSelect = (e) => {
+            const newValue = items.find(item => item[idProp] + "" == e.target.value);
+            onSelect(newValue);
+        };
+        return (selectedItem ?
+            react_1.default.createElement(PreMeeting_1.MeetingDeviceDropdown, { value: selectedItem[idProp] + "", onChange: doSelect }, items === null || items === void 0 ? void 0 : items.map(item => {
+                return react_1.default.createElement("option", { key: item[idProp] + "", value: item[idProp] + "" }, item[displayProp] + "");
+            }))
+            : react_1.default.createElement(react_1.default.Fragment, null));
+    }
     render() {
         return (react_1.default.createElement(PreMeeting_1.ViewContainer, null,
             react_1.default.createElement(PreMeeting_1.GreetingsHeader, null, "Welcome!"),
@@ -35649,11 +35675,25 @@ let PreMeetingView = class PreMeetingView extends react_1.Component {
                                 react_1.default.createElement("label", null, "Disable Meeting Rating screens")),
                             react_1.default.createElement(PreMeeting_1.OptionsData, null,
                                 react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.disableAppPitches, onChange: this.viewmodel.setDisableAppPitch }),
-                                react_1.default.createElement("label", null, "Disable app pitches"))))),
+                                react_1.default.createElement("label", null, "Disable app pitches")),
+                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideOtherJoinOptions, onChange: this.viewmodel.setShouldHideOtherJoinOptions }),
+                                react_1.default.createElement("label", null, "Hide other join options"))))),
                 react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
-                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Background Color :"),
+                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, { customStyle: "margin-left : 70px;" }, "Background Color :"),
                     react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.backgroundColor, onChange: this.viewmodel.setBackgroundColor }),
                     react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
+                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, { customStyle: "margin-left : 90px;" }, "AudioTile Color :"),
+                    react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.customInMeetingBGConfig.audioTileColor, onChange: this.viewmodel.setAudioTileColor }),
+                    react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
+                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Color for container of all tiles :"),
+                    react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.customInMeetingBGConfig.containerColorOfAllTiles, onChange: this.viewmodel.setContainerColorOfAllTiles }),
+                    react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
+                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Locale :"),
+                    this.makeDropdown({ id: this.viewmodel.appLocale, name: this.viewmodel.localeName(this.viewmodel.appLocale) }, this.viewmodel.availableLocales, "id", "name", this.viewmodel.setAppLocale)),
                 react_1.default.createElement(PreMeeting_1.IFramePropsContainer, null,
                     react_1.default.createElement(PreMeeting_1.IFrameLabel, null, "Meeting container specifications(Optional)"),
                     react_1.default.createElement(PreMeeting_1.IFrameProps, null,
@@ -35693,6 +35733,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+const bluejeans_webrtc_embed_sdk_1 = __webpack_require__(/*! bluejeans-webrtc-embed-sdk */ "./node_modules/bluejeans-webrtc-embed-sdk/dist/BJNEmbedSDK.js");
 class PreMeetingViewModel {
     constructor(managers) {
         this.meetingID = "";
@@ -35706,12 +35747,18 @@ class PreMeetingViewModel {
         this.hideCopyLink = false;
         this.hideRatingScreen = false;
         this.disableAppPitches = false;
+        this.hideOtherJoinOptions = false;
         this.backgroundColor = "";
         this.meetingContainerWidth = "";
         this.meetingContainerHeight = "";
         this.meetingContainerRef = ".iframeHolder";
+        this.appLocale = bluejeans_webrtc_embed_sdk_1.Locale.EN;
         this.embedSDKManager = managers.embedSDKManager;
         this.appManager = managers.appManager;
+        this.customInMeetingBGConfig = {
+            audioTileColor: "",
+            containerColorOfAllTiles: ""
+        };
     }
     setMeetingId(event) {
         this.meetingID = event.target.value;
@@ -35746,6 +35793,9 @@ class PreMeetingViewModel {
     setDisableAppPitch(event) {
         this.disableAppPitches = event.target.checked;
     }
+    setShouldHideOtherJoinOptions(event) {
+        this.hideOtherJoinOptions = event.target.checked;
+    }
     setBackgroundColor(event) {
         this.backgroundColor = event.target.value;
     }
@@ -35762,6 +35812,12 @@ class PreMeetingViewModel {
         this.appManager.setJoiningMeeting(true);
         this.appManager.setJoinProps(this.joinprops);
         this.embedSDKManager.joinMeeting(this.joinprops);
+    }
+    setAudioTileColor(event) {
+        this.customInMeetingBGConfig.audioTileColor = event.target.value;
+    }
+    setContainerColorOfAllTiles(event) {
+        this.customInMeetingBGConfig.containerColorOfAllTiles = event.target.value;
     }
     get joinprops() {
         return {
@@ -35787,7 +35843,10 @@ class PreMeetingViewModel {
             hideCopyLink: this.hideCopyLink,
             hideRatingScreen: this.hideRatingScreen,
             hideAppPitches: this.disableAppPitches,
-            customBackground: this.backgroundColor
+            customBackground: this.backgroundColor,
+            hideOtherJoinOptions: this.hideOtherJoinOptions,
+            inMeetingBGConfig: this.customInMeetingBGConfig,
+            locale: this.appLocale
         };
     }
     get iFrameProps() {
@@ -35796,6 +35855,32 @@ class PreMeetingViewModel {
             height: this.meetingContainerHeight,
             selectorId: this.meetingContainerRef
         };
+    }
+    get availableLocales() {
+        let options = [];
+        for (const locale in bluejeans_webrtc_embed_sdk_1.Locale) {
+            options.push({ id: bluejeans_webrtc_embed_sdk_1.Locale[locale], name: this.localeName(bluejeans_webrtc_embed_sdk_1.Locale[locale]) });
+        }
+        return options;
+    }
+    localeName(locale) {
+        switch (locale) {
+            case bluejeans_webrtc_embed_sdk_1.Locale.EN:
+                return "English";
+            case bluejeans_webrtc_embed_sdk_1.Locale.ES:
+                return "Spanish";
+            case bluejeans_webrtc_embed_sdk_1.Locale.DE:
+                return "German";
+            case bluejeans_webrtc_embed_sdk_1.Locale.FR:
+                return "French";
+            case bluejeans_webrtc_embed_sdk_1.Locale.JA:
+                return "Japanese";
+            default:
+                return "English";
+        }
+    }
+    setAppLocale(locale) {
+        this.appLocale = locale.id;
     }
 }
 __decorate([
@@ -35833,7 +35918,13 @@ __decorate([
 ], PreMeetingViewModel.prototype, "disableAppPitches", void 0);
 __decorate([
     mobx_1.observable
+], PreMeetingViewModel.prototype, "hideOtherJoinOptions", void 0);
+__decorate([
+    mobx_1.observable
 ], PreMeetingViewModel.prototype, "backgroundColor", void 0);
+__decorate([
+    mobx_1.observable
+], PreMeetingViewModel.prototype, "customInMeetingBGConfig", void 0);
 __decorate([
     mobx_1.observable
 ], PreMeetingViewModel.prototype, "meetingContainerWidth", void 0);
@@ -35843,6 +35934,9 @@ __decorate([
 __decorate([
     mobx_1.observable
 ], PreMeetingViewModel.prototype, "meetingContainerRef", void 0);
+__decorate([
+    mobx_1.observable
+], PreMeetingViewModel.prototype, "appLocale", void 0);
 __decorate([
     mobx_1.action.bound
 ], PreMeetingViewModel.prototype, "setMeetingId", null);
@@ -35878,6 +35972,9 @@ __decorate([
 ], PreMeetingViewModel.prototype, "setDisableAppPitch", null);
 __decorate([
     mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setShouldHideOtherJoinOptions", null);
+__decorate([
+    mobx_1.action.bound
 ], PreMeetingViewModel.prototype, "setBackgroundColor", null);
 __decorate([
     mobx_1.action.bound
@@ -35891,6 +35988,15 @@ __decorate([
 __decorate([
     mobx_1.action.bound
 ], PreMeetingViewModel.prototype, "joinMeeting", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setAudioTileColor", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setContainerColorOfAllTiles", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setAppLocale", null);
 exports.default = PreMeetingViewModel;
 
 
@@ -36087,7 +36193,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLabel = exports.IFramePropsContainer = exports.BGColorHint = exports.BGColorTextBox = exports.BGColorTextLabel = exports.BGOptionContainer = exports.CheckBox = exports.OptionsData = exports.OptionsHeader = exports.UIOptions = exports.UIOptionsContainer = exports.JoinButton = exports.JoinName = exports.Passcode = exports.MeetingID = exports.MeetingInfoContainer = exports.GreetingsSubHeader = exports.GreetingsHeader = exports.ViewContainer = void 0;
+exports.MeetingDeviceDropdown = exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLabel = exports.IFramePropsContainer = exports.BGColorHint = exports.BGColorTextBox = exports.BGColorTextLabel = exports.BGOptionContainer = exports.CheckBox = exports.OptionsData = exports.OptionsHeader = exports.UIOptions = exports.UIOptionsContainer = exports.JoinButton = exports.JoinName = exports.Passcode = exports.MeetingID = exports.MeetingInfoContainer = exports.GreetingsSubHeader = exports.GreetingsHeader = exports.ViewContainer = void 0;
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 const Common_1 = __webpack_require__(/*! ./Common */ "./src/views/styles/Common.ts");
 exports.ViewContainer = styled_components_1.default.div `
@@ -36148,7 +36254,8 @@ exports.BGOptionContainer = styled_components_1.default.div `
     background: lightgray;
     padding: 10px;
 `;
-exports.BGColorTextLabel = styled_components_1.default.span `
+exports.BGColorTextLabel = styled_components_1.default("span") `
+    ${props => props.customStyle}
 `;
 exports.BGColorTextBox = styled_components_1.default(Common_1.TextBox) `
     width: 400px;
@@ -36185,6 +36292,16 @@ exports.PropsHint = styled_components_1.default.span `
     font-style: italic;
     font-weight: 600;
     margin-left: 12px;
+`;
+exports.MeetingDeviceDropdown = styled_components_1.default.select `
+    width: 180px;
+    display: block;
+    padding: 4px;
+    margin: 8px auto;
+    border-radius: 4px;
+    background: white;
+    color: black;
+    font-size: 14px;
 `;
 
 

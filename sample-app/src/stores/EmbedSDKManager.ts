@@ -1,5 +1,5 @@
 import { computed, action } from "mobx";
-import BJNEmbedSDK, { BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps } from "bluejeans-webrtc-embed-sdk";
+import  { BJNEmbedSDK, BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps, VideoState } from "bluejeans-webrtc-embed-sdk";
 
 export default class EmbedSDKManager implements BJNEmbedSDKInterface {
 
@@ -47,6 +47,10 @@ export default class EmbedSDKManager implements BJNEmbedSDKInterface {
 
     @computed get chatMessages(): BJNEChatMessage[] {
         return BJNEmbedSDK.chatMessages;
+    }
+
+    @computed get videoState(): VideoState {
+        return BJNEmbedSDK.videoState;
     }
 
     @action joinMeeting(joinProps : JoinProps) {

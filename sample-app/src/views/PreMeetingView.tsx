@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import Managers from '../stores/Managers';
 import { ViewContainer, GreetingsHeader, GreetingsSubHeader, MeetingInfoContainer, MeetingID, Passcode, JoinName, JoinButton,
     UIOptionsContainer, UIOptions, OptionsHeader, OptionsData, CheckBox, BGOptionContainer, BGColorTextLabel, BGColorTextBox, BGColorHint,
-    IFramePropsContainer, IFrameLabel, IFrameProps, PropsSpecs, PropsHint } from './styles/PreMeeting';
+    IFramePropsContainer, IFrameLabel, IFrameProps, PropsSpecs, PropsHint, MeetingDeviceDropdown } from './styles/PreMeeting';
 import PreMeetingViewModel from './PreMeetingViewModel';
 
 interface Props {
@@ -19,6 +19,22 @@ export default class PreMeetingView extends Component<Props> {
     constructor(props: Props) {
         super(props);
         this.viewmodel = new PreMeetingViewModel(props.managers);
+    }
+
+    makeDropdown<T>(selectedItem: T | null, items: T[], idProp: keyof T, displayProp: keyof T, onSelect: (T) => void): JSX.Element {
+        const doSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+            const newValue = items.find(item => item[idProp] + "" == e.target.value)
+            onSelect(newValue)
+        }
+        return (
+            selectedItem ?
+                <MeetingDeviceDropdown value={ selectedItem[idProp] + "" } onChange={ doSelect }>
+                    { items?.map(item => {
+                        return <option key={ item[idProp] + "" } value={ item[idProp] + "" }>{item[displayProp] + ""}</option> 
+                    }) }
+                </MeetingDeviceDropdown>
+                : <></>
+        )
     }
 
     render() {
@@ -97,15 +113,43 @@ export default class PreMeetingView extends Component<Props> {
                                         onChange={ this.viewmodel.setDisableAppPitch }/>
                                     <label>Disable app pitches</label>
                                 </OptionsData>
+                                <OptionsData>
+                                    <CheckBox
+                                        type="checkbox"
+                                        checked={ this.viewmodel.hideOtherJoinOptions }
+                                        onChange={ this.viewmodel.setShouldHideOtherJoinOptions }/>
+                                    <label>Hide other join options</label>
+                                </OptionsData>
                             </tr>
                         </UIOptions>
                     </UIOptionsContainer>
                     <BGOptionContainer>
-                        <BGColorTextLabel>Background Color :</BGColorTextLabel>
+                        <BGColorTextLabel customStyle={"margin-left : 70px;"}>Background Color :</BGColorTextLabel>
                         <BGColorTextBox
                             placeholder="#FFFFFF or linear-gradient(#6600CC, #6600FF)"
                             value={ this.viewmodel.backgroundColor } onChange={ this.viewmodel.setBackgroundColor }/>
                         <BGColorHint>Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)</BGColorHint>
+                    </BGOptionContainer>
+                    <BGOptionContainer>
+                        <BGColorTextLabel customStyle={"margin-left : 90px;"}>AudioTile Color :</BGColorTextLabel>
+                        <BGColorTextBox
+                            placeholder="#FFFFFF or linear-gradient(#6600CC, #6600FF)"
+                            value={ this.viewmodel.customInMeetingBGConfig.audioTileColor } onChange={ this.viewmodel.setAudioTileColor }/>
+                        <BGColorHint>Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)</BGColorHint>
+                    </BGOptionContainer>
+                    <BGOptionContainer>
+                        <BGColorTextLabel>Color for container of all tiles :</BGColorTextLabel>
+                        <BGColorTextBox
+                            placeholder="#FFFFFF or linear-gradient(#6600CC, #6600FF)"
+                            value={ this.viewmodel.customInMeetingBGConfig.containerColorOfAllTiles } onChange={ this.viewmodel.setContainerColorOfAllTiles }/>
+                        <BGColorHint>Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)</BGColorHint>
+                    </BGOptionContainer>
+                    <BGOptionContainer>
+                        <BGColorTextLabel>Locale :</BGColorTextLabel>
+                        {
+                            this.makeDropdown({id: this.viewmodel.appLocale, name : this.viewmodel.localeName(this.viewmodel.appLocale)},
+                                this.viewmodel.availableLocales, "id", "name", this.viewmodel.setAppLocale)
+                        }
                     </BGOptionContainer>
                     <IFramePropsContainer>
                         <IFrameLabel>Meeting container specifications(Optional)</IFrameLabel>
