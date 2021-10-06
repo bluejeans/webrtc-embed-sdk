@@ -74,7 +74,7 @@
 			<nav class="tsd-navigation outline primary">
 				<a style="margin-left:0em" href="../globals.html">Globals</a>
 				<ul style="display:none">
-					{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}
+					{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;classes/_bjnembedsdk_.embedsdk&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}
 				</ul>
 			</nav>
 		</div>
@@ -84,16 +84,6 @@
 					<div class="lead">
 						<p>Provides the object structure for the meeting information.</p>
 					</div>
-					</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-					<dl class="tsd-comment-tags"><dt>param</dt>
-						<dd><p>the meeting id of the meeting</p>
-						</dd><dt>param</dt>
-						<dd><p>the passcode of the meeting, if the meeting is passcode required this needs to be provided.</p>
-						</dd><dt>param</dt>
-						<dd><p>the origin of the meeting host url,
-								<a href="https://bluejeans.com">https://bluejeans.com</a> or <a href="https://a.bluejeans.com">https://a.bluejeans.com</a>.
-							Default will be <a href="https://bluejeans.com">https://bluejeans.com</a> (production)</p>
-					</dd></dl>
 			</div></section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -110,7 +100,6 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.meetinginfo.html#meetingid" class="tsd-kind-icon">meetingId</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.meetinginfo.html#meetingorigin" class="tsd-kind-icon">meetingOrigin</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.meetinginfo.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.meetinginfo.html#passcode" class="tsd-kind-icon">passcode</a></li>
 							</ul>
@@ -126,19 +115,14 @@
 					<div class="tsd-signature tsd-kind-icon">meeting<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:31</li>
+							<li>Defined in JoinProps.ts:26</li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="meetingorigin" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> meeting<wbr>Origin</h3>
-					<div class="tsd-signature tsd-kind-icon">meeting<wbr>Origin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in JoinProps.ts:34</li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>The meeting id of the meeting</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="name" class="tsd-anchor"></a>
@@ -146,9 +130,14 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:33</li>
+							<li>Defined in JoinProps.ts:30</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>The name with which your endpoint will join the meeting</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="passcode" class="tsd-anchor"></a>
@@ -156,18 +145,29 @@
 					<div class="tsd-signature tsd-kind-icon">passcode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:32</li>
+							<li>Defined in JoinProps.ts:28</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>The passcode of the meeting, if the meeting is passcode required this needs to be provided.</p>
+						</div>
+					</div>
 				</section>
 			</section>
-			<!--{&quot;options&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/naveen.bhaskar/bjn-repos/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;modules/_bjnembedsdk_&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
+			<!--{&quot;options&quot;:&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/URLUtility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;src/util/*&quot;,&quot;src/JoinManager.ts&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;classes/_bjnembedsdk_.embedsdk&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
 		</div>
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module root">
+						<a href="../enums/_joinprops_.locale.html" class="tsd-kind-icon">Locale</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.iframeprops.html" class="tsd-kind-icon">IFrame<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.inmeetingbgcolors.html" class="tsd-kind-icon">In<wbr>MeetingBGColors</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.joinprops.html" class="tsd-kind-icon">Join<wbr>Props</a>
@@ -179,9 +179,6 @@
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_joinprops_.meetinginfo.html#meetingid" class="tsd-kind-icon">meeting<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_joinprops_.meetinginfo.html#meetingorigin" class="tsd-kind-icon">meeting<wbr>Origin</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_joinprops_.meetinginfo.html#name" class="tsd-kind-icon">name</a>
