@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BJNEConnectionState | BlueJeans Web Embed SDK - v2.1.0</title>
+	<title>Video | BlueJeans Web Embed SDK - v2.1.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules/_meetingprops_.html">MeetingProps</a>
+					<a href="../modules/_joinprops_.html">JoinProps</a>
 				</li>
 				<li>
-					<a href="_meetingprops_.bjneconnectionstate.html">BJNEConnectionState</a>
+					<a href="_joinprops_.video.html">Video</a>
 				</li>
 			</ul>
 		</div>
@@ -79,87 +79,98 @@
 			</nav>
 		</div>
 		<div class="col-7 offset-3 col-content">
-			<h1>Enumeration BJNEConnectionState</h1>
+			<h1>Interface Video</h1>
 			<section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography tsd-comment-shorttext">
 					<div class="lead">
-						<p>Provides the meeting state.</p>
+						<p>Provides the object structure, for the Video to be shown in telehealth waiting screen</p>
 					</div>
+					</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+					<dl class="tsd-comment-tags"><dt>interface</dt>
+					<dd></dd></dl>
 			</div></section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Video</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_meetingprops_.bjneconnectionstate.html#connected" class="tsd-kind-icon">CONNECTED</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_meetingprops_.bjneconnectionstate.html#connecting" class="tsd-kind-icon">CONNECTING</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_meetingprops_.bjneconnectionstate.html#disconnected" class="tsd-kind-icon">DISCONNECTED</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_meetingprops_.bjneconnectionstate.html#reconnecting" class="tsd-kind-icon">RECONNECTING</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.video.html#duration" class="tsd-kind-icon">duration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.video.html#thumbnailurl" class="tsd-kind-icon">thumbnailUrl</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.video.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.video.html#url" class="tsd-kind-icon">url</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="connected" class="tsd-anchor"></a>
-					<h3>CONNECTED</h3>
-					<div class="tsd-signature tsd-kind-icon">CONNECTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Connected&quot;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="duration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> duration</h3>
+					<div class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in MeetingProps.ts:15</li>
+							<li>Defined in JoinProps.ts:124</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>Meeting is connected and got into the meeting.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>Video&#39;s duration</p>
+						</dd></dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="connecting" class="tsd-anchor"></a>
-					<h3>CONNECTING</h3>
-					<div class="tsd-signature tsd-kind-icon">CONNECTING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Connecting&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="thumbnailurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> thumbnail<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">thumbnail<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in MeetingProps.ts:10</li>
+							<li>Defined in JoinProps.ts:116</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>State where the meeting is in connecting stage.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>Thumbnail URL, for the video shown</p>
+						</dd></dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="disconnected" class="tsd-anchor"></a>
-					<h3>DISCONNECTED</h3>
-					<div class="tsd-signature tsd-kind-icon">DISCONNECTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Disconnected&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="title" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> title</h3>
+					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in MeetingProps.ts:25</li>
+							<li>Defined in JoinProps.ts:112</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>The meeting has been disconnected, Self disconnect or the moderator kicked out.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>Video&#39;s title info</p>
+						</dd></dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="reconnecting" class="tsd-anchor"></a>
-					<h3>RECONNECTING</h3>
-					<div class="tsd-signature tsd-kind-icon">RECONNECTING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Reconnecting&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="url" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in MeetingProps.ts:20</li>
+							<li>Defined in JoinProps.ts:120</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>There is a network drop detected and trying to reconnect to the meeting.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>Video&#39;s URL</p>
+						</dd></dl>
 					</div>
 				</section>
 			</section>
@@ -168,35 +179,59 @@
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module root">
+						<a href="../enums/_joinprops_.locale.html" class="tsd-kind-icon">Locale</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.article.html" class="tsd-kind-icon">Article</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.articles.html" class="tsd-kind-icon">Articles</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.iframeprops.html" class="tsd-kind-icon">IFrame<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.inmeetingbgcolors.html" class="tsd-kind-icon">In<wbr>MeetingBGColors</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.joinprops.html" class="tsd-kind-icon">Join<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.meetinginfo.html" class="tsd-kind-icon">Meeting<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.resources.html" class="tsd-kind-icon">Resources</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.thsettings.html" class="tsd-kind-icon">THSettings</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.uiprops.html" class="tsd-kind-icon">UIProps</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-module root">
-						<a href="_meetingprops_.bjneconnectionstate.html" class="tsd-kind-icon">BJNEConnection<wbr>State</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.video.html" class="tsd-kind-icon">Video</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_meetingprops_.bjneconnectionstate.html#connected" class="tsd-kind-icon">CONNECTED</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_joinprops_.video.html#duration" class="tsd-kind-icon">duration</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_meetingprops_.bjneconnectionstate.html#connecting" class="tsd-kind-icon">CONNECTING</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_joinprops_.video.html#thumbnailurl" class="tsd-kind-icon">thumbnail<wbr>Url</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_meetingprops_.bjneconnectionstate.html#disconnected" class="tsd-kind-icon">DISCONNECTED</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_joinprops_.video.html#title" class="tsd-kind-icon">title</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_meetingprops_.bjneconnectionstate.html#reconnecting" class="tsd-kind-icon">RECONNECTING</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_joinprops_.video.html#url" class="tsd-kind-icon">url</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module root">
-						<a href="_meetingprops_.videostate.html" class="tsd-kind-icon">Video<wbr>State</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module root">
-						<a href="../interfaces/_meetingprops_.bjnechatmessage.html" class="tsd-kind-icon">BJNEChat<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module root">
-						<a href="../interfaces/_meetingprops_.bjneparticipant.html" class="tsd-kind-icon">BJNEParticipant</a>
+						<a href="_joinprops_.videos.html" class="tsd-kind-icon">Videos</a>
 					</li>
 				</ul>
 			</nav>

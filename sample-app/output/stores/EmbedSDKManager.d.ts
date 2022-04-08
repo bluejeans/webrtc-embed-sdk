@@ -7,6 +7,8 @@ export default class EmbedSDKManager implements BJNEmbedSDKInterface {
     get videoMuted(): boolean;
     get receivingScreenShare(): boolean;
     get sharingScreen(): boolean;
+    get canShareScreen(): boolean;
+    get remoteAudioMuted(): boolean;
     get participants(): BJNEParticipant[];
     get selfParticipant(): BJNEParticipant;
     get chatMessages(): BJNEChatMessage[];
@@ -14,9 +16,10 @@ export default class EmbedSDKManager implements BJNEmbedSDKInterface {
     joinMeeting(joinProps: JoinProps): void;
     leave(): void;
     leaveAndEndForAll(): void;
-    setAudioMuted(): void;
-    setVideoMuted(): void;
+    setAudioMuted(val?: boolean): void;
+    setVideoMuted(val?: boolean): void;
     startScreenShare(): void;
     stopScreenShare(): void;
+    setRemoteAudioMuted(mute: boolean): void;
     setName(name: string): void;
 }

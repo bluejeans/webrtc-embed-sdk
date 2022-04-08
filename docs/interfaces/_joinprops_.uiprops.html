@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UIProps | Home</title>
+	<title>UIProps | BlueJeans Web Embed SDK - v2.1.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -27,7 +27,7 @@
 						<li data-name="conversation/response.*" data-subtitle="Rich response"></li>
 						<li data-name=".*\.User.storage" data-subtitle="Persistent storage"></li>
 					</ul>
-					<a href="../index.html" class="title">Home</a>
+					<a href="../index.html" class="title">BlueJeans Web Embed SDK - v2.1.0</a>
 					&emsp;<a href="https://bluejeans.github.io/webrtc-embed-sdk/sample.html" class="title">Sample</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -84,6 +84,9 @@
 					<div class="lead">
 						<p>Provides the object structure for the custom options supported for the UI modification.</p>
 					</div>
+					</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+					<dl class="tsd-comment-tags"><dt>interface</dt>
+					<dd></dd></dl>
 			</div></section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -113,6 +116,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.uiprops.html#inmeetingbgconfig" class="tsd-kind-icon">inMeetingBGConfig</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.uiprops.html#locale" class="tsd-kind-icon">locale</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.uiprops.html#lockmeetingcontrols" class="tsd-kind-icon">lockMeetingControls</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_joinprops_.uiprops.html#telehealthconfig" class="tsd-kind-icon">teleHealthConfig</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,13 +130,14 @@
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Background<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:95</li>
+							<li>Defined in JoinProps.ts:287</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>customBackground this takes a string value, the color code or a gradient which can be applied as the background for the meeting screens.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>this takes a string value, the color code or a gradient which can be applied
+								as the background for the meeting screens.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -141,13 +146,13 @@
 					<div class="tsd-signature tsd-kind-icon">disable<wbr>Full<wbr>Screen<wbr>Toggle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:75</li>
+							<li>Defined in JoinProps.ts:239</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>disableFullScreenToggle by enabling this the Full screen toggle button will be removed.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the Full screen toggle button will be removed.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -156,13 +161,13 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>App<wbr>Pitches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:91</li>
+							<li>Defined in JoinProps.ts:277</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideAppPitches by enabling this the no BlueJeans app pitches will be shown to the user.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the no BlueJeans app pitches will be shown to the user.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -171,13 +176,14 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Apps<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:81</li>
+							<li>Defined in JoinProps.ts:254</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideAppsPanel by enabling this the apps panel won&#39;t be provided.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the apps panel won&#39;t be provided.
+								Functionalities like Televist tile, Interpreter service etc will not work if this to true</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -186,13 +192,15 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Chat<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:79</li>
+							<li>Defined in JoinProps.ts:249</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideChatPanel by enabling this the chat panel/feature won&#39;t be provided</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the chat panel/feature won&#39;t be provided.
+									This param is applicable for both mobile and desktop.
+								Functionalities like Post Chief Complaint service etc will not work if this to true</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -201,13 +209,14 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Copy<wbr>Link<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:87</li>
+							<li>Defined in JoinProps.ts:268</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideCopyLink by enabling this the Meeting Link copy option will be removed from the Meeting page and the People panel.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the Meeting Link copy option will be removed from the Meeting page and the People panel.
+								This param is applicable for both mobile and desktop.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -216,13 +225,13 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Footer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:77</li>
+							<li>Defined in JoinProps.ts:243</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideFooter by enabling this the Meeting footer will be completely removed from InMeeting and PostMeeting screens.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the Meeting footer will be completely removed from InMeeting and PostMeeting screens.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -231,13 +240,14 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Other<wbr>Join<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:93</li>
+							<li>Defined in JoinProps.ts:282</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideOtherJoinOptions by enabling this, other join options like screenshre only mode and phone, room paired join options will be hidden from the UI.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this, other join options like screenshre only mode
+								and phone, room paired join options will be hidden from the UI.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -246,13 +256,14 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Rating<wbr>Screen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:89</li>
+							<li>Defined in JoinProps.ts:273</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideRatingScreen by enabling this rating screen(QSore or TNPS) won&#39;t be shown to the end of the meeting.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this rating screen(QSore or TNPS) won&#39;t be shown to the end of the meeting.
+								This param is applicable for both mobile and desktop.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -261,13 +272,13 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Room<wbr>Join<wbr>Option<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:83</li>
+							<li>Defined in JoinProps.ts:258</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideRoomJoinOption by enabling this the Room Join option will be disabled.</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the Room Join option will be disabled.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -276,13 +287,13 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Sign<wbr>InButton<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:73</li>
+							<li>Defined in JoinProps.ts:235</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>hideSignInButton by enabling this the SignIn option will be removed from the Haircheck screen</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the SignIn option will be removed from the Haircheck screen</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -291,12 +302,12 @@
 					<div class="tsd-signature tsd-kind-icon">in<wbr>MeetingBGConfig<span class="tsd-signature-symbol">:</span> <a href="_joinprops_.inmeetingbgcolors.html" class="tsd-signature-type">InMeetingBGColors</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:97</li>
+							<li>Defined in JoinProps.ts:291</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 						<div class="lead">
-							<p>inMeetingBGConfig - config for in meeting color customisations, refer to <a href="_joinprops_.inmeetingbgcolors.html">InMeetingBGColors</a> for more details</p>
+							<p>Provides the object structure, for the info needed for the customization of backgrounds of in meeting components.</p>
 						</div>
 					</div>
 				</section>
@@ -306,13 +317,16 @@
 					<div class="tsd-signature tsd-kind-icon">locale<span class="tsd-signature-symbol">:</span> <a href="../enums/_joinprops_.locale.html" class="tsd-signature-type">Locale</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:99</li>
+							<li>Defined in JoinProps.ts:302</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>locale - provide the value of locale to change the language of text in the meeting. Default value is English (en)</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>provide the value of locale to change the language of texts in the meeting.
+									When no language is selected meetings will load in the last selected language,
+									which user might have chosen while joining a normal BlueJeans call or an embedded meeting earlier.
+								By default meetings should load in english if no language is selected.</p>
+						</dd></dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -321,23 +335,45 @@
 					<div class="tsd-signature tsd-kind-icon">lock<wbr>Meeting<wbr>Controls<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in JoinProps.ts:85</li>
+							<li>Defined in JoinProps.ts:263</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>lockMeetingControls by enabling this the Meeting controls will be locked always(No auto hide).</p>
-						</div>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>by enabling this the Meeting controls will be locked always(No auto hide).
+								This param is applicable for both mobile and desktop.</p>
+						</dd></dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="telehealthconfig" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> tele<wbr>Health<wbr>Config</h3>
+					<div class="tsd-signature tsd-kind-icon">tele<wbr>Health<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="_joinprops_.thsettings.html" class="tsd-signature-type">THSettings</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in JoinProps.ts:295</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-tags">
+						<dl class="tsd-comment-tags"><dt>param</dt>
+							<dd><p>this take patient landing experience customization for a televisit.</p>
+						</dd></dl>
 					</div>
 				</section>
 			</section>
-			<!--{&quot;options&quot;:&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;,&quot;/Users/denimuser/Downloads/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/URLUtility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;src/util/*&quot;,&quot;src/JoinManager.ts&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;classes/_bjnembedsdk_.embedsdk&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
+			<!--{&quot;options&quot;:&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/URLUtility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;node_modules&quot;,&quot;./src/util/*&quot;,&quot;./src/JoinManager.ts&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;BlueJeans Web Embed SDK&quot;,&quot;includeVersion&quot;:true,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;classes/_bjnembedsdk_.embedsdk&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
 		</div>
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module root">
 						<a href="../enums/_joinprops_.locale.html" class="tsd-kind-icon">Locale</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.article.html" class="tsd-kind-icon">Article</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.articles.html" class="tsd-kind-icon">Articles</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.iframeprops.html" class="tsd-kind-icon">IFrame<wbr>Props</a>
@@ -350,6 +386,12 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="_joinprops_.meetinginfo.html" class="tsd-kind-icon">Meeting<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.resources.html" class="tsd-kind-icon">Resources</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.thsettings.html" class="tsd-kind-icon">THSettings</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -398,10 +440,19 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_joinprops_.uiprops.html#lockmeetingcontrols" class="tsd-kind-icon">lock<wbr>Meeting<wbr>Controls</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_joinprops_.uiprops.html#telehealthconfig" class="tsd-kind-icon">tele<wbr>Health<wbr>Config</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.video.html" class="tsd-kind-icon">Video</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module root">
+						<a href="_joinprops_.videos.html" class="tsd-kind-icon">Videos</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

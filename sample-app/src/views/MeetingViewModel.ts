@@ -1,4 +1,4 @@
-import { action, computed } from "mobx";
+import { observable, action, computed } from "mobx";
 import Managers from "../stores/Managers";
 import AppManager from "../stores/AppManager";
 import EmbedSDKManager from "../stores/EmbedSDKManager";
@@ -56,6 +56,18 @@ export default class MeetingViewModel {
         return this.embedSDKManager.sharingScreen ? "Stop sharing" : "Start sharing"
     }
 
+    @computed get canShareScreen() : boolean {
+        return this.embedSDKManager.canShareScreen;
+    }
+
+    @computed get remoteAudioMuted() : boolean {
+        return this.embedSDKManager.remoteAudioMuted
+    }
+
+    @computed get remoteAudioMutedStatus() : string {
+        return this.embedSDKManager.remoteAudioMuted ? "Unmute Remote Audio" : "Mute Remote Audio"
+    }
+
     @computed get callControlInfo() : string {
         return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting"
     }
@@ -89,6 +101,10 @@ export default class MeetingViewModel {
         } else {
             this.embedSDKManager.startScreenShare();
         }
+    }
+
+    @action.bound toggleRemoteAudioMuted() : void {
+        this.embedSDKManager.setRemoteAudioMuted(!this.embedSDKManager.remoteAudioMuted);
     }
 
     @action.bound leaveMeeting() : void {

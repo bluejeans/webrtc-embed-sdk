@@ -3,7 +3,16 @@
 All notable changes to this project will be documented in this file.
  
 This project adheres to [Semantic Versioning](http://semver.org/).
- 
+
+## [2.1.0] - 2022-04-07
+### Added
+
+- Support for joining meetings on mobile browsers
+- Support for customizing join experience on mobile browsers
+- Support for televisits on desktop and mobile browsers
+- Ability to customize various aspects of the Patient Landing Experience including; welcome text on the landing screen, background color, organization’s logo, providers image, messaging on the entertainment screen, and articles and videos for patients to view while waiting for the provider. 
+- Ability to mute the incoming audio from other participants
+
 ## [2.0.0] - 2021-10-06
  
 ### Added

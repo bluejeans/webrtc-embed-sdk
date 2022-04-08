@@ -1,4 +1,4 @@
-import { InMeetingBGColors, Locale } from "bluejeans-webrtc-embed-sdk";
+import { THSettings, InMeetingBGColors, Locale } from "bluejeans-webrtc-embed-sdk";
 import Managers from "../stores/Managers";
 export default class PreMeetingViewModel {
     private embedSDKManager;
@@ -19,8 +19,11 @@ export default class PreMeetingViewModel {
     customInMeetingBGConfig: InMeetingBGColors;
     meetingContainerWidth: string;
     meetingContainerHeight: string;
+    isMobileEmbed: boolean;
+    teleHealthConfig: THSettings;
     meetingContainerRef: string;
-    appLocale: Locale;
+    appLocale: any;
+    showTHCustomisationOptions: boolean;
     constructor(managers: Managers);
     setMeetingId(event: any): void;
     setPasscode(event: any): void;
@@ -41,6 +44,20 @@ export default class PreMeetingViewModel {
     joinMeeting(): void;
     setAudioTileColor(event: any): void;
     setContainerColorOfAllTiles(event: any): void;
+    setMobileEmbed(event: any): void;
+    setTeleHealthLogo(event: any): void;
+    setTeleHealthWhiteLogo(event: any): void;
+    setTeleHealthBackground(event: any): void;
+    setTeleHealthWelcomeText(event: any): void;
+    setTeleHealthWaitingText(event: any): void;
+    setTeleHealthBackgroundColor(event: any): void;
+    setTeleHealthProviderName(event: any): void;
+    setTeleHealthProviderImage(event: any): void;
+    setTeleHealthProviderTitle(event: any): void;
+    setTeleHealthSkipCheckIn(event: any): void;
+    addTelehealthArticle(event: any): void;
+    addTelehealthVideo(event: any): void;
+    toggleShowTHCustomisationOptions(): void;
     private get joinprops();
     private get meetingInfo();
     private get uiProps();
@@ -49,7 +66,7 @@ export default class PreMeetingViewModel {
         id: Locale;
         name: Locale;
     }[];
-    localeName(locale: Locale): string;
+    localeName(locale: any): string;
     setAppLocale(locale: {
         id: Locale;
         name: Locale;

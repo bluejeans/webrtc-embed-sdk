@@ -1,5 +1,5 @@
-import { observable, action } from "mobx";
-import { JoinProps, MeetingInfo, UIProps, IFrameProps, InMeetingBGColors, Locale } from "bluejeans-webrtc-embed-sdk"
+import { observable, action, extendObservable } from "mobx";
+import { JoinProps, THSettings, Articles, Videos, Article, Video, MeetingInfo, UIProps, IFrameProps, InMeetingBGColors, Locale } from "bluejeans-webrtc-embed-sdk"
 import Managers from "../stores/Managers";
 import EmbedSDKManager from "../stores/EmbedSDKManager";
 import AppManager from "../stores/AppManager";
@@ -24,8 +24,11 @@ export default class PreMeetingViewModel {
     @observable customInMeetingBGConfig : InMeetingBGColors;
     @observable meetingContainerWidth : string = "";
     @observable meetingContainerHeight : string = "";
+    @observable isMobileEmbed : boolean = false;
+    @observable teleHealthConfig : THSettings = {};
     @observable meetingContainerRef : string = ".iframeHolder";
-    @observable appLocale : Locale = Locale.EN;
+    @observable appLocale;
+    @observable showTHCustomisationOptions : boolean;
 
     constructor(managers : Managers) {
         this.embedSDKManager = managers.embedSDKManager;
@@ -114,6 +117,84 @@ export default class PreMeetingViewModel {
         this.customInMeetingBGConfig.containerColorOfAllTiles = event.target.value;
     }
 
+    @action.bound setMobileEmbed(event) : void {
+        this.isMobileEmbed = event.target.checked;
+    }
+
+    @action.bound setTeleHealthLogo(event) : void {
+        this.teleHealthConfig['logo'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthWhiteLogo(event) : void {
+        this.teleHealthConfig['whiteLogo'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthBackground(event) : void {
+        this.teleHealthConfig['backgroundColor'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthWelcomeText(event) : void {
+        this.teleHealthConfig['welcomeText'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthWaitingText(event) : void {
+        this.teleHealthConfig['waitingText'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthBackgroundColor(event) : void {
+        this.teleHealthConfig['backgroundColor'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthProviderName(event) : void {
+        this.teleHealthConfig['providerName'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthProviderImage(event) : void {
+        this.teleHealthConfig['providerImage'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthProviderTitle(event) : void {
+        this.teleHealthConfig['providerTitle'] = event.target.value;
+    }
+
+    @action.bound setTeleHealthSkipCheckIn(event) : void {
+        this.teleHealthConfig.skipCheckIn = event.target.checked;
+    }
+    
+    @action.bound addTelehealthArticle(event) : void {
+        event.preventDefault();
+        const formData = new FormData(event.target); 
+        const article = Object.fromEntries(formData);
+
+        if (!this.teleHealthConfig.resources) {
+            this.teleHealthConfig = {...this.teleHealthConfig, resources: {articles: {data: [article]}}};
+        } else if (!this.teleHealthConfig.resources?.articles?.data?.length) {
+            extendObservable(this.teleHealthConfig.resources, {articles: {data: [article]}})
+        } else {
+            this.teleHealthConfig.resources.articles.data.push(article);
+        }
+        event.target.reset();
+    }
+
+    @action.bound addTelehealthVideo(event) : void {
+        event.preventDefault();
+        const formData = new FormData(event.target);  
+        const video = Object.fromEntries(formData); 
+
+        if (!this.teleHealthConfig.resources) {
+            this.teleHealthConfig = {...this.teleHealthConfig, resources: {videos: {data: [video]}}};
+        } else if (!this.teleHealthConfig.resources?.videos?.data?.length) {
+            extendObservable(this.teleHealthConfig.resources, {videos: {data: [video]}})
+        } else {
+            this.teleHealthConfig.resources.videos.data.push(video);
+        }
+        event.target.reset();
+    }
+
+    @action.bound toggleShowTHCustomisationOptions() : void {
+        this.showTHCustomisationOptions = !this.showTHCustomisationOptions;
+    }
+
     private get joinprops() : JoinProps {
         return {
             meetingInfo : this.meetingInfo,
@@ -131,6 +212,10 @@ export default class PreMeetingViewModel {
     }
 
     private get uiProps() : UIProps {
+        let locale = {};
+        if(this.appLocale){
+            locale = {locale : this.appLocale}
+        }
         return {
             disableFullScreenToggle : this.disableFullScreenToggle,
             hideFooter : this.hideMeetingFooter,
@@ -143,7 +228,8 @@ export default class PreMeetingViewModel {
             customBackground : this.backgroundColor,
             hideOtherJoinOptions : this.hideOtherJoinOptions,
             inMeetingBGConfig : this.customInMeetingBGConfig,
-            locale : this.appLocale
+            teleHealthConfig: this.teleHealthConfig,
+            ...locale
         }
     }
 
@@ -157,13 +243,14 @@ export default class PreMeetingViewModel {
 
     get availableLocales(): { id: Locale, name: Locale }[] {
         let options = [];
+        options.push({ id: " ", name: this.localeName(" ") })
         for (const locale in Locale) {
             options.push({ id: Locale[locale], name: this.localeName(Locale[locale]) })
         }
         return options;
     }
 
-    localeName(locale: Locale): string {
+    localeName(locale): string {
         switch (locale) {
             case Locale.EN:
                 return "English"
@@ -176,7 +263,7 @@ export default class PreMeetingViewModel {
             case Locale.JA:
                 return "Japanese"
             default:
-                return "English"
+                return " "
         }
     }
 

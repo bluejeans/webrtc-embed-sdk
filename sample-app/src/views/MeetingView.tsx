@@ -91,13 +91,22 @@ export default class MeetingView extends Component<Props> {
                             <MeetingControlButton onClick={ this.viewModel.toggleVideoState }>{ this.viewModel.videoStatus }</MeetingControlButton>
                         </MeetingDetailsTableData>
                     </MeetingDetailsTableRow>
-                    <MeetingDetailsTableRow>
+                    { this.viewModel.canShareScreen && <MeetingDetailsTableRow>
                         <MeetingDetailsTableData>
                             <MeetingDetailsTableContent>Screen sharing</MeetingDetailsTableContent>
                         </MeetingDetailsTableData>
                         { this.colonSeparator }
                         <MeetingDetailsTableData>
                             <MeetingControlButton onClick={ this.viewModel.toggleScreenShare }>{ this.viewModel.sharingStatus }</MeetingControlButton>
+                        </MeetingDetailsTableData>
+                    </MeetingDetailsTableRow>}
+                    <MeetingDetailsTableRow>
+                        <MeetingDetailsTableData>
+                            <MeetingDetailsTableContent>Mute Remote Audio</MeetingDetailsTableContent>
+                        </MeetingDetailsTableData>
+                        { this.colonSeparator }
+                        <MeetingDetailsTableData>
+                            <MeetingControlButton onClick={ this.viewModel.toggleRemoteAudioMuted }>{ this.viewModel.remoteAudioMutedStatus }</MeetingControlButton>
                         </MeetingDetailsTableData>
                     </MeetingDetailsTableRow>
                 </MeetingDetailsTableBody>

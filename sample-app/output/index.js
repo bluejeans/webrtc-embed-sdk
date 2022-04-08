@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "4c965e6edbccd39e846e";
+/******/ 	var hotCurrentHash = "9a126fb01598e43ce83b";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -801,7 +801,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(e,t){ true?module.exports=t(__webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js")):undefined}(window,function(e){return function(e){var t={};function o(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,o),i.l=!0,i.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)o.d(n,i,function(t){return e[t]}.bind(null,i));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=2)}([function(t,o){t.exports=e},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.VideoState=t.BJNEConnectionState=void 0,function(e){e.CONNECTING="Connecting",e.CONNECTED="Connected",e.RECONNECTING="Reconnecting",e.DISCONNECTED="Disconnected"}(t.BJNEConnectionState||(t.BJNEConnectionState={})),function(e){e.ACTIVE="ACTIVE",e.INACTIVE_ONLY_PARTICIPANT="INACTIVE_ONLY_PARTICIPANT",e.INACTIVE_NO_ONE_HAS_VIDEO="INACTIVE_NO_ONE_HAS_VIDEO",e.INACTIVE_NEEDS_MODERATOR="INACTIVE_NEEDS_MODERATOR",e.INACTIVE_DISCONNECTED="INACTIVE_DISCONNECTED"}(t.VideoState||(t.VideoState={}))},function(e,t,o){"use strict";var n=this&&this.__decorate||function(e,t,o,n){var i,r=arguments.length,a=r<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,o):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)a=Reflect.decorate(e,t,o,n);else for(var s=e.length-1;s>=0;s--)(i=e[s])&&(a=(r<3?i(a):r>3?i(t,o,a):i(t,o))||a);return r>3&&a&&Object.defineProperty(t,o,a),a},i=this&&this.__metadata||function(e,t){if("object"==typeof Reflect&&"function"==typeof Reflect.metadata)return Reflect.metadata(e,t)},r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.BJNEmbedSDK=t.VideoState=t.BJNEConnectionState=t.Locale=void 0;const a=o(0),s=r(o(3));o(1);class c{constructor(){this.isSDKInitComplete=!1,this.joinManager=new s.default(this)}joinMeeting(e){this.joinManager.joinMeeting(e,a.action(()=>{this.isSDKInitComplete=!0}))}leave(){}leaveAndEndForAll(){}setAudioMuted(e){}setVideoMuted(e){}startScreenShare(){}stopScreenShare(){}setName(e){}observe(e,t){Object.getOwnPropertyNames(this).includes(e)?a.reaction(()=>this[e],()=>{t()}):console.error("Property is not supported.")}}n([a.observable,i("design:type",Boolean)],c.prototype,"isSDKInitComplete",void 0),n([a.observable,i("design:type",String)],c.prototype,"connectionState",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"audioMuted",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"videoMuted",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"receivingScreenShare",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"sharingScreen",void 0),n([a.observable,i("design:type",Array)],c.prototype,"participants",void 0),n([a.observable,i("design:type",Object)],c.prototype,"selfParticipant",void 0),n([a.observable,i("design:type",Array)],c.prototype,"chatMessages",void 0),n([a.observable,i("design:type",String)],c.prototype,"videoState",void 0);var l=o(6);Object.defineProperty(t,"Locale",{enumerable:!0,get:function(){return l.Locale}});var d=o(1);Object.defineProperty(t,"BJNEConnectionState",{enumerable:!0,get:function(){return d.BJNEConnectionState}}),Object.defineProperty(t,"VideoState",{enumerable:!0,get:function(){return d.VideoState}}),t.BJNEmbedSDK=new c},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=o(4),i=o(5),r="https://bluejeans.com",a="SDK_INIT_COMPLETED";t.default=class{constructor(e){this.embedSDKInterface=e}joinMeeting(e,t){let o=e.meetingInfo,n=e.iFrameProps,a=o.meetingOrigin||i.getQueryParam("env")||r,s=this.formMeetingurl(o,a);s=this.applyUICustomisation(e.uiProps,s);let c=this.buildMeetingIFrame(s,n);console.debug("Trying to establish the connection to the iframe."),this.establishConnectionWithChild(c.contentWindow,a,t)}formMeetingurl(e,t){let o=window.location.origin,n=e.meetingId,i=e.passcode,r=e.name,a=`${t}/${n}`;return i&&(a=`${a}/${i}`),a=`${a}/quick?embed=true&parent=${o}`,r&&(a=`${a}&name=${encodeURIComponent(r)}`),a}buildMeetingIFrame(e,t){let o=document.createElement("iframe");return o.setAttribute("src",e),o.style.width=t.width||"100%",o.style.height=t.height||"100%",o.style.borderRadius="10px",o.setAttribute("allow","autoplay; fullscreen; microphone; camera; display-capture"),o.setAttribute("noResize","true"),t.selectorId?document.querySelector(t.selectorId).appendChild(o):document.body.appendChild(o),o}applyUICustomisation(e,t){return t=e.hideSignInButton?`${t}&sign_in=false`:t,t=e.disableFullScreenToggle?`${t}&fullscreen_toggle=false`:t,t=e.hideFooter?`${t}&footer=false`:t,t=e.hideChatPanel?`${t}&chat=false`:t,t=e.hideAppsPanel?`${t}&apps=false`:t,t=e.hideRoomJoinOption?`${t}&room_pairing=false`:t,t=e.lockMeetingControls?`${t}&layout=true`:t,t=e.hideCopyLink?`${t}&copy_link=false`:t,t=e.hideRatingScreen?`${t}&rating=false`:t,t=e.hideAppPitches?`${t}&app_pitch=false`:t,t=e.hideOtherJoinOptions?`${t}&join_options=false`:t,t=e.customBackground?`${t}&bg=${encodeURIComponent(e.customBackground)}`:t,t=e.inMeetingBGConfig?`${t}&audioTileBG=${encodeURIComponent(e.inMeetingBGConfig.audioTileColor)}`:t,t=e.inMeetingBGConfig?`${t}&tileContainerBG=${encodeURIComponent(e.inMeetingBGConfig.containerColorOfAllTiles)}`:t,t=e.locale?`${t}&ll=${encodeURIComponent(e.locale)}`:t}establishConnectionWithChild(e,t,o){let i=r=>{console.debug("While establishing connection the parent received : ",r.data),n.messageTypeFromKnownOrigin(r,t,n.MESSAGE_TYPE_IFRAME)&&r.data.info===a&&(window.removeEventListener("message",i),n.makeCrossIframeProxy(this.embedSDKInterface,e,t),o())};window.addEventListener("message",i,!1)}}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.makeCrossIframeProxy=t.messageTypeFromKnownOrigin=t.MESSAGE_TYPE_IFRAME=t.MESSAGE_TYPE_PARENT=void 0;const n=o(0);function i(e,t,o){return!(!e.data.type||e.data.type!=o)&&t==e.origin}t.MESSAGE_TYPE_PARENT="crossdomain.toTarget",t.MESSAGE_TYPE_IFRAME="crossdomain.toProxy",t.messageTypeFromKnownOrigin=i,t.makeCrossIframeProxy=function(e,o,r){!function(e,o,r){const a=n.action(o=>{console.debug("Parent Recieved data : ",o.data),i(o,r,t.MESSAGE_TYPE_IFRAME)&&(e[o.data.property]=o.data.value)});window.addEventListener("message",a,!1)}(e,0,r),function(e,o,n){const i=Object.getOwnPropertyDescriptors(Object.getPrototypeOf(e));Object.keys(i).forEach(r=>{const a=i[r];a.value&&"function"==typeof a.value&&"joinMeeting"!=r&&"observe"!=r&&(e[r]=function(){const e=Array.prototype.slice.call(arguments);o.postMessage({type:t.MESSAGE_TYPE_PARENT,method:r,args:e},n)})})}(e,o,r)}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.getQueryParam=void 0,t.getQueryParam=function(e){try{if(window.location.search){let t,o=function(e){return window.decodeURIComponent(e.replace(/\+/g," "))},n={},i=window.location.search.slice(1).split("&");for(let e=0;e<i.length;e++)(t=i[e].split("="))[0]&&(t.length<2&&t.push(""),n[o(t[0])]=o(t[1]));return n[e]}}catch(e){console.debug("Error in parsing the query params")}return null}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Locale=void 0,function(e){e.EN="en",e.ES="es",e.DE="de",e.FR="fr",e.JA="ja"}(t.Locale||(t.Locale={}))}])});
+!function(e,t){ true?module.exports=t(__webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js")):undefined}(window,function(e){return function(e){var t={};function o(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,o),i.l=!0,i.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)o.d(n,i,function(t){return e[t]}.bind(null,i));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=2)}([function(t,o){t.exports=e},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.VideoState=t.BJNEConnectionState=void 0,function(e){e.CONNECTING="Connecting",e.CONNECTED="Connected",e.RECONNECTING="Reconnecting",e.DISCONNECTED="Disconnected"}(t.BJNEConnectionState||(t.BJNEConnectionState={})),function(e){e.ACTIVE="ACTIVE",e.INACTIVE_ONLY_PARTICIPANT="INACTIVE_ONLY_PARTICIPANT",e.INACTIVE_NO_ONE_HAS_VIDEO="INACTIVE_NO_ONE_HAS_VIDEO",e.INACTIVE_NEEDS_MODERATOR="INACTIVE_NEEDS_MODERATOR",e.INACTIVE_DISCONNECTED="INACTIVE_DISCONNECTED"}(t.VideoState||(t.VideoState={}))},function(e,t,o){"use strict";var n=this&&this.__decorate||function(e,t,o,n){var i,r=arguments.length,a=r<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,o):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)a=Reflect.decorate(e,t,o,n);else for(var s=e.length-1;s>=0;s--)(i=e[s])&&(a=(r<3?i(a):r>3?i(t,o,a):i(t,o))||a);return r>3&&a&&Object.defineProperty(t,o,a),a},i=this&&this.__metadata||function(e,t){if("object"==typeof Reflect&&"function"==typeof Reflect.metadata)return Reflect.metadata(e,t)},r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.BJNEmbedSDK=t.VideoState=t.BJNEConnectionState=t.Locale=void 0;const a=o(0),s=r(o(3));o(1);class c{constructor(){this.isSDKInitComplete=!1,this.joinManager=new s.default(this)}joinMeeting(e){let t=this._buildUIConfig(e);this.joinManager.joinMeeting(e,a.action(()=>{this.isSDKInitComplete=!0,this.setUIPropsFromConfig(t)}))}_buildUIConfig(e){let t={},o=e.uiProps.teleHealthConfig&&Object.keys(e.uiProps.teleHealthConfig).length>0;if(e.uiProps.hideSignInButton&&(t.sign_in=!1),e.uiProps.disableFullScreenToggle&&(t.fullscreen_toggle=!1),e.uiProps.hideFooter&&(t.footer=!1),e.uiProps.hideChatPanel&&(t.chat=!1),e.uiProps.hideAppsPanel&&(t.apps=!1),e.uiProps.hideRoomJoinOption&&(t.room_pairing=!1),e.uiProps.lockMeetingControls&&(t.layout=!0),e.uiProps.hideCopyLink&&(t.copy_link=!1),e.uiProps.hideRatingScreen&&(t.rating=!1),e.uiProps.hideAppPitches&&(t.app_pitch=!1),e.uiProps.hideOtherJoinOptions&&(t.join_options=!1),o?e.uiProps.teleHealthConfig.backgroundColor&&(t.bg=encodeURIComponent(e.uiProps.teleHealthConfig.backgroundColor)):(e.uiProps.customBackground&&(t.bg=encodeURIComponent(e.uiProps.customBackground)),e.uiProps.inMeetingBGConfig&&e.uiProps.inMeetingBGConfig.audioTileColor&&(t.audioTileBG=encodeURIComponent(e.uiProps.inMeetingBGConfig.audioTileColor)),e.uiProps.inMeetingBGConfig&&e.uiProps.inMeetingBGConfig.containerColorOfAllTiles&&(t.tileContainerBG=encodeURIComponent(e.uiProps.inMeetingBGConfig.containerColorOfAllTiles))),e.uiProps.locale&&(t.ll=encodeURIComponent(e.uiProps.locale)),o||e.uiProps.hideCopyLink){let n=o?Object.assign({},e.uiProps.teleHealthConfig):{};n.shareLinkVisibility=!e.uiProps.hideCopyLink,t.teleHealthConfig=encodeURIComponent(JSON.stringify(n))}return t}leave(){}leaveAndEndForAll(){}setAudioMuted(e){}setVideoMuted(e){}startScreenShare(){}stopScreenShare(){}setName(e){}setUIPropsFromConfig(e){}setRemoteAudioMuted(e){}observe(e,t){Object.getOwnPropertyNames(this).includes(e)?a.reaction(()=>this[e],()=>{t()}):console.error("Property is not supported.")}}n([a.observable,i("design:type",Boolean)],c.prototype,"isSDKInitComplete",void 0),n([a.observable,i("design:type",String)],c.prototype,"connectionState",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"audioMuted",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"videoMuted",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"receivingScreenShare",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"sharingScreen",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"canShareScreen",void 0),n([a.observable,i("design:type",Array)],c.prototype,"participants",void 0),n([a.observable,i("design:type",Object)],c.prototype,"selfParticipant",void 0),n([a.observable,i("design:type",Array)],c.prototype,"chatMessages",void 0),n([a.observable,i("design:type",String)],c.prototype,"videoState",void 0),n([a.observable,i("design:type",Boolean)],c.prototype,"remoteAudioMuted",void 0);var l=o(6);Object.defineProperty(t,"Locale",{enumerable:!0,get:function(){return l.Locale}});var u=o(1);Object.defineProperty(t,"BJNEConnectionState",{enumerable:!0,get:function(){return u.BJNEConnectionState}}),Object.defineProperty(t,"VideoState",{enumerable:!0,get:function(){return u.VideoState}}),t.BJNEmbedSDK=new c},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=o(4),i=o(5),r="https://bluejeans.com",a="SDK_INIT_COMPLETED";t.default=class{constructor(e){this.embedSDKInterface=e}joinMeeting(e,t){let o=e.meetingInfo,n=e.iFrameProps,a=o.meetingOrigin||i.getQueryParam("env")||r,s=this.formMeetingurl(o,a);s=this.applyUICustomisation(e.uiProps,s);let c=this.buildMeetingIFrame(s,n);console.debug("Trying to establish the connection to the iframe."),this.establishConnectionWithChild(c.contentWindow,a,t)}formMeetingurl(e,t){let o=window.location.origin,n=e.meetingId,i=e.passcode,r=e.name,a=`${t}/${n}`;return i&&(a=`${a}/${i}`),a=`${a}/quick?embed=true&parent=${o}`,r&&(a=`${a}&name=${encodeURIComponent(r)}`),a=`${a}&version=${encodeURIComponent("2.1.0")}`}buildMeetingIFrame(e,t){let o=document.createElement("iframe");return o.setAttribute("src",e),o.style.width=t.width||"100%",o.style.height=t.height||"100%",o.style.borderRadius="10px",o.setAttribute("allow","autoplay; fullscreen; microphone; camera; display-capture"),o.setAttribute("noResize","true"),t.selectorId?document.querySelector(t.selectorId).appendChild(o):document.body.appendChild(o),o}applyUICustomisation(e,t){return t=e.hideSignInButton?`${t}&sign_in=false`:t,t=e.hideAppPitches?`${t}&app_pitch=false`:t,e.teleHealthConfig&&Object.keys(e.teleHealthConfig).length>0?e.teleHealthConfig.backgroundColor&&(t=`${t}&bg=${encodeURIComponent(e.teleHealthConfig.backgroundColor)}`):e.customBackground&&(t=`${t}&bg=${encodeURIComponent(e.customBackground)}`),t=e.locale?`${t}&ll=${encodeURIComponent(e.locale)}`:t}establishConnectionWithChild(e,t,o){window.addEventListener("message",i=>{console.debug("While establishing connection the parent received : ",i.data),n.messageTypeFromKnownOrigin(i,t,n.MESSAGE_TYPE_IFRAME)&&i.data.info===a&&(n.makeCrossIframeProxy(this.embedSDKInterface,e,t),o())},!1)}}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.makeCrossIframeProxy=t.messageTypeFromKnownOrigin=t.MESSAGE_TYPE_IFRAME=t.MESSAGE_TYPE_PARENT=void 0;const n=o(0);function i(e,t,o){return!(!e.data.type||e.data.type!=o)&&t==e.origin}t.MESSAGE_TYPE_PARENT="crossdomain.toTarget",t.MESSAGE_TYPE_IFRAME="crossdomain.toProxy",t.messageTypeFromKnownOrigin=i,t.makeCrossIframeProxy=function(e,o,r){!function(e,o,r){const a=n.action(o=>{console.debug("Parent Recieved data : ",o.data),i(o,r,t.MESSAGE_TYPE_IFRAME)&&(e[o.data.property]=o.data.value)});window.addEventListener("message",a,!1)}(e,0,r),function(e,o,n){const i=Object.getOwnPropertyDescriptors(Object.getPrototypeOf(e));Object.keys(i).forEach(r=>{const a=i[r];a.value&&"function"==typeof a.value&&"joinMeeting"!=r&&"observe"!=r&&"_"!==r[0]&&(e[r]=function(){const e=Array.prototype.slice.call(arguments);o.postMessage({type:t.MESSAGE_TYPE_PARENT,method:r,args:e},n)})})}(e,o,r)}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.getQueryParam=void 0,t.getQueryParam=function(e){try{if(window.location.search){let t,o=function(e){return window.decodeURIComponent(e.replace(/\+/g," "))},n={},i=window.location.search.slice(1).split("&");for(let e=0;e<i.length;e++)(t=i[e].split("="))[0]&&(t.length<2&&t.push(""),n[o(t[0])]=o(t[1]));return n[e]}}catch(e){console.debug("Error in parsing the query params")}return null}},function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Locale=void 0,function(e){e.EN="en",e.ES="es",e.DE="de",e.FR="fr",e.JA="ja"}(t.Locale||(t.Locale={}))}])});
 
 /***/ }),
 
@@ -5914,7 +5914,7 @@ var printWarning = function() {};
 if (true) {
   var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
   var loggedTypeFailures = {};
-  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+  var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
 
   printWarning = function(text) {
     var message = 'Warning: ' + text;
@@ -5926,7 +5926,7 @@ if (true) {
       // This error was thrown as a convenience so that you can use this stack
       // to find the callsite that caused this warning to fire.
       throw new Error(message);
-    } catch (x) {}
+    } catch (x) { /**/ }
   };
 }
 
@@ -5955,7 +5955,8 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
           if (typeof typeSpecs[typeSpecName] !== 'function') {
             var err = Error(
               (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
-              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' +
+              'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.'
             );
             err.name = 'Invariant Violation';
             throw err;
@@ -6027,9 +6028,9 @@ var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index
 var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
 var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
 
-var has = Function.call.bind(Object.prototype.hasOwnProperty);
 var printWarning = function() {};
 
 if (true) {
@@ -6130,6 +6131,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
   var ReactPropTypes = {
     array: createPrimitiveTypeChecker('array'),
+    bigint: createPrimitiveTypeChecker('bigint'),
     bool: createPrimitiveTypeChecker('boolean'),
     func: createPrimitiveTypeChecker('function'),
     number: createPrimitiveTypeChecker('number'),
@@ -6175,8 +6177,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
    * is prohibitively expensive if they are created too often, such as what
    * happens in oneOfType() for any type before the one that matched.
    */
-  function PropTypeError(message) {
+  function PropTypeError(message, data) {
     this.message = message;
+    this.data = data && typeof data === 'object' ? data: {};
     this.stack = '';
   }
   // Make `instanceof Error` still work for returned errors.
@@ -6211,7 +6214,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
           ) {
             printWarning(
               'You are manually calling a React.PropTypes validation ' +
-              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
+              'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' +
               'and will throw in the standalone `prop-types` package. ' +
               'You may be seeing this warning due to a third-party PropTypes ' +
               'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
@@ -6250,7 +6253,10 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
         // 'of type `object`'.
         var preciseType = getPreciseType(propValue);
 
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+        return new PropTypeError(
+          'Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'),
+          {expectedType: expectedType}
+        );
       }
       return null;
     }
@@ -6394,14 +6400,19 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     }
 
     function validate(props, propName, componentName, location, propFullName) {
+      var expectedTypes = [];
       for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
         var checker = arrayOfTypeCheckers[i];
-        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+        var checkerResult = checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+        if (checkerResult == null) {
           return null;
         }
+        if (checkerResult.data && has(checkerResult.data, 'expectedType')) {
+          expectedTypes.push(checkerResult.data.expectedType);
+        }
       }
-
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+      var expectedTypesMessage = (expectedTypes.length > 0) ? ', expected one of type [' + expectedTypes.join(', ') + ']': '';
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`' + expectedTypesMessage + '.'));
     }
     return createChainableTypeChecker(validate);
   }
@@ -6416,6 +6427,13 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return createChainableTypeChecker(validate);
   }
 
+  function invalidValidatorError(componentName, location, propFullName, key, type) {
+    return new PropTypeError(
+      (componentName || 'React class') + ': ' + location + ' type `' + propFullName + '.' + key + '` is invalid; ' +
+      'it must be a function, usually from the `prop-types` package, but received `' + type + '`.'
+    );
+  }
+
   function createShapeTypeChecker(shapeTypes) {
     function validate(props, propName, componentName, location, propFullName) {
       var propValue = props[propName];
@@ -6425,8 +6443,8 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       }
       for (var key in shapeTypes) {
         var checker = shapeTypes[key];
-        if (!checker) {
-          continue;
+        if (typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
         }
         var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
         if (error) {
@@ -6445,16 +6463,18 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       if (propType !== 'object') {
         return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
       }
-      // We need to check all keys in case some are required but missing from
-      // props.
+      // We need to check all keys in case some are required but missing from props.
       var allKeys = assign({}, props[propName], shapeTypes);
       for (var key in allKeys) {
         var checker = shapeTypes[key];
+        if (has(shapeTypes, key) && typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+        }
         if (!checker) {
           return new PropTypeError(
             'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
             '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+            '\nValid keys: ' + JSON.stringify(Object.keys(shapeTypes), null, '  ')
           );
         }
         var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
@@ -6655,6 +6675,18 @@ if (true) {
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/has.js":
+/*!********************************************!*\
+  !*** ./node_modules/prop-types/lib/has.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
 
 /***/ }),
@@ -35093,6 +35125,12 @@ class EmbedSDKManager {
     get sharingScreen() {
         return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.sharingScreen;
     }
+    get canShareScreen() {
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.canShareScreen;
+    }
+    get remoteAudioMuted() {
+        return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.remoteAudioMuted;
+    }
     get participants() {
         return bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.participants;
     }
@@ -35114,17 +35152,24 @@ class EmbedSDKManager {
     leaveAndEndForAll() {
         // TODO
     }
-    setAudioMuted() {
-        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setAudioMuted();
+    setAudioMuted(val) {
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setAudioMuted(val);
     }
-    setVideoMuted() {
-        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setVideoMuted();
+    setVideoMuted(val) {
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setVideoMuted(val);
     }
     startScreenShare() {
-        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.startScreenShare();
+        if (this.canShareScreen) {
+            bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.startScreenShare();
+        }
     }
     stopScreenShare() {
-        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.stopScreenShare();
+        if (this.canShareScreen) {
+            bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.stopScreenShare();
+        }
+    }
+    setRemoteAudioMuted(mute) {
+        bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setRemoteAudioMuted(mute);
     }
     setName(name) {
         bluejeans_webrtc_embed_sdk_1.BJNEmbedSDK.setName(name);
@@ -35148,6 +35193,12 @@ __decorate([
 __decorate([
     mobx_1.computed
 ], EmbedSDKManager.prototype, "sharingScreen", null);
+__decorate([
+    mobx_1.computed
+], EmbedSDKManager.prototype, "canShareScreen", null);
+__decorate([
+    mobx_1.computed
+], EmbedSDKManager.prototype, "remoteAudioMuted", null);
 __decorate([
     mobx_1.computed
 ], EmbedSDKManager.prototype, "participants", null);
@@ -35181,6 +35232,9 @@ __decorate([
 __decorate([
     mobx_1.action
 ], EmbedSDKManager.prototype, "stopScreenShare", null);
+__decorate([
+    mobx_1.action
+], EmbedSDKManager.prototype, "setRemoteAudioMuted", null);
 __decorate([
     mobx_1.action
 ], EmbedSDKManager.prototype, "setName", null);
@@ -35411,12 +35465,18 @@ let MeetingView = class MeetingView extends react_1.Component {
                         this.colonSeparator,
                         react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
                             react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleVideoState }, this.viewModel.videoStatus))),
-                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
+                    this.viewModel.canShareScreen && react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
                         react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
                             react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Screen sharing")),
                         this.colonSeparator,
                         react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
-                            react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleScreenShare }, this.viewModel.sharingStatus))))),
+                            react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleScreenShare }, this.viewModel.sharingStatus))),
+                    react_1.default.createElement(MeetingView_1.MeetingDetailsTableRow, null,
+                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
+                            react_1.default.createElement(MeetingView_1.MeetingDetailsTableContent, null, "Mute Remote Audio")),
+                        this.colonSeparator,
+                        react_1.default.createElement(MeetingView_1.MeetingDetailsTableData, null,
+                            react_1.default.createElement(MeetingView_1.MeetingControlButton, { onClick: this.viewModel.toggleRemoteAudioMuted }, this.viewModel.remoteAudioMutedStatus))))),
             react_1.default.createElement(MeetingView_1.LeaveControlButton, { onClick: this.viewModel.leaveMeeting }, this.viewModel.callControlInfo)));
     }
 };
@@ -35486,6 +35546,15 @@ class MeetingViewModel {
     get sharingStatus() {
         return this.embedSDKManager.sharingScreen ? "Stop sharing" : "Start sharing";
     }
+    get canShareScreen() {
+        return this.embedSDKManager.canShareScreen;
+    }
+    get remoteAudioMuted() {
+        return this.embedSDKManager.remoteAudioMuted;
+    }
+    get remoteAudioMutedStatus() {
+        return this.embedSDKManager.remoteAudioMuted ? "Unmute Remote Audio" : "Mute Remote Audio";
+    }
     get callControlInfo() {
         return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting";
     }
@@ -35514,6 +35583,9 @@ class MeetingViewModel {
         else {
             this.embedSDKManager.startScreenShare();
         }
+    }
+    toggleRemoteAudioMuted() {
+        this.embedSDKManager.setRemoteAudioMuted(!this.embedSDKManager.remoteAudioMuted);
     }
     leaveMeeting() {
         if (this.isDisconnected) {
@@ -35550,6 +35622,15 @@ __decorate([
 ], MeetingViewModel.prototype, "sharingStatus", null);
 __decorate([
     mobx_1.computed
+], MeetingViewModel.prototype, "canShareScreen", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "remoteAudioMuted", null);
+__decorate([
+    mobx_1.computed
+], MeetingViewModel.prototype, "remoteAudioMutedStatus", null);
+__decorate([
+    mobx_1.computed
 ], MeetingViewModel.prototype, "callControlInfo", null);
 __decorate([
     mobx_1.computed
@@ -35569,6 +35650,9 @@ __decorate([
 __decorate([
     mobx_1.action.bound
 ], MeetingViewModel.prototype, "toggleScreenShare", null);
+__decorate([
+    mobx_1.action.bound
+], MeetingViewModel.prototype, "toggleRemoteAudioMuted", null);
 __decorate([
     mobx_1.action.bound
 ], MeetingViewModel.prototype, "leaveMeeting", null);
@@ -35617,6 +35701,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobx-react.module.js");
+const mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 const PreMeeting_1 = __webpack_require__(/*! ./styles/PreMeeting */ "./src/views/styles/PreMeeting.ts");
 const PreMeetingViewModel_1 = __importDefault(__webpack_require__(/*! ./PreMeetingViewModel */ "./src/views/PreMeetingViewModel.ts"));
 let PreMeetingView = class PreMeetingView extends react_1.Component {
@@ -35636,6 +35721,9 @@ let PreMeetingView = class PreMeetingView extends react_1.Component {
             : react_1.default.createElement(react_1.default.Fragment, null));
     }
     render() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+        const thArticlesCount = ((_c = (_b = (_a = this.viewmodel.teleHealthConfig.resources) === null || _a === void 0 ? void 0 : _a.articles) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.length) || 0;
+        const thVideosCount = ((_f = (_e = (_d = this.viewmodel.teleHealthConfig.resources) === null || _d === void 0 ? void 0 : _d.videos) === null || _e === void 0 ? void 0 : _e.data) === null || _f === void 0 ? void 0 : _f.length) || 0;
         return (react_1.default.createElement(PreMeeting_1.ViewContainer, null,
             react_1.default.createElement(PreMeeting_1.GreetingsHeader, null, "Welcome!"),
             react_1.default.createElement(PreMeeting_1.GreetingsSubHeader, null, "Sample for BlueJeans meeting in Embed mode"),
@@ -35646,9 +35734,13 @@ let PreMeetingView = class PreMeetingView extends react_1.Component {
                 react_1.default.createElement("br", null),
                 react_1.default.createElement(PreMeeting_1.JoinName, { placeholder: "Name", value: this.viewmodel.joinName, onChange: this.viewmodel.setJoinName }),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement(PreMeeting_1.OptionsHeader, null, "UI customisation(Optional)"),
-                react_1.default.createElement(PreMeeting_1.UIOptionsContainer, null,
-                    react_1.default.createElement(PreMeeting_1.UIOptions, null,
+                react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement(PreMeeting_1.OptionsWrapper, null,
+                        react_1.default.createElement(PreMeeting_1.OptionsHeader, null, "UI customisation(Optional)"),
+                        react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                            react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.isMobileEmbed, onChange: this.viewmodel.setMobileEmbed }),
+                            react_1.default.createElement("label", null, "Mobile Embed"))),
+                    react_1.default.createElement(PreMeeting_1.UIOptionsContainer, null, !this.viewmodel.isMobileEmbed ? (react_1.default.createElement(PreMeeting_1.UIOptions, null,
                         react_1.default.createElement("tr", null,
                             react_1.default.createElement(PreMeeting_1.OptionsData, null,
                                 react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.disableFullScreenToggle, onChange: this.viewmodel.setFullScreenToggle }),
@@ -35678,33 +35770,154 @@ let PreMeetingView = class PreMeetingView extends react_1.Component {
                                 react_1.default.createElement("label", null, "Disable app pitches")),
                             react_1.default.createElement(PreMeeting_1.OptionsData, null,
                                 react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideOtherJoinOptions, onChange: this.viewmodel.setShouldHideOtherJoinOptions }),
-                                react_1.default.createElement("label", null, "Hide other join options"))))),
-                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
-                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, { customStyle: "margin-left : 70px;" }, "Background Color :"),
-                    react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.backgroundColor, onChange: this.viewmodel.setBackgroundColor }),
-                    react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
-                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
-                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, { customStyle: "margin-left : 90px;" }, "AudioTile Color :"),
-                    react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.customInMeetingBGConfig.audioTileColor, onChange: this.viewmodel.setAudioTileColor }),
-                    react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
-                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
-                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Color for container of all tiles :"),
-                    react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.customInMeetingBGConfig.containerColorOfAllTiles, onChange: this.viewmodel.setContainerColorOfAllTiles }),
-                    react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
-                react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
-                    react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Locale :"),
-                    this.makeDropdown({ id: this.viewmodel.appLocale, name: this.viewmodel.localeName(this.viewmodel.appLocale) }, this.viewmodel.availableLocales, "id", "name", this.viewmodel.setAppLocale)),
-                react_1.default.createElement(PreMeeting_1.IFramePropsContainer, null,
-                    react_1.default.createElement(PreMeeting_1.IFrameLabel, null, "Meeting container specifications(Optional)"),
-                    react_1.default.createElement(PreMeeting_1.IFrameProps, null,
-                        react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Width", value: this.viewmodel.meetingContainerWidth, onChange: this.viewmodel.setMeetingContainerWidth }),
-                        react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default 100%, Example : 100% (or) 300px")),
-                    react_1.default.createElement(PreMeeting_1.IFrameProps, null,
-                        react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Height", value: this.viewmodel.meetingContainerHeight, onChange: this.viewmodel.setMeetingContainerHeight }),
-                        react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default 100%, Example : 100% (or) 300px")),
-                    react_1.default.createElement(PreMeeting_1.IFrameProps, null,
-                        react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Container", value: this.viewmodel.meetingContainerRef, onChange: this.viewmodel.setMeetingContainerRef }),
-                        react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default: Attach to the body, Example : #iframeContainer (or) .iframeContainer")))),
+                                react_1.default.createElement("label", null, "Hide other join options"))))) : (react_1.default.createElement(PreMeeting_1.UIOptions, null,
+                        react_1.default.createElement("tr", null,
+                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideChatPanel, onChange: this.viewmodel.setChatPanelVisibility }),
+                                react_1.default.createElement("label", null, "Hide Chat Panel")),
+                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.lockMeetingControls, onChange: this.viewmodel.setMeetingControlLockState }),
+                                react_1.default.createElement("label", null, "Lock meeting controls")),
+                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideRatingScreen, onChange: this.viewmodel.setRatingScreenVisibility }),
+                                react_1.default.createElement("label", null, "Disable Meeting Rating screens"))),
+                        react_1.default.createElement("tr", null,
+                            react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: this.viewmodel.hideCopyLink, onChange: this.viewmodel.setCopyLinkVisibility }),
+                                react_1.default.createElement("label", null, "Hide Copy link")))))),
+                    react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement(PreMeeting_1.OptionsWrapper, null,
+                            react_1.default.createElement(PreMeeting_1.OptionsHeader, null, "Theme selection (*Optional, will be ignored if Telehealth PLE customisations are set)")),
+                        react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                            react_1.default.createElement(PreMeeting_1.BGColorTextLabel, { customStyle: "margin-left : 70px;" }, "Background Color :"),
+                            react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.backgroundColor, onChange: this.viewmodel.setBackgroundColor }),
+                            react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
+                        react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                            react_1.default.createElement(PreMeeting_1.BGColorTextLabel, { customStyle: "margin-left : 90px;" }, "AudioTile Color :"),
+                            react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.customInMeetingBGConfig.audioTileColor, onChange: this.viewmodel.setAudioTileColor }),
+                            react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)")),
+                        react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                            react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Color for container of all tiles :"),
+                            react_1.default.createElement(PreMeeting_1.BGColorTextBox, { placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: this.viewmodel.customInMeetingBGConfig.containerColorOfAllTiles, onChange: this.viewmodel.setContainerColorOfAllTiles }),
+                            react_1.default.createElement(PreMeeting_1.BGColorHint, null, "Supported format : #FFFFFF (or) linear-gradient(#6600CC, #6600FF)"))),
+                    react_1.default.createElement(PreMeeting_1.BGOptionContainer, null,
+                        react_1.default.createElement(PreMeeting_1.BGColorTextLabel, null, "Locale :"),
+                        this.makeDropdown({ id: this.viewmodel.appLocale, name: this.viewmodel.localeName(this.viewmodel.appLocale) }, this.viewmodel.availableLocales, "id", "name", this.viewmodel.setAppLocale)),
+                    react_1.default.createElement(PreMeeting_1.IFramePropsContainer, null,
+                        react_1.default.createElement(PreMeeting_1.IFrameLabel, null, "Meeting container specifications(Optional)"),
+                        react_1.default.createElement(PreMeeting_1.IFrameProps, null,
+                            react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Width", value: this.viewmodel.meetingContainerWidth, onChange: this.viewmodel.setMeetingContainerWidth }),
+                            react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default 100%, Example : 100% (or) 300px")),
+                        react_1.default.createElement(PreMeeting_1.IFrameProps, null,
+                            react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Height", value: this.viewmodel.meetingContainerHeight, onChange: this.viewmodel.setMeetingContainerHeight }),
+                            react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default 100%, Example : 100% (or) 300px")),
+                        react_1.default.createElement(PreMeeting_1.IFrameProps, null,
+                            react_1.default.createElement(PreMeeting_1.PropsSpecs, { placeholder: "Container", value: this.viewmodel.meetingContainerRef, onChange: this.viewmodel.setMeetingContainerRef }),
+                            react_1.default.createElement(PreMeeting_1.PropsHint, null, "Default: Attach to the body, Example : #iframeContainer (or) .iframeContainer")))),
+                react_1.default.createElement(PreMeeting_1.THOptionsWrapper, { onClick: this.viewmodel.toggleShowTHCustomisationOptions },
+                    react_1.default.createElement(PreMeeting_1.Arrow, { closed: !this.viewmodel.showTHCustomisationOptions }),
+                    react_1.default.createElement(PreMeeting_1.THOptionsHeader, null, "TeleHealth PLE customisation (Optional)")),
+                this.viewmodel.showTHCustomisationOptions && react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement(PreMeeting_1.UIOptionsContainer, null,
+                        "Workflow:",
+                        react_1.default.createElement(PreMeeting_1.THWorkFlow, null,
+                            react_1.default.createElement(PreMeeting_1.Circle, null, "Landing"),
+                            react_1.default.createElement(PreMeeting_1.Circle, null,
+                                "CheckIn",
+                                react_1.default.createElement("div", null,
+                                    react_1.default.createElement(PreMeeting_1.CheckBox, { type: "checkbox", checked: (_g = this.viewmodel.teleHealthConfig) === null || _g === void 0 ? void 0 : _g.skipCheckIn, onChange: this.viewmodel.setTeleHealthSkipCheckIn }),
+                                    react_1.default.createElement("label", null, "Skip"))),
+                            react_1.default.createElement(PreMeeting_1.Circle, null, "Waiting")),
+                        react_1.default.createElement(PreMeeting_1.UIOptions, null,
+                            react_1.default.createElement("tr", null,
+                                react_1.default.createElement(PreMeeting_1.OptionsData, null, this.viewmodel.isMobileEmbed ? (react_1.default.createElement(react_1.default.Fragment, null,
+                                    react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                        react_1.default.createElement("label", null, "Logo URL (Image must be transparent): "),
+                                        react_1.default.createElement(PreMeeting_1.SubLabel, null, " *Visible only on landing screen")),
+                                    react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "https://example.com/src/image.png", value: (_h = this.viewmodel.teleHealthConfig) === null || _h === void 0 ? void 0 : _h.whiteLogo, onChange: this.viewmodel.setTeleHealthWhiteLogo }))) : (react_1.default.createElement(react_1.default.Fragment, null,
+                                    react_1.default.createElement(react_1.default.Fragment, null,
+                                        react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                            react_1.default.createElement("label", null, "Logo URL: "),
+                                            react_1.default.createElement(PreMeeting_1.SubLabel, null, " *Visible only on landing screen")),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "https://example.com/src/image.png", value: (_j = this.viewmodel.teleHealthConfig) === null || _j === void 0 ? void 0 : _j.logo, onChange: this.viewmodel.setTeleHealthLogo })),
+                                    react_1.default.createElement(react_1.default.Fragment, null,
+                                        react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                            react_1.default.createElement("label", null, "White Logo URL (Image must be transparent): "),
+                                            react_1.default.createElement(PreMeeting_1.SubLabel, null, " *Visible only on landing screen")),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "https://example.com/src/image.png", value: (_k = this.viewmodel.teleHealthConfig) === null || _k === void 0 ? void 0 : _k.whiteLogo, onChange: this.viewmodel.setTeleHealthWhiteLogo })))))),
+                            react_1.default.createElement("tr", null,
+                                react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                    react_1.default.createElement(react_1.default.Fragment, null,
+                                        react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                            react_1.default.createElement("label", null, "Custom Background: "),
+                                            react_1.default.createElement(PreMeeting_1.SubLabel, null, " *Custom background for entire entire app in televisit")),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "#FFFFFF or linear-gradient(#6600CC, #6600FF)", value: (_l = this.viewmodel.teleHealthConfig) === null || _l === void 0 ? void 0 : _l.backgroundColor, onChange: this.viewmodel.setTeleHealthBackground })),
+                                    react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                        react_1.default.createElement("label", null, "Welcome message: "),
+                                        react_1.default.createElement(PreMeeting_1.SubLabel, null, " * Visible only on landing screen")),
+                                    react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "Enter welcome message", value: (_m = this.viewmodel.teleHealthConfig) === null || _m === void 0 ? void 0 : _m.welcomeText, onChange: this.viewmodel.setTeleHealthWelcomeText }))),
+                            react_1.default.createElement("tr", null,
+                                react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                    react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                        react_1.default.createElement("label", null, "Waiting message: "),
+                                        react_1.default.createElement(PreMeeting_1.SubLabel, null, " * Visible only on waiting screen")),
+                                    react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", value: (_o = this.viewmodel.teleHealthConfig) === null || _o === void 0 ? void 0 : _o.waitingText, onChange: this.viewmodel.setTeleHealthWaitingText, placeholder: 'Enter waiting message' }))),
+                            react_1.default.createElement("tr", null,
+                                react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                    react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                        react_1.default.createElement("label", null, "Provider Name:"),
+                                        react_1.default.createElement(PreMeeting_1.SubLabel, null, " * Visible on all screens")),
+                                    react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "Enter Provider Name", value: (_p = this.viewmodel.teleHealthConfig) === null || _p === void 0 ? void 0 : _p.providerName, onChange: this.viewmodel.setTeleHealthProviderName }))),
+                            react_1.default.createElement("tr", null,
+                                react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                    react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                        react_1.default.createElement("label", null, "Provider Title:"),
+                                        react_1.default.createElement(PreMeeting_1.SubLabel, null, " * Visible on all screens")),
+                                    react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "Enter Provider Title", value: (_q = this.viewmodel.teleHealthConfig) === null || _q === void 0 ? void 0 : _q.providerTitle, onChange: this.viewmodel.setTeleHealthProviderTitle }))),
+                            react_1.default.createElement("tr", null,
+                                react_1.default.createElement(PreMeeting_1.OptionsData, null,
+                                    react_1.default.createElement(PreMeeting_1.LabelContainer, null,
+                                        react_1.default.createElement("label", null, "Provider Image URL:"),
+                                        react_1.default.createElement(PreMeeting_1.SubLabel, null, " * Visible on all screens")),
+                                    react_1.default.createElement(PreMeeting_1.InputBox, { type: "text", placeholder: "https://example.com/src/image.png", value: (_r = this.viewmodel.teleHealthConfig) === null || _r === void 0 ? void 0 : _r.providerImage, onChange: this.viewmodel.setTeleHealthProviderImage })))),
+                        react_1.default.createElement(PreMeeting_1.THResourceContainer, null,
+                            react_1.default.createElement("fieldset", null,
+                                react_1.default.createElement("legend", null,
+                                    react_1.default.createElement("b", null, "Article")),
+                                react_1.default.createElement(PreMeeting_1.THResourceForm, { onSubmit: this.viewmodel.addTelehealthArticle },
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "title" }, "Title: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "title", type: "text", required: true, placeholder: "Enter article title here" })),
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "thumbnailUrl" }, "Thumbnail URL: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "thumbnailUrl", type: "text", required: true, placeholder: "https://example.com/src/thumbnail.png" })),
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "url" }, "Document URL: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "url", type: "text", required: true, placeholder: "https://example.com/src/document.pdf" })),
+                                    react_1.default.createElement(PreMeeting_1.JoinButton, { type: "submit" }, "Add Article"))),
+                            react_1.default.createElement("fieldset", null,
+                                react_1.default.createElement("legend", null,
+                                    react_1.default.createElement("b", null, "Video")),
+                                react_1.default.createElement(PreMeeting_1.THResourceForm, { onSubmit: this.viewmodel.addTelehealthVideo },
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "title" }, "Title: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "title", type: "text", required: true, placeholder: "Enter video title here" })),
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "thumbnailUrl" }, "Thumbnail URL: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "thumbnailUrl", type: "text", required: true, placeholder: "https://example.com/src/thumbnail.png" })),
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "url" }, "Video URL: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "url", type: "text", required: true, placeholder: "https://example.com/src/video.mp4" })),
+                                    react_1.default.createElement("div", null,
+                                        react_1.default.createElement("label", { htmlFor: "url" }, "Duration: "),
+                                        react_1.default.createElement(PreMeeting_1.InputBox, { name: "duration", type: "text", required: true, placeholder: "e.g. 20:10" })),
+                                    react_1.default.createElement(PreMeeting_1.JoinButton, { type: "submit" }, "Add Video"))))),
+                    react_1.default.createElement(PreMeeting_1.THResourceJsonSection, { style: { textAlign: 'initial' } },
+                        react_1.default.createElement("summary", null,
+                            "TeleHealth resources ( ",
+                            `Videos : ${thVideosCount} | Articles : ${thArticlesCount}`,
+                            " )"),
+                        react_1.default.createElement("pre", null, JSON.stringify(mobx_1.toJS(this.viewmodel.teleHealthConfig.resources), undefined, 2))))),
             react_1.default.createElement(PreMeeting_1.JoinButton, { onClick: this.viewmodel.joinMeeting }, "Join Meeting")));
     }
 };
@@ -35751,8 +35964,9 @@ class PreMeetingViewModel {
         this.backgroundColor = "";
         this.meetingContainerWidth = "";
         this.meetingContainerHeight = "";
+        this.isMobileEmbed = false;
+        this.teleHealthConfig = {};
         this.meetingContainerRef = ".iframeHolder";
-        this.appLocale = bluejeans_webrtc_embed_sdk_1.Locale.EN;
         this.embedSDKManager = managers.embedSDKManager;
         this.appManager = managers.appManager;
         this.customInMeetingBGConfig = {
@@ -35819,6 +36033,74 @@ class PreMeetingViewModel {
     setContainerColorOfAllTiles(event) {
         this.customInMeetingBGConfig.containerColorOfAllTiles = event.target.value;
     }
+    setMobileEmbed(event) {
+        this.isMobileEmbed = event.target.checked;
+    }
+    setTeleHealthLogo(event) {
+        this.teleHealthConfig['logo'] = event.target.value;
+    }
+    setTeleHealthWhiteLogo(event) {
+        this.teleHealthConfig['whiteLogo'] = event.target.value;
+    }
+    setTeleHealthBackground(event) {
+        this.teleHealthConfig['backgroundColor'] = event.target.value;
+    }
+    setTeleHealthWelcomeText(event) {
+        this.teleHealthConfig['welcomeText'] = event.target.value;
+    }
+    setTeleHealthWaitingText(event) {
+        this.teleHealthConfig['waitingText'] = event.target.value;
+    }
+    setTeleHealthBackgroundColor(event) {
+        this.teleHealthConfig['backgroundColor'] = event.target.value;
+    }
+    setTeleHealthProviderName(event) {
+        this.teleHealthConfig['providerName'] = event.target.value;
+    }
+    setTeleHealthProviderImage(event) {
+        this.teleHealthConfig['providerImage'] = event.target.value;
+    }
+    setTeleHealthProviderTitle(event) {
+        this.teleHealthConfig['providerTitle'] = event.target.value;
+    }
+    setTeleHealthSkipCheckIn(event) {
+        this.teleHealthConfig.skipCheckIn = event.target.checked;
+    }
+    addTelehealthArticle(event) {
+        var _a, _b, _c;
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const article = Object.fromEntries(formData);
+        if (!this.teleHealthConfig.resources) {
+            this.teleHealthConfig = Object.assign(Object.assign({}, this.teleHealthConfig), { resources: { articles: { data: [article] } } });
+        }
+        else if (!((_c = (_b = (_a = this.teleHealthConfig.resources) === null || _a === void 0 ? void 0 : _a.articles) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.length)) {
+            mobx_1.extendObservable(this.teleHealthConfig.resources, { articles: { data: [article] } });
+        }
+        else {
+            this.teleHealthConfig.resources.articles.data.push(article);
+        }
+        event.target.reset();
+    }
+    addTelehealthVideo(event) {
+        var _a, _b, _c;
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const video = Object.fromEntries(formData);
+        if (!this.teleHealthConfig.resources) {
+            this.teleHealthConfig = Object.assign(Object.assign({}, this.teleHealthConfig), { resources: { videos: { data: [video] } } });
+        }
+        else if (!((_c = (_b = (_a = this.teleHealthConfig.resources) === null || _a === void 0 ? void 0 : _a.videos) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.length)) {
+            mobx_1.extendObservable(this.teleHealthConfig.resources, { videos: { data: [video] } });
+        }
+        else {
+            this.teleHealthConfig.resources.videos.data.push(video);
+        }
+        event.target.reset();
+    }
+    toggleShowTHCustomisationOptions() {
+        this.showTHCustomisationOptions = !this.showTHCustomisationOptions;
+    }
     get joinprops() {
         return {
             meetingInfo: this.meetingInfo,
@@ -35834,20 +36116,11 @@ class PreMeetingViewModel {
         };
     }
     get uiProps() {
-        return {
-            disableFullScreenToggle: this.disableFullScreenToggle,
-            hideFooter: this.hideMeetingFooter,
-            hideChatPanel: this.hideChatPanel,
-            hideAppsPanel: this.hideAppsPanel,
-            lockMeetingControls: this.lockMeetingControls,
-            hideCopyLink: this.hideCopyLink,
-            hideRatingScreen: this.hideRatingScreen,
-            hideAppPitches: this.disableAppPitches,
-            customBackground: this.backgroundColor,
-            hideOtherJoinOptions: this.hideOtherJoinOptions,
-            inMeetingBGConfig: this.customInMeetingBGConfig,
-            locale: this.appLocale
-        };
+        let locale = {};
+        if (this.appLocale) {
+            locale = { locale: this.appLocale };
+        }
+        return Object.assign({ disableFullScreenToggle: this.disableFullScreenToggle, hideFooter: this.hideMeetingFooter, hideChatPanel: this.hideChatPanel, hideAppsPanel: this.hideAppsPanel, lockMeetingControls: this.lockMeetingControls, hideCopyLink: this.hideCopyLink, hideRatingScreen: this.hideRatingScreen, hideAppPitches: this.disableAppPitches, customBackground: this.backgroundColor, hideOtherJoinOptions: this.hideOtherJoinOptions, inMeetingBGConfig: this.customInMeetingBGConfig, teleHealthConfig: this.teleHealthConfig }, locale);
     }
     get iFrameProps() {
         return {
@@ -35858,6 +36131,7 @@ class PreMeetingViewModel {
     }
     get availableLocales() {
         let options = [];
+        options.push({ id: " ", name: this.localeName(" ") });
         for (const locale in bluejeans_webrtc_embed_sdk_1.Locale) {
             options.push({ id: bluejeans_webrtc_embed_sdk_1.Locale[locale], name: this.localeName(bluejeans_webrtc_embed_sdk_1.Locale[locale]) });
         }
@@ -35876,7 +36150,7 @@ class PreMeetingViewModel {
             case bluejeans_webrtc_embed_sdk_1.Locale.JA:
                 return "Japanese";
             default:
-                return "English";
+                return " ";
         }
     }
     setAppLocale(locale) {
@@ -35933,10 +36207,19 @@ __decorate([
 ], PreMeetingViewModel.prototype, "meetingContainerHeight", void 0);
 __decorate([
     mobx_1.observable
+], PreMeetingViewModel.prototype, "isMobileEmbed", void 0);
+__decorate([
+    mobx_1.observable
+], PreMeetingViewModel.prototype, "teleHealthConfig", void 0);
+__decorate([
+    mobx_1.observable
 ], PreMeetingViewModel.prototype, "meetingContainerRef", void 0);
 __decorate([
     mobx_1.observable
 ], PreMeetingViewModel.prototype, "appLocale", void 0);
+__decorate([
+    mobx_1.observable
+], PreMeetingViewModel.prototype, "showTHCustomisationOptions", void 0);
 __decorate([
     mobx_1.action.bound
 ], PreMeetingViewModel.prototype, "setMeetingId", null);
@@ -35994,6 +36277,48 @@ __decorate([
 __decorate([
     mobx_1.action.bound
 ], PreMeetingViewModel.prototype, "setContainerColorOfAllTiles", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setMobileEmbed", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthLogo", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthWhiteLogo", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthBackground", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthWelcomeText", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthWaitingText", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthBackgroundColor", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthProviderName", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthProviderImage", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthProviderTitle", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "setTeleHealthSkipCheckIn", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "addTelehealthArticle", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "addTelehealthVideo", null);
+__decorate([
+    mobx_1.action.bound
+], PreMeetingViewModel.prototype, "toggleShowTHCustomisationOptions", null);
 __decorate([
     mobx_1.action.bound
 ], PreMeetingViewModel.prototype, "setAppLocale", null);
@@ -36063,7 +36388,7 @@ let SampleApp = class SampleApp extends react_1.Component {
         }
     }
     render() {
-        return (react_1.default.createElement("div", null,
+        return (react_1.default.createElement("div", { style: { width: '100vw', height: '100vh', margin: "30px" } },
             react_1.default.createElement(Common_1.IFrameHolder, { className: "iframeHolder", show: this.viewModel.showMeetingIframe }),
             this.viewToShow));
     }
@@ -36101,12 +36426,10 @@ exports.TextBox = styled_components_1.default.input `
     border-radius: 4px;
 `;
 exports.IFrameHolder = styled_components_1.default("div") `
-    width: 70%;
-    height: 720px;
-    position: absolute;
-    display: ${props => props.show ? "inline-block" : "none"}
-    top: 50px;
     right: 20px;
+    width: 80%;
+    height: 80%;
+    display: ${props => props.show ? "block" : "none"};
 `;
 exports.JoiningMessage = styled_components_1.default.div `
     width: 300px;
@@ -36193,9 +36516,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MeetingDeviceDropdown = exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLabel = exports.IFramePropsContainer = exports.BGColorHint = exports.BGColorTextBox = exports.BGColorTextLabel = exports.BGOptionContainer = exports.CheckBox = exports.OptionsData = exports.OptionsHeader = exports.UIOptions = exports.UIOptionsContainer = exports.JoinButton = exports.JoinName = exports.Passcode = exports.MeetingID = exports.MeetingInfoContainer = exports.GreetingsSubHeader = exports.GreetingsHeader = exports.ViewContainer = void 0;
+exports.Arrow = exports.THResourceJsonSection = exports.THResourceForm = exports.THResourceContainer = exports.LabelContainer = exports.SubLabel = exports.Circle = exports.THWorkFlow = exports.MeetingDeviceDropdown = exports.PropsHint = exports.PropsSpecs = exports.IFrameProps = exports.IFrameLabel = exports.IFramePropsContainer = exports.BGColorHint = exports.BGColorTextBox = exports.BGColorTextLabel = exports.BGOptionContainer = exports.InputBox = exports.CheckBox = exports.OptionsData = exports.THOptionsWrapper = exports.THOptionsHeader = exports.OptionsHeader = exports.OptionsWrapper = exports.UIOptions = exports.UIOptionsContainer = exports.JoinButton = exports.JoinName = exports.Passcode = exports.MeetingID = exports.MeetingInfoContainer = exports.GreetingsSubHeader = exports.GreetingsHeader = exports.ViewContainer = void 0;
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 const Common_1 = __webpack_require__(/*! ./Common */ "./src/views/styles/Common.ts");
+const ArrowRight = `{
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    margin-top: 3px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+}`;
+const ArrowDown = `{
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    margin-top: 6px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+}`;
 exports.ViewContainer = styled_components_1.default.div `
     margin: auto;
     text-align: center;
@@ -36236,19 +36577,44 @@ exports.UIOptionsContainer = styled_components_1.default.table `
     text-align: left;
     margin-top: 8px;
     background: lightgray;
+    padding: 10px;
+    width: 100%;
 `;
 exports.UIOptions = styled_components_1.default.tbody `
+    width: 100%;
+`;
+exports.OptionsWrapper = styled_components_1.default.div `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
 `;
 exports.OptionsHeader = styled_components_1.default.span `
     display: block;
     text-align: left;
     font-weight: bolder;
+`;
+exports.THOptionsHeader = styled_components_1.default("OptionsHeader") `
+    display: inline-block;
+    margin-left: 10px;
+`;
+exports.THOptionsWrapper = styled_components_1.default.div `
+    display: flex;
+    width: fit-content;
+    font-weight: bolder;
+    justify-content: flex-start;
     margin-top: 30px;
+    cursor: pointer
 `;
 exports.OptionsData = styled_components_1.default.td `
     min-width: 300px;
+    padding: 5px;
 `;
 exports.CheckBox = styled_components_1.default.input `
+`;
+exports.InputBox = styled_components_1.default.input `
+    width: 100%;
+    height: 25px;
 `;
 exports.BGOptionContainer = styled_components_1.default.div `
     background: lightgray;
@@ -36302,6 +36668,87 @@ exports.MeetingDeviceDropdown = styled_components_1.default.select `
     background: white;
     color: black;
     font-size: 14px;
+`;
+exports.THWorkFlow = styled_components_1.default.ul `
+    display: flex;
+    justify-content: space-around;
+`;
+exports.Circle = styled_components_1.default.li `
+    width: 8em;
+    height: 8em;
+    text-align: center;
+    line-height: 3em;
+    border-radius: 4em;
+    background: cadetblue; 
+    margin: 0 1em;
+    display: inline-block;
+    color: white;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 4em;
+        left: 8em;
+        width: 11em;
+        height: .2em;
+        background: cadetblue;
+        z-index: 44;
+    }
+
+    &:last-child::before {
+      display: none;
+    }
+
+    .active {
+        background: dodgerblue;
+    }
+
+    .active ~ li {
+        background: lightblue;
+    }
+      
+    .active ~ li::before {
+        background: lightblue;
+    }
+`;
+exports.SubLabel = styled_components_1.default.label `
+    color: cadetblue;
+`;
+exports.LabelContainer = styled_components_1.default.div `
+    display: flex;
+    justify-content: space-between;
+`;
+exports.THResourceContainer = styled_components_1.default.div `
+    display: flex;
+    flex-direction: row-reverse;
+    > * {
+        flex: 1;
+    }
+`;
+exports.THResourceForm = styled_components_1.default.form `
+    display: flex;
+    flex-direction: column;
+    > * {
+        margin: 10px 0;
+    }
+    label {
+        margin-top: 10px;
+    }
+`;
+exports.THResourceJsonSection = styled_components_1.default.details `
+    padding: 10px;
+    background: aliceblue;
+    summary {
+        cursor: pointer;
+    }
+`;
+exports.Arrow = styled_components_1.default("div") `
+  ${props => props.closed ? ArrowRight : ArrowDown}
 `;
 
 

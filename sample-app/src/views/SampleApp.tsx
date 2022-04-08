@@ -34,7 +34,7 @@ export default class SampleApp extends Component<Props> {
 
     render() {
         return (
-            <div>
+            <div style={{ width: '100vw', height: '100vh', margin : "30px"}}>
                 <IFrameHolder className="iframeHolder" show={ this.viewModel.showMeetingIframe }/>
                 { this.viewToShow }
             </div>

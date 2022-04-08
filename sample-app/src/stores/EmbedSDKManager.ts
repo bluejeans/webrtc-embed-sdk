@@ -1,87 +1,103 @@
 import { computed, action } from "mobx";
-import  { BJNEmbedSDK, BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps, VideoState } from "bluejeans-webrtc-embed-sdk";
+import {  BJNEmbedSDK as EmbedSDK, BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps, VideoState } from "bluejeans-webrtc-embed-sdk";
 
 export default class EmbedSDKManager implements BJNEmbedSDKInterface {
 
     constructor() {
-        BJNEmbedSDK.observe("audioMuted", () => {
-            console.info("audioMuted changed : ", BJNEmbedSDK.audioMuted)
+        EmbedSDK.observe("audioMuted", () => {
+            console.info("audioMuted changed : ", EmbedSDK.audioMuted)
         })
 
-        BJNEmbedSDK.observe("connectionState", () => {
-            console.info("connectionState changed : ", BJNEmbedSDK.connectionState)
+        EmbedSDK.observe("connectionState", () => {
+            console.info("connectionState changed : ", EmbedSDK.connectionState)
         })
     }
 
     @computed get isSDKInitComplete() : boolean {
-        return BJNEmbedSDK.isSDKInitComplete;
+        return EmbedSDK.isSDKInitComplete;
     }
 
     @computed get connectionState(): BJNEConnectionState {
-        return BJNEmbedSDK.connectionState;
+        return EmbedSDK.connectionState;
     }
 
     @computed get audioMuted(): boolean {
-        return BJNEmbedSDK.audioMuted;
+        return EmbedSDK.audioMuted;
     }
 
     @computed get videoMuted(): boolean {
-        return BJNEmbedSDK.videoMuted;
+        return EmbedSDK.videoMuted;
     }
 
     @computed get receivingScreenShare(): boolean {
-        return BJNEmbedSDK.receivingScreenShare;
+        return EmbedSDK.receivingScreenShare;
     }
 
     @computed get sharingScreen(): boolean {
-        return BJNEmbedSDK.sharingScreen;
+        return EmbedSDK.sharingScreen;
+    }
+
+    @computed get canShareScreen(): boolean {
+        return EmbedSDK.canShareScreen;
+    }
+
+    @computed get remoteAudioMuted(): boolean {
+        return EmbedSDK.remoteAudioMuted;
     }
 
     @computed get participants(): BJNEParticipant[] {
-        return BJNEmbedSDK.participants;
+        return EmbedSDK.participants;
     }
 
     @computed get selfParticipant(): BJNEParticipant {
-        return BJNEmbedSDK.selfParticipant;
+        return EmbedSDK.selfParticipant;
     }
 
     @computed get chatMessages(): BJNEChatMessage[] {
-        return BJNEmbedSDK.chatMessages;
+        return EmbedSDK.chatMessages;
     }
 
     @computed get videoState(): VideoState {
-        return BJNEmbedSDK.videoState;
+        return EmbedSDK.videoState;
     }
 
     @action joinMeeting(joinProps : JoinProps) {
-        BJNEmbedSDK.joinMeeting(joinProps);
+        EmbedSDK.joinMeeting(joinProps);
     }
 
     @action leave(): void {
-        BJNEmbedSDK.leave();
+        EmbedSDK.leave();
     }
 
     @action leaveAndEndForAll(): void {
         // TODO
     }
 
-    @action setAudioMuted(): void {
-        BJNEmbedSDK.setAudioMuted();
+    @action setAudioMuted(val?:boolean): void {
+        EmbedSDK.setAudioMuted(val);
     }
 
-    @action setVideoMuted(): void {
-        BJNEmbedSDK.setVideoMuted();
+    @action setVideoMuted(val?:boolean): void {
+        EmbedSDK.setVideoMuted(val);
     }
 
     @action startScreenShare(): void {
-        BJNEmbedSDK.startScreenShare();
+        if(this.canShareScreen) {
+            EmbedSDK.startScreenShare();
+        }
     }
 
     @action stopScreenShare(): void {
-        BJNEmbedSDK.stopScreenShare();
+        if(this.canShareScreen) {
+            EmbedSDK.stopScreenShare();
+        }
+    }
+
+    @action setRemoteAudioMuted(mute : boolean): void {
+        EmbedSDK.setRemoteAudioMuted(mute);
     }
 
     @action setName(name: string): void {
-        BJNEmbedSDK.setName(name);
+        EmbedSDK.setName(name);
     }
 }

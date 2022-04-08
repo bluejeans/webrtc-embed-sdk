@@ -8,12 +8,10 @@ export const TextBox = styled.input`
 `
 
 export const IFrameHolder = styled<any, any>("div")`
-    width: 70%;
-    height: 720px;
-    position: absolute;
-    display: ${props => props.show ? "inline-block" : "none"}
-    top: 50px;
     right: 20px;
+    width: 80%;
+    height: 80%;
+    display: ${props => props.show ? "block" : "none" };
 `
 
 export const JoiningMessage = styled.div`

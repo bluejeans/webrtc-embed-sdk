@@ -10,6 +10,9 @@ export default class MeetingViewModel {
     get audioStatus(): string;
     get videoStatus(): string;
     get sharingStatus(): string;
+    get canShareScreen(): boolean;
+    get remoteAudioMuted(): boolean;
+    get remoteAudioMutedStatus(): string;
     get callControlInfo(): string;
     get videoState(): string;
     private get isDisconnected();
@@ -17,5 +20,6 @@ export default class MeetingViewModel {
     toggleVideoState(): void;
     toggleAudioState(): void;
     toggleScreenShare(): void;
+    toggleRemoteAudioMuted(): void;
     leaveMeeting(): void;
 }
