@@ -13,6 +13,7 @@ export default class EmbedSDKManager implements BJNEmbedSDKInterface {
     get selfParticipant(): BJNEParticipant;
     get chatMessages(): BJNEChatMessage[];
     get videoState(): VideoState;
+    get version(): string;
     joinMeeting(joinProps: JoinProps): void;
     leave(): void;
     leaveAndEndForAll(): void;
