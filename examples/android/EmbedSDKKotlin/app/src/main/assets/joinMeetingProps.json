@@ -1,0 +1,41 @@
+{
+  "meetingInfo": {
+    "meetingId": "",
+    "passcode": "",
+    "name": ""
+  },
+  "iFrameProps": {
+    "width": "100vw",
+    "height": "100vh",
+    "selectorId": ".iframeHolder"
+  },
+  "uiProps": {
+    "hideChatPanel": false,
+    "lockMeetingControls": false,
+    "hideCopyLink": false,
+    "hideRatingScreen": false,
+    "inMeetingBGConfig": {
+      "audioTileColor": "",
+      "containerColorOfAllTiles": ""
+    },
+    "locale": "en",
+    "teleHealthConfig": {
+      "skipCheckIn": true,
+      "backgroundColor": "linear-gradient(#6600CC, #6600FF)",
+      "welcomeText": "Welcome to the clinic!",
+      "waitingText": "Please wait for your provider",
+      "resources": {
+        "videos": {
+          "data": [
+            {
+              "title": "Video title",
+              "thumbnailUrl": "https://example.com",
+              "url": "https://example.com",
+              "duration": "12:10"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

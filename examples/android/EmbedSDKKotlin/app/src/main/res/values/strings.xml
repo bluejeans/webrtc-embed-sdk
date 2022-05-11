@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">EmbedSDK</string>
+    <string name="meeting_props">Meeting Props</string>
+    <string name="join">Join</string>
+    <string name="reset">Reset</string>
+    <string name="stage">Stage</string>
+    <string name="get_connection_state">Get Connection State</string>
+    <string name="post_message">Post Message</string>
+    <string name="submit">Submit</string>
+    <string name="et_hint">e.g. { \"type\": \"embedProxy.toProxy\", \"method\": \"leave\" }</string>
+    <string name="connection_state">Connection State: </string>
+    <string name="name">Name</string>
+    <string name="meeting_id">Meeting ID</string>
+    <string name="meeting_passcode">Meeting Passcode</string>
+    <array name="tabs_title">
+        <item>Join with JSON</item>
+        <item>Join with ID</item>
+    </array>
+</resources>

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
  
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.1] - 2022-05-11
+
+### Added
+- A version property to BJNEmbedSDK to return the current SDK version
+### Changed
+- Fixed a minor bug to allow file:// URLs to call methods on Embed SDK. This helps with WebView support for locally hosted WebView content
 ## [2.1.0] - 2022-04-07
 ### Added
 
