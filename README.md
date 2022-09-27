@@ -29,4 +29,8 @@ Thanks in advance for your help!
 &nbsp;
 ### License
 Copyright © 2022 BlueJeans Network. Refer to LICENSE.txt and LICENSE-3RD-PARTY.txt.
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License 
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+## Legal Requirements
+
+Use of this SDK is subject to our [Terms & Conditions](https://www.bluejeans.com/legal/terms-of-service) and [Privacy Policy](https://www.bluejeans.com/privacy-policy).
