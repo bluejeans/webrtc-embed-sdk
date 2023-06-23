@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 interface Props {
 }
 export default class JoiningView extends Component<Props> {
     constructor(props: Props);
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

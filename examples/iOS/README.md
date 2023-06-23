@@ -1,7 +1,7 @@
 # Sample App for Embedding WebRTC Telehealth Embed SDK on iOS
 
 ## Prerequisites
-1) Xcode (tested on Xcode 13.2.1) 
+1) Xcode (tested on Xcode 14.3.1) 
 
 ## Build Steps
 1) Open the .xcodeproj file

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BlueJeans Web Embed SDK - v2.1.1</title>
+	<title>BlueJeans Web Embed SDK - v2.2.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -27,7 +27,7 @@
 						<li data-name="conversation/response.*" data-subtitle="Rich response"></li>
 						<li data-name=".*\.User.storage" data-subtitle="Persistent storage"></li>
 					</ul>
-					<a href="index.html" class="title">BlueJeans Web Embed SDK - v2.1.1</a>
+					<a href="index.html" class="title">BlueJeans Web Embed SDK - v2.2.0</a>
 					&emsp;<a href="https://bluejeans.github.io/webrtc-embed-sdk/sample.html" class="title">Sample</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -73,7 +73,7 @@
 			</nav>
 		</div>
 		<div class="col-7 offset-3 col-content">
-			<h1>BlueJeans Web Embed SDK - v2.1.1</h1>
+			<h1>BlueJeans Web Embed SDK - v2.2.0</h1>
 			<div class="tsd-panel tsd-typography">
 				<a href="#bluejeans-web-embed-sdk" id="bluejeans-web-embed-sdk" style="color: inherit; text-decoration: none;">
 					<h1>BlueJeans Web Embed SDK</h1>
@@ -97,7 +97,7 @@
 				<a href="#alternative-bluejeans-web-client-sdk" id="alternative-bluejeans-web-client-sdk" style="color: inherit; text-decoration: none;">
 					<h3>Alternative: BlueJeans Web Client SDK</h3>
 				</a>
-				<p>The <a href="https://github.com/bluejeans/web-client-sdk">BlueJeans Web Client SDK</a> is an alternative option to this SDK. Overall, the BlueJeans Web Client SDK offers significantly more opportunities for customization, but does not provide any user interface - you must build it yourself. As a result, significantly more code is required.</p>
+				<p>The <em>BlueJeans Web Client SDK</em> is an alternative option to this SDK. Overall, the BlueJeans Web Client SDK offers significantly more opportunities for customization, but does not provide any user interface - you must build it yourself. As a result, significantly more code is required.</p>
 				<p>For advanced users looking to build a completely custom user experience that diverges heavily from the stock BlueJeans WebRTC experience, the BlueJeans Web Client SDK may be a better choice than the BlueJeans Web Embed SDK.</p>
 				<p>&nbsp;</p>
 				<a href="#before-you-get-started" id="before-you-get-started" style="color: inherit; text-decoration: none;">
@@ -117,7 +117,7 @@
 					<h2>Installation</h2>
 				</a>
 				<p>The best way to install the BlueJeans Web Embed SDK is through NPM or Yarn:</p>
-				<pre><code>npm <span class="hljs-keyword">install</span> bluejeans-webrtc-embed-sdk</code></pre><p>Alternatively, you can download it directly here: <a href="https://bluejeans-embed-sdk.s3.us-west-2.amazonaws.com/releases/2.1.1/dist/BJNEmbedSDK.js">https://bluejeans-embed-sdk.s3.us-west-2.amazonaws.com/releases/2.1.1/dist/BJNEmbedSDK.js</a></p>
+				<pre><code>npm <span class="hljs-keyword">install</span> bluejeans-webrtc-embed-sdk</code></pre><p>Alternatively, you can download it directly here: <a href="https://bluejeans-embed-sdk.s3.us-west-2.amazonaws.com/releases/2.2.0/dist/BJNEmbedSDK.js">https://bluejeans-embed-sdk.s3.us-west-2.amazonaws.com/releases/2.2.0/dist/BJNEmbedSDK.js</a></p>
 				<p>&nbsp;</p>
 				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
 					<h2>Getting Started</h2>
@@ -126,12 +126,14 @@
 					<h3>Including BJNEmbedSDK</h3>
 				</a>
 				<p>The simplest way is to simply include <code>BJNEmbedSDK.js</code> in a <code>&lt;script&gt;</code> tag in your webpage:</p>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/mobx/5.15.4/mobx.umd.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/mobx/4.5.2/mobx.umd.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./BJNEmbedSDK.js&quot;</span>&gt;</span></code></pre><p>Note that the path may be different depending on where you downloaded the file. When using a <code>&lt;script&gt;</code> tag, the SDK will be available as a global variable, <code>BJN.BJNEmbedSDK</code>.</p>
 				<p>However, for larger projects, you will likely be using a build system such as Webpack. In this case, simply <code>require</code> or <code>import</code> in your existing JavaScript as follows:</p>
 				<pre><code><span class="hljs-keyword">const</span> BJN = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;bluejeans-webrtc-embed-sdk&#x27;</span>)
-<span class="hljs-keyword">let</span> BJNEmbedSDK = BJN.BJNEmbedSDK</code></pre><p>Or import it as a named import</p>
-				<pre><code><span class="hljs-keyword">import</span> { BJNEmbedSDK } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;bluejeans-webrtc-embed-sdk&#x27;</span></code></pre>
+<span class="hljs-keyword">let</span> BJNEmbedSDK = BJN.BJNEmbedSDK
+Or <span class="hljs-keyword">import</span> <span class="hljs-literal">it</span> <span class="hljs-keyword">as</span> a named <span class="hljs-keyword">import</span>
+
+<span class="hljs-keyword">import</span> { BJNEmbedSDK } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;bluejeans-webrtc-embed-sdk&#x27;</span></code></pre>
 				<a href="#setting-up-your-page-for-embedding" id="setting-up-your-page-for-embedding" style="color: inherit; text-decoration: none;">
 					<h3>Setting Up Your Page For Embedding</h3>
 				</a>
@@ -152,16 +154,16 @@
 					</li>
 					<li><code>uiProps</code>: A sub-object allowing customization of the user interface. None of the fields are required, so to start, simply pass an empty object. See the documentation for full list of options.</li>
 				</ul>
-				<p>Here is an example invocation. Note please add your <code>meetingID</code>, <code>passcode</code> and <code>selectorId</code> before trying:</p>
-				<pre><code><span class="hljs-selector-tag">BJNEmbedSDK</span><span class="hljs-selector-class">.joinMeeting</span>({
-    <span class="hljs-attribute">meetingInfo</span>: {
+				<p>Here is an example invocation. Note please add your meetingID, passcode and selectorId before trying:</p>
+				<pre><code>BJNEmbedSDK<span class="hljs-selector-class">.joinMeeting</span>({
+    meetingInfo: {
         meetingId: <span class="hljs-string">&quot;&lt;MEETING_ID&gt;&quot;</span>,
         passcode: <span class="hljs-string">&quot;&lt;PASSCODE&gt;&quot;</span>
     },
-    <span class="hljs-selector-tag">iFrameProps</span>: {
-        <span class="hljs-attribute">selectorId</span>: <span class="hljs-string">&#x27;#bluejeans_holder&#x27;</span>
+    iFrameProps: {
+        selectorId: <span class="hljs-string">&#x27;#bluejeans_holder&#x27;</span>
     },
-    <span class="hljs-selector-tag">uiProps</span>: {}
+    uiProps: {}
 })</code></pre><p>If you do all of the above correctly, you should see a BlueJeans meeting interface appear in the location you have designated!</p>
 				<a href="#concept-observing-variables" id="concept-observing-variables" style="color: inherit; text-decoration: none;">
 					<h3>Concept: Observing Variables</h3>
@@ -216,10 +218,10 @@
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
-				<p>Copyright © 2022 BlueJeans Network. Refer to LICENSE.txt and LICENSE-3RD-PARTY.txt.</p>
+				<p>Copyright © 2023 BlueJeans Network. Refer to LICENSE.txt and LICENSE-3RD-PARTY.txt.</p>
 				<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
 			</div>
-			<!--{&quot;options&quot;:&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;tsconfig&quot;:&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK&quot;,&quot;inputFiles&quot;:[&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDK.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinManager.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/JoinProps.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/MeetingProps.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/CrossIframe.ts&quot;,&quot;/Users/yash.gogia/workspace/BJN/EmbedSDK/webrtc-embed-sdk-for-doc/WebRTC Embed SDK/src/util/URLUtility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;node_modules&quot;,&quot;./src/util/*&quot;,&quot;./src/JoinManager.ts&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;BlueJeans Web Embed SDK&quot;,&quot;includeVersion&quot;:true,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;classes/_bjnembedsdk_.embedsdk&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
+			<!--{&quot;options&quot;:&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk&quot;,&quot;tsconfig&quot;:&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk&quot;,&quot;inputFiles&quot;:[&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/BJNEmbedSDK.ts&quot;,&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/BJNEmbedSDKInterface.ts&quot;,&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/JoinManager.ts&quot;,&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/JoinProps.ts&quot;,&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/MeetingProps.ts&quot;,&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/util/CrossIframe.ts&quot;,&quot;/Users/abhijeet/Documents/Bit Bucket Repos/webrtcembedsdk/src/util/URLUtility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:false,&quot;excludeNotExported&quot;:false,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:false,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default/&quot;,&quot;name&quot;:&quot;BlueJeans Web Embed SDK - v2.2.0&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:true,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Sample&quot;,&quot;url&quot;:&quot;https://bluejeans.github.io/webrtc-embed-sdk/sample.html&quot;}],&quot;outline&quot;:[{&quot;BJNEmbedSDK&quot;:{&quot;Overview&quot;:&quot;classes/_bjnembedsdk_.embedsdk&quot;},&quot;JoinProps&quot;:{&quot;Overview&quot;:&quot;modules/_joinprops_&quot;}}],&quot;search&quot;:[{&quot;name&quot;:&quot;.*Conversation.data&quot;,&quot;subtitle&quot;:&quot;Session data&quot;},{&quot;name&quot;:&quot;conversation/response.*&quot;,&quot;subtitle&quot;:&quot;Rich response&quot;},{&quot;name&quot;:&quot;.*\\.User.storage&quot;,&quot;subtitle&quot;:&quot;Persistent storage&quot;}]}-->
 		</div>
 		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">

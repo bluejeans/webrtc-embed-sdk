@@ -5,6 +5,7 @@ package com.bluejeansnet.embedsdk.activities
 
 import android.Manifest
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -14,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bluejeansnet.embedsdk.R
 import com.bluejeansnet.embedsdk.adapters.ViewPagerAdapter
 import com.bluejeansnet.embedsdk.databinding.ActivityMainBinding
+import com.bluejeansnet.embedsdk.utils.LEGACY_PERMISSIONS
 import com.bluejeansnet.embedsdk.utils.PERMISSIONS
 import com.bluejeansnet.embedsdk.utils.PERMISSIONS_REQUEST_CODE
 import com.bluejeansnet.embedsdk.utils.hasPermission
@@ -57,12 +59,18 @@ class MainActivity : FragmentActivity() {
     }
 
     private fun checkPermissions() {
-        if (!applicationContext.hasPermission(Manifest.permission.CAMERA) ||
-            !applicationContext.hasPermission(Manifest.permission.RECORD_AUDIO) ||
-            !applicationContext.hasPermission(Manifest.permission.BLUETOOTH) ||
-            !applicationContext.hasPermission(Manifest.permission.MODIFY_AUDIO_SETTINGS) ||
-            !applicationContext.hasPermission(Manifest.permission.RECORD_AUDIO)) {
-            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+            PERMISSIONS.forEach { permission ->
+                if (!applicationContext.hasPermission(permission)) {
+                    ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+                }
+            }
+        } else {
+            LEGACY_PERMISSIONS.forEach { permission ->
+                if (!applicationContext.hasPermission(permission)) {
+                    ActivityCompat.requestPermissions(this, LEGACY_PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+                }
+            }
         }
     }
 

@@ -1,10 +1,9 @@
-/// <reference types="react" />
-export declare const MeetingControlContainer: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, any, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
-export declare const MeetingDetailsTable: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>, any, import("react").DetailedHTMLProps<import("react").TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>>;
-export declare const MeetingDetailsTableBody: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>, any, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>>;
-export declare const MeetingDetailsTableRow: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>, any, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>>;
-export declare const MeetingDetailsTableData: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>, any, import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>>;
-export declare const MeetingDetailsTableContent: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, any, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
-export declare const MeetingControlButton: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, any, import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;
-export declare const LeaveControlButton: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, any, import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;
-export declare const JoinName: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, any, import("react").DetailedHTMLProps<import("react").InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>>;
+export declare const MeetingControlContainer: any;
+export declare const MeetingDetailsTable: any;
+export declare const MeetingDetailsTableBody: any;
+export declare const MeetingDetailsTableRow: any;
+export declare const MeetingDetailsTableData: any;
+export declare const MeetingDetailsTableContent: any;
+export declare const MeetingControlButton: any;
+export declare const LeaveControlButton: any;
+export declare const JoinName: any;

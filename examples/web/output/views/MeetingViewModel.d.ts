@@ -1,4 +1,4 @@
-import Managers from "../stores/Managers";
+import Managers from '../stores/Managers';
 export default class MeetingViewModel {
     private appManager;
     private embedSDKManager;

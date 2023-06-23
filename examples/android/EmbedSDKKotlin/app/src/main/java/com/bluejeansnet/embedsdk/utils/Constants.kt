@@ -54,6 +54,14 @@ const val PERMISSIONS_REQUEST_CODE = 500
 val PERMISSIONS = arrayOf(
     "android.permission.CAMERA",
     "android.permission.INTERNET",
+    "android.permission.BLUETOOTH_CONNECT",
+    "android.permission.MODIFY_AUDIO_SETTINGS",
+    "android.permission.RECORD_AUDIO"
+)
+
+val LEGACY_PERMISSIONS = arrayOf(
+    "android.permission.CAMERA",
+    "android.permission.INTERNET",
     "android.permission.BLUETOOTH",
     "android.permission.MODIFY_AUDIO_SETTINGS",
     "android.permission.RECORD_AUDIO"

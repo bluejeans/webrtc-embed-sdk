@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
  
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] - 2023-06-23
+
+### Added
+- Added support for passing meta data for a user while joining a meeting (External ID / eid)
+
 ## [2.1.1] - 2022-05-11
 
 ### Added

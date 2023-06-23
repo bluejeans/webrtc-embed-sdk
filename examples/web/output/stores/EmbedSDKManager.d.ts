@@ -1,4 +1,4 @@
-import { BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps, VideoState } from "bluejeans-webrtc-embed-sdk";
+import { BJNEmbedSDKInterface, BJNEConnectionState, BJNEParticipant, BJNEChatMessage, JoinProps, VideoState } from 'bluejeans-webrtc-embed-sdk';
 export default class EmbedSDKManager implements BJNEmbedSDKInterface {
     constructor();
     get isSDKInitComplete(): boolean;

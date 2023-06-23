@@ -34,7 +34,7 @@ If adding/editing a JSON blob is cumbersome for you then simply provide the meet
 Once into a meeting, the current meeting state is always displayed at the bottom of the screen.
    
 ## Build Steps
-Open the repository in Android Studio and press RUN.
+No intricate build steps are involved. Just open the repository in Android Studio and press RUN.
 
 ## Joining a meeting
 1. Either within the JSON, or the join with ID tab - fill in the meeting Id, passcode and name fields

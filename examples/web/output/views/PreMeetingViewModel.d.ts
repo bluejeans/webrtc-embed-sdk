@@ -1,11 +1,12 @@
-import { THSettings, InMeetingBGColors, Locale } from "bluejeans-webrtc-embed-sdk";
-import Managers from "../stores/Managers";
+import { THSettings, InMeetingBGColors, Locale } from 'bluejeans-webrtc-embed-sdk';
+import Managers from '../stores/Managers';
 export default class PreMeetingViewModel {
     private embedSDKManager;
     private appManager;
     meetingID: string;
     passcode: string;
     joinName: string;
+    meetingOrigin: string;
     disableFullScreenToggle: boolean;
     hideMeetingFooter: boolean;
     hideChatPanel: boolean;
@@ -24,6 +25,7 @@ export default class PreMeetingViewModel {
     meetingContainerRef: string;
     appLocale: any;
     showTHCustomisationOptions: boolean;
+    externalID: string;
     constructor(managers: Managers);
     setMeetingId(event: any): void;
     setPasscode(event: any): void;
@@ -52,6 +54,7 @@ export default class PreMeetingViewModel {
     setTeleHealthWaitingText(event: any): void;
     setTeleHealthBackgroundColor(event: any): void;
     setTeleHealthProviderName(event: any): void;
+    setExternalID(event: any): void;
     setTeleHealthProviderImage(event: any): void;
     setTeleHealthProviderTitle(event: any): void;
     setTeleHealthSkipCheckIn(event: any): void;
@@ -71,4 +74,5 @@ export default class PreMeetingViewModel {
         id: Locale;
         name: Locale;
     }): void;
+    joinMeetingWithParams(): void;
 }

@@ -3,7 +3,7 @@ Sample app for the WebRTC-Embed SDK:
 If you like to run the sample app locally
 
 * Prerequisites
-    1. Node >= 10
+    1. Node >= 14
     2. Yarn >= 1.10.1
 
 * Steps

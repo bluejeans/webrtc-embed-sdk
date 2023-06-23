@@ -11,13 +11,19 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.widget.Toast
 import com.bluejeansnet.embedsdk.databinding.ActivityMeetingBinding
+import com.bluejeansnet.embedsdk.model.ConnectionStateJson
 import com.bluejeansnet.embedsdk.storage.MySharedPreferences
 import com.bluejeansnet.embedsdk.utils.ASSET_DIRECTORY
+import com.bluejeansnet.embedsdk.utils.EMBED_NATIVE
 import com.bluejeansnet.embedsdk.utils.ENCODING
 import com.bluejeansnet.embedsdk.utils.EXECUTE_JS
 import com.bluejeansnet.embedsdk.utils.EXTRA_IS_JOIN_BY_ID
 import com.bluejeansnet.embedsdk.utils.EXTRA_MEETING_PROPS
 import com.bluejeansnet.embedsdk.utils.INDEX_HTML
+import com.bluejeansnet.embedsdk.utils.JSON_CONNECTED
+import com.bluejeansnet.embedsdk.utils.JSON_CONNECTING
+import com.bluejeansnet.embedsdk.utils.JSON_CONNECTION_STATE
+import com.bluejeansnet.embedsdk.utils.JSON_DISCONNECTED
 import com.bluejeansnet.embedsdk.utils.JSON_MEETING_ID
 import com.bluejeansnet.embedsdk.utils.JSON_MEETING_INFO
 import com.bluejeansnet.embedsdk.utils.JSON_NAME
@@ -33,27 +39,19 @@ import com.bluejeansnet.embedsdk.utils.validateJson
 import com.bluejeansnet.embedsdk.webview.MyChromeClient
 import com.bluejeansnet.embedsdk.webview.WebViewJsInterface
 import com.bluejeansnet.embedsdk.webview.MyWebViewClient
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
-
-sealed class ConnectionState {
-    object Connecting : ConnectionState()
-    object Connected : ConnectionState()
-    object Disconnected : ConnectionState()
-}
 
 /**
  *
  */
-class MeetingActivity : AppCompatActivity() {
+class MeetingActivity : AppCompatActivity(), WebViewJsInterface.JsMessageReceived {
     private val TAG = "MeetingActivity"
 
     private lateinit var activityMeetingBinding: ActivityMeetingBinding
     private lateinit var mySharedPreferences: MySharedPreferences
     private var meetingProps: String? = null
-
-    private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,32 +90,6 @@ class MeetingActivity : AppCompatActivity() {
             }
         }
 
-        compositeDisposable.add(
-            WebViewJsInterface.connectionState.subscribe({
-                when (it) {
-                    ConnectionState.Connecting -> updateConnectionState(com.bluejeansnet.embedsdk.utils.JSON_CONNECTING)
-                    ConnectionState.Connected -> updateConnectionState(com.bluejeansnet.embedsdk.utils.JSON_CONNECTED)
-                    ConnectionState.Disconnected -> runOnUiThread {
-                        finish()
-                    }
-                }
-            }, {
-                Log.e(TAG, "Exception occured while receiving connection state: ${it.message}")
-            })
-        )
-
-        compositeDisposable.add(
-            WebViewJsInterface.jsEvent.subscribe({ event ->
-                event?.let {
-                    runOnUiThread {
-                        activityMeetingBinding.tvJsEvents.text = it
-                    }
-                }
-            }, {
-                Log.e(TAG, "Exception occured while receiving JS event: ${it.message}")
-            })
-        )
-
         activityMeetingBinding.btnSubmit.setOnClickListener {
             val payload = activityMeetingBinding.etPayload.text.toString()
             if (!validateJson(payload)) {
@@ -141,7 +113,25 @@ class MeetingActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        compositeDisposable.dispose()
+    }
+
+    override fun onMessageReceived(message: String) {
+        val json = Gson().fromJson(message, ConnectionStateJson::class.java)
+
+        if (json.type == EMBED_NATIVE) {
+            runOnUiThread {
+                activityMeetingBinding.tvJsEvents.text = message
+            }
+
+            if (json.property == JSON_CONNECTION_STATE) {
+                when (json.value) {
+                    JSON_CONNECTING -> updateConnectionState(JSON_CONNECTING)
+                    JSON_CONNECTED -> updateConnectionState(JSON_CONNECTED)
+                    JSON_DISCONNECTED -> runOnUiThread { finish() }
+                    else -> Log.w(TAG, "Unrecognized connection state ${json.value}")
+                }
+            }
+        }
     }
 
     private fun showToast(message: String) {
@@ -160,7 +150,7 @@ class MeetingActivity : AppCompatActivity() {
         activityMeetingBinding.webView.webViewClient = MyWebViewClient(jsonObject)
         activityMeetingBinding.webView.webChromeClient = MyChromeClient()
         activityMeetingBinding.webView.addJavascriptInterface(
-            WebViewJsInterface(), "Android"
+            WebViewJsInterface.newInstance(this), "Android"
         )
     }
 

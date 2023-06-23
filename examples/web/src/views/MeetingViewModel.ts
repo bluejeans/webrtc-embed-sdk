@@ -1,120 +1,134 @@
-import { observable, action, computed } from "mobx";
-import Managers from "../stores/Managers";
-import AppManager from "../stores/AppManager";
-import EmbedSDKManager from "../stores/EmbedSDKManager";
+import { observable, action, computed } from 'mobx'
+import Managers from '../stores/Managers'
+import AppManager from '../stores/AppManager'
+import EmbedSDKManager from '../stores/EmbedSDKManager'
 
 export default class MeetingViewModel {
+  private appManager: AppManager
+  private embedSDKManager: EmbedSDKManager
 
-    private appManager : AppManager;
-    private embedSDKManager : EmbedSDKManager;
+  constructor(managers: Managers) {
+    this.appManager = managers.appManager
+    this.embedSDKManager = managers.embedSDKManager
+  }
 
-    constructor(managers : Managers) {
-        this.appManager = managers.appManager;
-        this.embedSDKManager = managers.embedSDKManager;
+  @computed get joinName(): string {
+    return this.embedSDKManager.selfParticipant &&
+      this.embedSDKManager.selfParticipant.name
+      ? this.embedSDKManager.selfParticipant.name
+      : 'EmbedGuest'
+  }
+
+  @computed get participantsCount(): number {
+    return this.embedSDKManager.participants
+      ? this.embedSDKManager.participants.length
+      : 1
+  }
+
+  @computed get meetingStatus(): string {
+    let meetingStatus: string = ''
+    switch (this.embedSDKManager.connectionState) {
+      case 'Connecting':
+        meetingStatus = 'Connecting to Meeting'
+        break
+      case 'Connected':
+        meetingStatus = 'Connected to Meeting'
+        break
+      case 'Reconnecting':
+        meetingStatus = 'Reconnecting to Meeting'
+        break
+      case 'Disconnected':
+        meetingStatus = 'Disconnected from Meeting'
+        break
     }
+    return meetingStatus
+  }
 
-    @computed get joinName() : string {
-        return (this.embedSDKManager.selfParticipant && this.embedSDKManager.selfParticipant.name) ? this.embedSDKManager.selfParticipant.name : "EmbedGuest";
-    }
+  @computed get contentStatus(): string {
+    return this.embedSDKManager.sharingScreen
+      ? 'Content sharing'
+      : this.embedSDKManager.receivingScreenShare
+      ? 'Receiving'
+      : 'Not Receiving'
+  }
 
-    @computed get participantsCount() : number {
-        return this.embedSDKManager.participants ? this.embedSDKManager.participants.length : 1;
-    }
+  @computed get audioStatus(): string {
+    return this.embedSDKManager.audioMuted ? 'UnMute Audio' : 'Mute Audio'
+  }
 
-    @computed get meetingStatus() : string {
-        let meetingStatus : string = ""
-        switch(this.embedSDKManager.connectionState) {
-            case "Connecting":
-                meetingStatus = "Connecting to Meeting";
-                break;
-            case "Connected":
-                meetingStatus = "Connected to Meeting";
-                break;
-            case "Reconnecting":
-                meetingStatus = "Reconnecting to Meeting";
-                break;
-            case "Disconnected":
-                meetingStatus = "Disconnected from Meeting";
-                break;
-        }
-        return meetingStatus;
-    }
+  @computed get videoStatus(): string {
+    return this.embedSDKManager.videoMuted ? 'UnMute Video' : 'Mute Video'
+  }
 
-    @computed get contentStatus() : string {
-        return this.embedSDKManager.sharingScreen ? "Content sharing" : this.embedSDKManager.receivingScreenShare ? "Receiving" : "Not Receiving"
-    }
+  @computed get sharingStatus(): string {
+    return this.embedSDKManager.sharingScreen ? 'Stop sharing' : 'Start sharing'
+  }
 
-    @computed get audioStatus() : string {
-        return this.embedSDKManager.audioMuted ? "UnMute Audio" : "Mute Audio"
-    }
+  @computed get canShareScreen(): boolean {
+    return this.embedSDKManager.canShareScreen
+  }
 
-    @computed get videoStatus() : string {
-        return this.embedSDKManager.videoMuted ? "UnMute Video" : "Mute Video"
-    }
+  @computed get remoteAudioMuted(): boolean {
+    return this.embedSDKManager.remoteAudioMuted
+  }
 
-    @computed get sharingStatus() : string {
-        return this.embedSDKManager.sharingScreen ? "Stop sharing" : "Start sharing"
-    }
+  @computed get remoteAudioMutedStatus(): string {
+    return this.embedSDKManager.remoteAudioMuted
+      ? 'Unmute Remote Audio'
+      : 'Mute Remote Audio'
+  }
 
-    @computed get canShareScreen() : boolean {
-        return this.embedSDKManager.canShareScreen;
-    }
+  @computed get callControlInfo(): string {
+    return this.isDisconnected ? 'ReJoin Meeting' : 'Leave Meeting'
+  }
 
-    @computed get remoteAudioMuted() : boolean {
-        return this.embedSDKManager.remoteAudioMuted
-    }
+  @computed get videoState(): string {
+    return this.embedSDKManager.videoState
+  }
 
-    @computed get remoteAudioMutedStatus() : string {
-        return this.embedSDKManager.remoteAudioMuted ? "Unmute Remote Audio" : "Mute Remote Audio"
-    }
+  @computed private get isDisconnected(): boolean {
+    return this.embedSDKManager.connectionState === 'Disconnected'
+  }
 
-    @computed get callControlInfo() : string {
-        return this.isDisconnected ? "ReJoin Meeting" : "Leave Meeting"
+  @action.bound setJoinName(event): void {
+    let joinName = event.target.value
+    if (joinName) {
+      this.embedSDKManager.setName(joinName)
     }
+  }
 
-    @computed get videoState() : string {
-        return this.embedSDKManager.videoState;
-    }
+  @action.bound toggleVideoState(): void {
+    this.embedSDKManager.setVideoMuted()
+  }
 
-    @computed private get isDisconnected() : boolean {
-        return (this.embedSDKManager.connectionState === "Disconnected");
-    }
+  @action.bound toggleAudioState(): void {
+    this.embedSDKManager.setAudioMuted()
+  }
 
-    @action.bound setJoinName(event) : void {
-        let joinName = event.target.value;
-        if(joinName) {
-            this.embedSDKManager.setName(joinName);
-        }
+  @action.bound toggleScreenShare(): void {
+    if (this.embedSDKManager.sharingScreen) {
+      this.embedSDKManager.stopScreenShare()
+    } else {
+      this.embedSDKManager.startScreenShare()
     }
+  }
 
-    @action.bound toggleVideoState() : void {
-        this.embedSDKManager.setVideoMuted()
-    }
+  @action.bound toggleRemoteAudioMuted(): void {
+    this.embedSDKManager.setRemoteAudioMuted(
+      !this.embedSDKManager.remoteAudioMuted,
+    )
+  }
 
-    @action.bound toggleAudioState() : void {
-        this.embedSDKManager.setAudioMuted()
+  @action.bound leaveMeeting(): void {
+    if (this.isDisconnected) {
+      let joinProps = this.appManager.joinProps
+      let iframeSelectorId = joinProps.iFrameProps.selectorId
+      document
+        .querySelector(iframeSelectorId)
+        .removeChild(document.querySelector(iframeSelectorId).childNodes[0])
+      this.embedSDKManager.joinMeeting(this.appManager.joinProps)
+    } else {
+      this.embedSDKManager.leave()
     }
-
-    @action.bound toggleScreenShare() : void {
-        if(this.embedSDKManager.sharingScreen) {
-            this.embedSDKManager.stopScreenShare();
-        } else {
-            this.embedSDKManager.startScreenShare();
-        }
-    }
-
-    @action.bound toggleRemoteAudioMuted() : void {
-        this.embedSDKManager.setRemoteAudioMuted(!this.embedSDKManager.remoteAudioMuted);
-    }
-
-    @action.bound leaveMeeting() : void {
-        if(this.isDisconnected) {
-            let joinProps = this.appManager.joinProps;
-            let iframeSelectorId = joinProps.iFrameProps.selectorId;
-            document.querySelector(iframeSelectorId).removeChild(document.querySelector(iframeSelectorId).childNodes[0])
-            this.embedSDKManager.joinMeeting(this.appManager.joinProps)
-        } else {
-            this.embedSDKManager.leave()
-        }
-    }
+  }
 }
