@@ -29996,7 +29996,10 @@ var AppState;
 class AppManager {
     constructor(embedSDKManager) {
         this.embedSDKManager = embedSDKManager;
-        this.buildInfo = `embed_sdk_sample_app-V${"2.2.0"}-${"bed4c88"}-${"102"}-sdk-V${"2.2.0"}`;
+        if (true) {
+            this.buildInfo = `embed_sdk_sample_app-V${"2.2.0"}-${"10af8c1"}-${"108"}-sdk-V${"2.2.0"}`;
+        }
+        else {}
         console.log('Build info : ', this.buildInfo);
     }
     get appState() {
@@ -31914,7 +31917,7 @@ exports.Arrow = (0, styled_components_1.default)('div') `
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("3147316a7f9bbbd7defd")
+/******/ 		__webpack_require__.h = () => ("7ac6714b26ac83baec42")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
